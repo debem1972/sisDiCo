@@ -1,0 +1,332 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+html {
+    height: 100vh;
+}
+
+header .titleProject {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    /* semibold para títulos */
+    color: #2B6CB0;
+    /* azul principal */
+    letter-spacing: -0.5px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/*---------------------------------------------------------------*/
+/*Estilo do vídeo de ajuda*/
+.contentVideo {
+    /*border:2px solid red;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(230, 224, 224);
+    width: 100%;
+    font-family: "escribe";
+    font-style: normal;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-bottom: none;
+    text-align: center;
+    height: 100%;
+}
+
+/*.helpVideo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80vw;
+    height: 45vh;
+    max-width: 800px;
+    max-height: 450px;
+    transform: translate(-50%, -50%);
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: #000;
+    z-index: 1050;
+}*/
+
+.iframe {
+    display: none;
+    position: absolute;
+    width: 18rem;
+    height: 32rem;
+    /*top: 8rem;
+    left: 2.3rem;*/
+    margin: 3rem auto;
+    /*border: 3px solid black;*/
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px black;
+    transition: all 0.8s ease;
+    z-index: 9999;
+}
+
+#video {
+    border-radius: 8px;
+}
+
+@keyframes viewHelp {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/*Botão fechar do vídeo*/
+.btnCloseVideo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 10;
+    /* para garantir que o botão fique acima do vídeo */
+}
+
+
+
+/*---------------------------------------------------------------------*/
+
+#content-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.materia-item {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.materia-item:hover {
+    background-color: #f0f0f0;
+}
+
+.aula-list {
+    list-style-type: none;
+    padding-left: 20px;
+    display: none;
+    margin-top: 10px;
+}
+
+.aula-item {
+    background-color: #fff;
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.aula-item:hover {
+    background-color: #f8f9fa;
+}
+
+.aula-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 3px grey, -2px -2px 3px grey;
+}
+
+.edit-btn {
+    float: right;
+    padding: 2px 8px;
+    margin-left: 10px;
+}
+
+.show {
+    display: block;
+}
+
+.slide-down {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.alert-box {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 8px;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alert-box .close-btn {
+    background-color: #f5c6cb;
+    color: #721c24;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.aula-link {
+    text-decoration: none;
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.aula-list.interactive .aula-item {
+    display: block !important;
+}
+
+.aula {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 300%;
+    margin-bottom: 700px;
+    box-shadow: 2px 2px 3px grey, -2px -2px 3px grey;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Ajustes de estilo adicionais */
+@media (max-width: 576px) {
+    .btn-group {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .iframe {
+        top: 5rem;
+        /*left: 2.3rem;*/
+    }
+
+    #helpMe {
+        margin-top: 10px;
+        order: last;
+    }
+}
+
+/*Botão back to home*/
+.back-to-top {
+    position: fixed;
+    opacity: 0.3;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    z-index: 999;
+}
+
+.back-to-top i {
+    font-size: 24px;
+    color: #2B6CB0;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+}

@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Variáveis de cores */
+:root {
+    --primary: #2B6CB0;
+    --primary-hover: #3182CE;
+    --secondary: #4299E1;
+    --back-alternative: #f7fafc;
+    --background: #FFFFFF;
+    --background-alt: #F7FAFC;
+    --materia-back: #d6eadf;
+    --materia-backHover: #b8d0d2;
+    --body-back: #f4f4f4;
+    --back-contentVideo: rgb(230, 224, 224);
+    --back-aulaContent: #f9f9f9;
+    --back-alert: #f8d7da;
+    --border: #E2E8F0;
+    --border-aulaItem: #ddd;
+    --text: #2D3748;
+    --success: #48BB78;
+    --warning: #ECC94B;
+    --danger: #F56565;
+    --box-shadowColor: rgba(0, 0, 0, 0.1);
+    --box-shadowColor1: black;
+    --box-shadowColor2: grey;
+    --color-link: #007bff;
+    --color-alertBox: #721c24;
+}
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--body-back);
+}
+
+html {
+    height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--back-alternative);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--box-shadowColor);
+}
+
+.titleProject {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+}
+
+
+.form-container {
+    background-color: var(--background);
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px var(--box-shadowColor);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/*------------------------------------------------------------------*/
+/*Estilo do campo de pesquisa*/
+.searchContainer {
+    background-color: var(--background);
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 400px;
+    width: 100%;
+    transition: border-color 0.3s ease-in-out;
+    cursor: text;
+}
+
+.input-wrapper:hover,
+.input-wrapper:has(input:focus) {
+    border-color: #007bff;
+    /* Cor azul no hover e focus */
+}
+
+.input-wrapper input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    position: absolute;
+    opacity: 1;
+}
+
+.input-wrapper i {
+    color: #6c757d;
+    /* Cinza padrão */
+    margin-left: auto;
+    font-size: 1.2rem;
+}
+
+
+/*---------------------------------------------------------------*/
+/*Estilo do vídeo de ajuda*/
+.contentVideo {
+    /*border:2px solid red;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--back-contentVideo);
+    width: 100%;
+    font-family: "escribe";
+    font-style: normal;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-bottom: none;
+    text-align: center;
+    height: 100%;
+}
+
+
+
+.iframe {
+    display: none;
+    position: absolute;
+    width: 18rem;
+    height: 32rem;
+    /*top: 8rem;
+    left: 2.3rem;*/
+    margin: 3rem auto;
+    /*border: 3px solid black;*/
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px var(--box-shadowColor1);
+    transition: all 0.8s ease;
+    z-index: 9999;
+}
+
+#video {
+    border-radius: 8px;
+}
+
+@keyframes viewHelp {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/*Botão fechar do vídeo*/
+.btnCloseVideo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: var(--box-shadowColor1);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+
+
+/*---------------------------------------------------------------------*/
+
+#content-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.materia-item {
+    background-color: var(--materia-back);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.materia-item:hover {
+    background-color: var(--materia-backHover);
+}
+
+.aula-list {
+    list-style-type: none;
+    padding-left: 20px;
+    display: none;
+    margin-top: 10px;
+}
+
+.aula-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--background);
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-aulaItem);
+    transition: all 0.3s ease;
+    gap: 5px;
+}
+
+.aula-item:hover {
+    border: 1px solid var(--text);
+}
+
+.aula-titulo {
+    flex: 1;
+    /* Faz o título ocupar o espaço restante */
+    min-width: 120px;
+    /* Evita que o título fique muito pequeno */
+}
+
+.aula-content {
+    background-color: var(--back-aulaContent);
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 3px var(--box-shadowColor2), -2px -2px 3px var(--box-shadowColor2);
+}
+
+.edit-btn {
+    float: right;
+    padding: 2px 8px;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+.show {
+    display: block;
+}
+
+.slide-down {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.alert-box {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--back-alert);
+    color: var(--color-alertBox);
+    padding: 15px;
+    border-radius: 8px;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 4px 6px var(--box-shadowColor);
+}
+
+.alert-box .close-btn {
+    background-color: var(--back-alert);
+    color: var(--color-alertBox);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.aula-link {
+    text-decoration: none;
+    margin-right: 10px;
+    color: var(--secondary);
+    white-space: nowrap;
+}
+
+.aula-list.interactive .aula-item {
+    display: block !important;
+}
+
+.aula {
+    background-color: var(--back-aulaContent);
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 300%;
+    margin-bottom: 700px;
+    box-shadow: 2px 2px 3px var(--box-shadowColor2), -2px -2px 3px var(--box-shadowColor2);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Ajustes de estilo adicionais */
+@media (max-width: 576px) {
+    .btn-group {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .iframe {
+        top: 5rem;
+
+    }
+
+    #helpMe {
+        margin-top: 10px;
+        order: last;
+    }
+}
+
+/*Botão back to home*/
+.back-to-top {
+    position: fixed;
+    opacity: 0.3;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    z-index: 999;
+}
+
+.back-to-top i {
+    font-size: 24px;
+    color: var(--primary);
+}
+
+.back-to-top:hover {
+    opacity: 1;
+}
+
+
+.imagemLeone {
+    cursor: pointer;
+}
+
+.testeLimite{
+    height: 150px;
+}
+
+/* Ajuste para telas menores referente ao conteúdo do link da aula class .aula-item. */
+@media (max-width: 480px) {
+    .aula-item {
+        flex-direction: column;
+        /* Organiza os elementos em coluna */
+        align-items: flex-start;
+    }
+
+}
