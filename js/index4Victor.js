@@ -437,6 +437,140 @@ function filtrarConteudo(termo) {
         }
     });
 }
+//-------------------------------------------------------------------------------
+//Novo sistema de busca
+// Função para buscar conteúdo considerando elementos ocultos com d-none
+// Função para buscar conteúdo considerando palavras-chave individuais
+/*function filtrarConteudo(termo) {
+    // Se não houver termo, mostrar tudo
+    if (!termo.trim()) {
+        mostrarTudo();
+        return;
+    }
+
+    // Normaliza o termo e separa em palavras-chave
+    const termoNormalizado = normalizarTexto(termo);
+    const palavrasChave = termoNormalizado.split(/\s+/).filter(palavra => palavra.length > 2);
+
+    // Se não houver palavras-chave válidas após filtrar, mostrar tudo
+    if (palavrasChave.length === 0) {
+        mostrarTudo();
+        return;
+    }
+
+    const materias = document.querySelectorAll('.materia-item');
+
+    materias.forEach(materia => {
+        const tituloMateria = materia.querySelector('.materia-titulo').textContent;
+        const tituloMateriaNormalizado = normalizarTexto(tituloMateria);
+        const aulas = materia.querySelectorAll('.aula-item');
+        const aulasList = materia.querySelector('.aula-list');
+        let materiaVisivel = false;
+
+        // Verifica se alguma palavra-chave corresponde ao título da matéria
+        if (contemPalavrasChave(tituloMateriaNormalizado, palavrasChave)) {
+            materiaVisivel = true;
+            // Mostra todas as aulas quando a matéria corresponde
+            aulas.forEach(aula => {
+                aula.style.display = 'block';
+            });
+        } else {
+            // Busca na descrição/assunto da matéria
+            const assuntosMateria = materia.querySelectorAll('.assunto');
+            let assuntoEncontrado = false;
+
+            // Verifica cada elemento .assunto na matéria
+            assuntosMateria.forEach(assunto => {
+                const textoAssunto = normalizarTexto(assunto.textContent);
+                if (contemPalavrasChave(textoAssunto, palavrasChave)) {
+                    assuntoEncontrado = true;
+                }
+            });
+
+            if (assuntoEncontrado) {
+                materiaVisivel = true;
+                // Mostra todas as aulas quando a descrição da matéria corresponde
+                aulas.forEach(aula => {
+                    aula.style.display = 'block';
+                });
+            } else {
+                // Verifica cada aula
+                aulas.forEach(aula => {
+                    const tituloAula = aula.querySelector('.aula-titulo').textContent;
+                    const tituloAulaNormalizado = normalizarTexto(tituloAula);
+                    let aulaVisivel = false;
+
+                    // Verifica no título da aula
+                    if (contemPalavrasChave(tituloAulaNormalizado, palavrasChave)) {
+                        aulaVisivel = true;
+                    } else {
+                        // Busca na descrição/assunto da aula
+                        const assuntosAula = aula.querySelectorAll('.assunto');
+                        assuntosAula.forEach(assunto => {
+                            const textoAssunto = normalizarTexto(assunto.textContent);
+                            if (contemPalavrasChave(textoAssunto, palavrasChave)) {
+                                aulaVisivel = true;
+                            }
+                        });
+                    }
+
+                    // Atualiza a visibilidade da aula
+                    aula.style.display = aulaVisivel ? 'block' : 'none';
+
+                    // Atualiza o estado da matéria se alguma aula for visível
+                    if (aulaVisivel) {
+                        materiaVisivel = true;
+                    }
+                });
+            }
+        }
+
+        // Atualiza a visibilidade da matéria
+        materia.style.display = materiaVisivel ? 'block' : 'none';
+
+        // Mantém a lista de aulas expandida durante a pesquisa se houver resultados
+        if (materiaVisivel && termo !== '') {
+            aulasList.classList.add('show', 'slide-down');
+        } else if (termo === '') {
+            // Volta ao estado normal quando não há termo de busca
+            aulasList.classList.remove('show', 'slide-down');
+        }
+    });
+}
+
+// Função para verificar se um texto contém palavras-chave
+// Retorna true se todas as palavras-chave estiverem presentes
+function contemPalavrasChave(texto, palavrasChave) {
+    // Exige que todas as palavras-chave estejam presentes
+    return palavrasChave.every(palavra => texto.includes(palavra));
+}
+
+// Função auxiliar para normalizar texto
+function normalizarTexto(texto) {
+    return texto
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+}
+
+// Função para mostrar todos os elementos
+function mostrarTudo() {
+    const materias = document.querySelectorAll('.materia-item');
+    materias.forEach(materia => {
+        materia.style.display = 'block';
+        const aulas = materia.querySelectorAll('.aula-item');
+        aulas.forEach(aula => {
+            aula.style.display = 'block';
+        });
+        const aulasList = materia.querySelector('.aula-list');
+        if (aulasList) {
+            aulasList.classList.remove('show', 'slide-down');
+        }
+    });
+}*/
+
+//-----------------------------------------------------------------------------
 
 // Event Listeners
 lancarBtn.addEventListener('click', async () => {
