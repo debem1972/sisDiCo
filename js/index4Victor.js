@@ -272,35 +272,7 @@ function criarElementoAula(aulaObj, materia) {
         <button class="btn btn-sm btn-outline-primary edit-btn">Editar</button>
     `;
 
-    // Mostrar toast apenas para aulas recém-criadas
-    /*if (aulaObj.novaAula) {
-        const alertBootstrap = `
-            <div class="toast-container position-fixed bottom-0 end-0 p-3">
-                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
-                        <strong class="me-auto">ID da Aula Gerado</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
-                        ID gerado: <strong>${aulaObj.id}</strong>
-                        <br>Anote este ID para referência futura!
-                    </div>
-                </div>
-            </div>
-        `;
 
-        document.body.insertAdjacentHTML('beforeend', alertBootstrap);
-
-        setTimeout(() => {
-            const toastElement = document.querySelector('.toast-container .toast');
-            if (toastElement) {
-                toastElement.remove();
-            }
-        }, 20000);
-
-        // Remover a flag de nova aula após mostrar o toast
-        delete aulaObj.novaAula;
-    }*/
 
     // Botão editar aula
     const editBtn = aulaItem.querySelector('.btn-outline-primary');
