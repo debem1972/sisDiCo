@@ -146,6 +146,16 @@
     "id": 3
   },
   {
+    "titulo": "Colocando o site em produção",
+    "aulas": [
+      {
+        "titulo": "Aula02 - Como publicar o site(método gratuíto)",
+        "id": "wOIHEs"
+      }
+    ],
+    "id": 13
+  },
+  {
     "titulo": "Dados PC All-in-one",
     "aulas": [
       {
@@ -183,6 +193,14 @@
       {
         "titulo": "Aula03 - Criando um novo projeto localhost",
         "id": "K4wqSY"
+      },
+      {
+        "titulo": "Aula04 - Sintaxe",
+        "id": "Nk55p5"
+      },
+      {
+        "titulo": "Aula05 - Variaveis",
+        "id": "bmGyCu"
       }
     ],
     "id": 12
