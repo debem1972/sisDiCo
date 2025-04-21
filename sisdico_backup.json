@@ -213,6 +213,11 @@
       {
         "titulo": "Aula06 - ECHO  e PRINT",
         "id": "9UB4d8"
+      },
+      {
+        "titulo": "Aula07 - Tipos de dados",
+        "id": "yikvav",
+        "conteudo": "Aula de tipos de dados como string, integer, float, boolean, null; Output var_dump; Quebra de linha;"
       }
     ],
     "id": 12
