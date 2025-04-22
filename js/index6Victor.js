@@ -252,7 +252,7 @@ function criarElementoAula(aulaObj, materia) {
     aulaItem.dataset.id = aulaObj.id;
 
     aulaItem.innerHTML = `
-        <a href="#${aulaObj.id}" class="aula-link" data-expressao="">🔗 ${aulaObj.titulo}</a>
+        <a href="#${aulaObj.id}" class="aula-link" data-expressao="">🔗 ${aulaObj.id}</a>
         <span class="aula-titulo">${aulaObj.titulo}</span>
         <button class="btn btn-sm btn-outline-danger edit-btn">Excluir</button>
         <button class="btn btn-sm btn-outline-primary edit-btn">Editar</button>
