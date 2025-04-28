@@ -180,11 +180,12 @@
     "id": 10
   },
   {
-    "titulo": "Marketing Digital",
+    "titulo": "Marketing Digital - Curso em Vídeo",
     "aulas": [
       {
         "titulo": "Aula00 - Por que aprender Marketing?",
-        "id": "rMpLjE"
+        "id": "rMpLjE",
+        "conteudo": "Técnicas de SEO, técnicas de Marketing e um resumo das necessidades que o profissional de TI encontrará no começo."
       }
     ],
     "id": 14
