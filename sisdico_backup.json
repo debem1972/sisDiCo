@@ -180,6 +180,16 @@
     "id": 10
   },
   {
+    "titulo": "Marketing Digital",
+    "aulas": [
+      {
+        "titulo": "Aula00 - Por que aprender Marketing?",
+        "id": "rMpLjE"
+      }
+    ],
+    "id": 14
+  },
+  {
     "titulo": "PHP",
     "aulas": [
       {
