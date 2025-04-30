@@ -239,6 +239,11 @@
         "titulo": "Aula07 - Tipos de dados",
         "id": "yikvav",
         "conteudo": "Aula de tipos de dados como string, integer, float, boolean, null; Output var_dump; Quebra de linha;"
+      },
+      {
+        "titulo": "Aula08 - Manipulação de Strings",
+        "id": "OyNHxj",
+        "conteudo": "Função para contar quantos caracteres tem uma string - strlen(); Função para contar palavras em uma frase - str_word_count(); Função para fornecer a posição de uma palavra ou caractere em uma string - strpos(); Função para reverter uma palavra - strrev(); Função para substituir uma palavra ou caractere em uma string - str_replace(). "
       }
     ],
     "id": 12
