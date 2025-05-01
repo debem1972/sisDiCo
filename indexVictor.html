@@ -6475,8 +6475,9 @@
             <h2 id="OyNHxj" title="Pag. 162 - caderno Tigre">Aula08 - Manipulação de Strings</h2>
 
             <h3>Funções de manipulação de strings no php</h3>
-            Veremos nesta aula, algumas funções que possibilitam a manipulação de strings dentro do
-            <strong>PHP</strong>, que serão elas:<br>
+            <p>Veremos nesta aula, algumas funções que possibilitam a manipulação de strings dentro do
+                <strong>PHP</strong>, que serão elas:
+            </p><br>
             <ul>
                 <strong>
                     <li>strlen()</li>
@@ -6496,86 +6497,96 @@
             </ul>
             <hr>
             <h4>strlen()</h4>
-            Esta função serve para contar quantos caracteres tem uma string. Veja o exemplo na imagem abaixo:<br>
+            <p>Esta função serve para contar quantos caracteres tem uma string. Veja o exemplo na imagem abaixo:</p><br>
             <img src="https://drive.google.com/thumbnail?id=1CgXKz6Uvt23GxqW6bKEqvVz42aNfitfs&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
-            A saída desta função será:<br>
+            <p>A saída desta função será:</p><br>
             <img src="https://drive.google.com/thumbnail?id=18gAAUF6bhPr3z965xnm8X23DPeji7LdA&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
-            Perceba que foram contados 20 caracteres da string "Daniel Lopes Bemfica". <span
-                style="color: red;"><strong>OBS: Todos os espaços e caracteres como sinais de pontuação são
-                    contabilizados!</strong></span><br>
+            <p>Perceba que foram contados 20 caracteres da string "Daniel Lopes Bemfica". <span
+                    style="color: red;"><strong>OBS: Todos os espaços e caracteres como sinais de pontuação são
+                        contabilizados!</strong></span></p><br>
             <hr>
             <h4>str_word_count()</h4>
-            Esta função serve para contar palavras em uma frase. Veja o exemplo na imagem abaixo:<br>
+            <p>Esta função serve para contar palavras em uma frase. Veja o exemplo na imagem abaixo:</p><br>
             <img src="https://drive.google.com/thumbnail?id=1PDgl9XoaMF6b9ttgHZX5eFMyP_Srg6E_&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
-            A saída será:<br>
+            <p>A saída será:</p><br>
             <img src="https://drive.google.com/thumbnail?id=138PNHZNfZrsuszEHWj8pyQwJds2QSgDF&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
-            Vemos na imagem da saída, que foram contabilizadas duas palavras na frase "Beleza Daniel!". <span
-                style="color: red;"><strong>OBS: Não contabiliza espaços e nem caracteres como sinais de
-                    pontuação!</strong></span><br>
+            <p>Vemos na imagem da saída, que foram contabilizadas duas palavras na frase "Beleza Daniel!". <span
+                    style="color: red;"><strong>OBS: Não contabiliza espaços e nem caracteres como sinais de
+                        pontuação!</strong></span></p><br>
             <hr>
             <h4>strrev()</h4>
-            Esta função, serve para reverter uma palavra, ou , escrevê-la ao contrário. Veja na imagem abaixo:<br>
+            <p>Esta função, serve para reverter uma palavra, ou , escrevê-la ao contrário. Veja na imagem abaixo:</p>
+            <br>
             <img src="https://drive.google.com/thumbnail?id=1zB3eJFHSPXxuu0DhqEDAxlIQtkhC0mTY&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
-            A saída desta função será:<br><br>
+            <p>A saída desta função será:</p><br><br>
             <img src="https://drive.google.com/thumbnail?id=1Dd9ayRdznqnMG6QeXX5VgTzXEmqMXAYi&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
             <hr>
             <h4>strpos()</h4>
-            Esta função serve para fornecer a posição de uma palavra ou caractere no contexto de uma string. Esta função
-            possui dois parâmetros: <br>
+            <p>Esta função serve para fornecer a posição de uma palavra ou caractere no contexto de uma string. Esta
+                função
+                possui dois parâmetros:</p> <br>
             <ol>
                 <li>A string</li>
                 <li>Qual a palavra ou caractere buscado</li>
             </ol>
             <br>
-            Veja abaixo como isso funciona:<br><br>
+            <p>Veja abaixo como isso funciona:</p><br><br>
             <img src="https://drive.google.com/thumbnail?id=15NlPhYxMse5-DuGp8RNAhoZ97C770xPG&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
-            Perceba que os dois parâmetros estão muito claros dentro da função, que são <em>a string onde será feita a
-                busca</em> <strong>"Oi tudo bem"</strong>, e <em>a palavra que será buscada nesta string</em>
-            <strong>"tudo"</strong>. A saída desta função será:<br><br>
+            <p>Perceba que os dois parâmetros estão muito claros dentro da função, que são <em>a string onde será feita
+                    a
+                    busca</em> <strong>"Oi tudo bem"</strong>, e <em>a palavra que será buscada nesta string</em>
+                <strong>"tudo"</strong>. A saída desta função será:
+            </p><br><br>
             <img src="https://drive.google.com/thumbnail?id=1RaDl8-4XV86Llo3lB_40y7WXXV4iRzsQ&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
-            Este valor se deve ao fato de que a letra <strong>"O"</strong> ocupa a posição <strong>0</strong>, a letra
-            <strong>"i" </strong>ocupa a posição <strong>1</strong>, o <strong>espaço</strong> ocupa a posição <strong>2
-            </strong>e a letra <strong>"t" </strong>ocupa a <strong>terceira posição</strong>, dando a palavra
-            <em>"tudo"</em> esta posição. <span style="color: red;"><strong>OBS: Cada caractere e espaço é
-                    contabilizado.</strong></span><br><br>
-            Em um contexto onde a palavra ou caractere buscado não existe, o php nativamente retornará <em>nada</em> ou
-            <em>erro</em> no browser. Mas podemos resolver isso facilmente com uma condicional conforme a figura
-            abaixo:<br><br>
+            <p>Este valor se deve ao fato de que a letra <strong>"O"</strong> ocupa a posição <strong>0</strong>, a
+                letra
+                <strong>"i" </strong>ocupa a posição <strong>1</strong>, o <strong>espaço</strong> ocupa a posição
+                <strong>2
+                </strong>e a letra <strong>"t" </strong>ocupa a <strong>terceira posição</strong>, dando a palavra
+                <em>"tudo"</em> esta posição. <span style="color: red;"><strong>OBS: Cada caractere e espaço é
+                        contabilizado.</strong></span>
+            </p><br><br>
+            <p>Em um contexto onde a palavra ou caractere buscado não existe, o php nativamente retornará <em>nada</em>
+                ou
+                <em>erro</em> no browser. Mas podemos resolver isso facilmente com uma condicional conforme a figura
+                abaixo:
+            </p><br><br>
             <img src="https://drive.google.com/thumbnail?id=1yvLIRKXeTfRXdrrWytIGQC7vMrA_Lfp-&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
-            A saída desta função mediante a condicional será:<br><br>
+            <p>A saída desta função mediante a condicional será:</p><br><br>
             <img src="https://drive.google.com/thumbnail?id=190fbg7QdmP_y7IM4ODZ61KTMaaClzldR&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
             <hr>
             <h4>str_replace()</h4>
-            Esta função servirá para realizar substituições no contexto de uma string. Possui 3 parâmetros:<br>
+            <p>Esta função servirá para realizar substituições no contexto de uma string. Possui 3 parâmetros:</p><br>
             <ol>
                 <li>A palavra ou caractere que deverá ser substituida </li>
                 <li>A palavra ou caractere que substituirá</li>
                 <li>O contexto de string na qual haverá a substituição</li>
             </ol>
             <br>
-            Veja neste exemplo, que substituiremos um dos sobrenomes do nome, por outro:<br><br>
+            <p>Veja neste exemplo, que substituiremos um dos sobrenomes do nome, por outro:</p><br><br>
             <img src="https://drive.google.com/thumbnail?id=1ToJMg_5NmejPDidcRO6cl5AIaQmdSccq&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
-            A saída será:<br>
+            <p>A saída será:</p><br>
             <img src="https://drive.google.com/thumbnail?id=1fYarrlW8mRD2tBagOJ0MirWragoRK9_j&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
             <h5>Aplicação prática</h5>
-            Veja abaixo um exemplo de aplicação pŕatica desta função, talvez, uma das mais importantes e mais utilizadas
-            no PHP:<br><br>
+            <p>Veja abaixo um exemplo de aplicação prática desta função, talvez, uma das mais importantes e mais
+                utilizadas
+                no PHP:</p><br><br>
             <img src="https://drive.google.com/thumbnail?id=1Z2smY_bJOiKgvfwxIPgDIKaJCRzng8Qf&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
-            Bastante comum, este exemplo demonstra a substituição de caracteres <strong>"-"</strong> de separador dos
-            dados da data por <strong>"/"</strong>. Veja na imagem a saída deste exemplo:<br><br>
+            <p>Bastante comum, este exemplo demonstra a substituição de caracteres <strong>"-"</strong> de separador dos
+                dados da data por <strong>"/"</strong>. Veja na imagem a saída deste exemplo:</p><br><br>
             <img src="https://drive.google.com/thumbnail?id=1lFk9x-7uRD8P5eDfUHGD2WaH4D9gKAgY&sz=w800" alt="Imagem"
                 class="img-fluid"><br><br>
 
@@ -6609,7 +6620,8 @@
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
         defer></script>
     <script src="./js/jquery-3.7.1.js"></script>
-    <script src="./js/index6Victor.js"></script>
+    <script src="./js/search2.js"></script>
+    <script src="./js/index7.js"></script>
     <script src="./js/validateForm.js" defer></script>
     <script src="./js/aula30.js" defer></script>
 
