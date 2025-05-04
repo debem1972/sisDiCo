@@ -146,6 +146,17 @@
     "id": 3
   },
   {
+    "titulo": "chatBot",
+    "aulas": [
+      {
+        "titulo": "Aula01 - Criação do chatBot",
+        "id": "wpclXu",
+        "conteudo": ""
+      }
+    ],
+    "id": 15
+  },
+  {
     "titulo": "Colocando o site em produção",
     "aulas": [
       {

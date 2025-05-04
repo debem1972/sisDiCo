@@ -6662,6 +6662,139 @@
         </div>
 
 
+        <div class="aula">
+            <h2 id="wpclXu" title="Pag. 222 - caderno SpeedCar">Aula01 - Criação do chatBot</h2>
+
+            <h3>Manual de Treinamento de Chatbot: Guia Prático</h3>
+            <h4>1. Estrutura Básica de um Chatbot</h4>
+            <p>Para começar, vamos entender os componentes fundamentais:</p>
+            <ul>
+                <li><strong>Intenções (Intents)</strong>: O que o usuário deseja realizar</li>
+                <li><strong>Entidades (Entities)</strong>: Informações específicas extraídas da mensagem</li>
+                <li><strong>Respostas</strong>: Como o bot responde a cada intenção</li>
+                <li><strong>Contexto</strong>: Acompanhamento do fluxo da conversa</li>
+            </ul>
+
+            <h4>2. Processo de Criação e Treinamento</h4>
+            <strong>
+                <p>Passo 1: Definir o Domínio do Bot</p>
+            </strong>
+            <p>Primeiro, defina claramente qual será o escopo do seu bot. Por exemplo, vamos criar um bot de suporte
+                técnico para uma empresa de software:</p>
+            <ul>
+                <li><strong>Domínio</strong>: Suporte técnico para o software "GestãoFácil"</li>
+                <li><strong>Funções</strong>: Responder dúvidas, solucionar problemas comuns, encaminhar para
+                    atendimento humano</li>
+            </ul>
+
+            <strong>
+                <p>Passo 2: Mapeamento de Intenções</p>
+            </strong>
+            <p>Identifique todas as possíveis intenções dos usuários:</p>
+
+            <p><strong>saudacao</strong>: Cumprimentos iniciais<br>
+                <strong>problema_login</strong>: Problemas para acessar o sistema<br>
+                <strong>recuperar_senha</strong>: Necessidade de recuperar senha<br>
+                <strong>erro_sistema</strong>: Reportar um erro no software<br>
+                <strong>horario_funcionamento</strong>: Perguntar sobre horários de atendimento<br>
+                <strong>falar_atendente</strong>: Solicitar atendimento humano<br>
+                <strong>agradecer</strong>: Agradecimentos ao bot<br>
+                <strong>despedida</strong>: Encerrar a conversa
+            </p><br>
+
+            <strong>
+                <p>Passo 3: Cadastro de Intenções</p>
+            </strong>
+            <p>Para cada intenção, cadastre múltiplas frases de exemplo (utterances):</p>
+
+            <div style="border:1px solid black; border-radius:5px; background-color:beige; padding:5px;">
+                <strong>intenção</strong>: <span style="color: blue;">saudacao</span><br>
+                <ul>
+                    <li>Olá</li>
+                    <li>Oi, tudo bem?</li>
+                    <li>Bom dia</li>
+                    <li>Boa tarde</li>
+                    <li>E aí</li>
+                    <li>Como vai?</li>
+                    <li>Hey</li>
+                </ul>
+
+
+                <strong>intenção</strong>: <span style="color: blue;">problema_login</span><br>
+                <ul>
+                    <li>Não consigo entrar no sistema</li>
+                    <li>Estou com problemas para fazer login</li>
+                    <li>O sistema não aceita minha senha</li>
+                    <li>Meu usuário não está funcionando</li>
+                    <li>Tentei acessar mas dá erro de login</li>
+                    <li>Como resolvo um problema de acesso?</li>
+                    <li>Meu login não funciona</li>
+                </ul>
+
+
+
+                <strong>intenção</strong>: <span style="color: blue;">recuperar_senha</span><br>
+                <ul>
+                    <li>Esqueci minha senha</li>
+                    <li>Como recupero minha senha?</li>
+                    <li> Preciso de uma nova senha</li>
+                    <li>Não lembro minha senha de acesso</li>
+                    <li>Quero resetar minha senha</li>
+                    <li>Como faço para redefinir minha senha?</li>
+                    <li>Perdi meu acesso, como recupero?</li>
+                </ul>
+            </div><br>
+
+            <strong>
+                <p>Passo 4: Definir Entidades</p>
+            </strong>
+            <p>Entidades são informações específicas que extraímos das mensagens:</p>
+            <ol>
+                <li><strong>@sistema</strong>: Módulos do software (financeiro, estoque, vendas)</li>
+                <li><strong>@versao</strong>: Versão do software (1.0, 2.0, beta)</li>
+                <li><strong>@plataforma</strong>: Sistema operacional (Windows, Mac, Linux)</li>
+                <li><strong>@tempo</strong>: Expressões temporais (ontem, há uma semana)</li>
+            </ol>
+
+            <p>Exemplos de anotação de entidades:</p>
+            <p>"Estou com um erro no módulo <span style="color: green;">[financeiro]</span><span
+                    style="color: red;">(@sistema)</span> da <span style="color: green;">[versão 2.1]</span><span
+                    style="color: red;">(@versao)</span>"</p><br>
+            <p>"Meu<span style="color: green;"> [Windows 11]</span><span style="color: red;">(@plataforma)</span> não
+                abre o programa <span style="color: green;">[desde ontem]</span><span
+                    style="color: red;">(@tempo)</span>"</p><br>
+
+            <strong>
+                <p>Passo 5: Criar Respostas Variadas</p>
+            </strong>
+
+            <p>Para cada intenção, crie respostas variadas para tornar o bot mais natural:</p>
+            <div style="border:1px solid black; border-radius:5px; background-color:beige; padding:5px;">
+                <p><strong>intenção</strong>:<span style="color: blue;"> saudacao</span></p>
+                <ul>
+                    <li> Olá! Como posso ajudar você hoje com o GestãoFácil?</li>
+                    <li>Oi! Bem-vindo ao suporte do GestãoFácil. Em que posso ser útil?</li>
+                    <li>Olá! Sou o assistente virtual do GestãoFácil. Como posso te auxiliar?</li>
+                    <li>Oi! Tudo bem? Estou aqui para ajudar com qualquer dúvida sobre o GestãoFácil.</li>
+                </ul>
+
+
+                <p><strong>intenção</strong>: <span style="color: blue;">problema_login</span></p>
+                <ul>
+                    <li>Entendi que você está com dificuldades para acessar o sistema. Vamos resolver isso! Você já
+                        tentou redefinir sua senha?</li>
+                    <li>Problemas de login são comuns e geralmente fáceis de resolver. Primeiro, verifique se o caps
+                        lock está desativado e tente novamente.</li>
+                    <li>Sinto muito pelo inconveniente com o login. Vamos verificar algumas possíveis causas: 1) seu
+                        usuário está correto? 2) você digitou a senha corretamente?</li>
+                </ul>
+            </div>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
 
 
 
