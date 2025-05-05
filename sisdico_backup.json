@@ -264,7 +264,7 @@
       {
         "titulo": "Aula09 - Manipulação de números",
         "id": "o26951",
-        "conteudo": ""
+        "conteudo": "Função de conversão de tipos de dados (int), (float); Funções de identificação de tipos de dados is_int(), is_float(),is_bool(), is_numeric()."
       }
     ],
     "id": 12
