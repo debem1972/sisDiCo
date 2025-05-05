@@ -260,6 +260,11 @@
         "titulo": "Aula08 - Manipulação de Strings",
         "id": "OyNHxj",
         "conteudo": "Função para contar quantos caracteres tem uma string - strlen(); Função para contar palavras em uma frase - str_word_count(); Função para fornecer a posição de uma palavra ou caractere em uma string - strpos(); Função para reverter uma palavra - strrev(); Função para substituir uma palavra ou caractere em uma string - str_replace(). "
+      },
+      {
+        "titulo": "Aula09 - Manipulação de números",
+        "id": "o26951",
+        "conteudo": ""
       }
     ],
     "id": 12

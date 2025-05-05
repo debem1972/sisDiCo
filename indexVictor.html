@@ -6796,6 +6796,94 @@
 
 
 
+        <div class="aula">
+            <h2 id="o26951" title="Pag. 171 - caderno Tigre">Aula09 - Manipulação de números
+            </h2>
+
+            <h2>Funções de manipulação de nº</h2>
+            <p>Observe a saída abaixo:</p>
+
+            <img src="https://drive.google.com/thumbnail?id=1e4nTM8XQ09_WY1cy87FoIAMC-iCYX0Ki&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>Ela veio deste cálculo abaixo, onde estamos tentando somar uma string a um inteiro.</p>
+            <img src="https://drive.google.com/thumbnail?id=1R-2NYIJYbmeepv-14EAjyrfXBSJSaTb3&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>Observe que o valor retornado é um inteiro, pois o PHP converteu a string em número. <br>
+                Isso ocorre devido ao php possuir a característica de tentar entender o que você deseja e realizar e
+                fazer esta conversão automática.<br>
+                <span style='color:red;font-weight:bold;' </span>Isso poderá ser um problema, dependendo do objetivo do
+                    sistema criado por você.
+            </p>
+
+
+            <p>Veja este outro exemplo:</p>
+            <p>...a saída será...</p><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1oxZSBc_Gk8Fz9Cqxi0VQFdwqMW6xwAG9&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>Ele veio deste cálculo abaixo, onde estamos multiplicando um inteiro por um float. A saída deveria ser um
+                nº inteiro(10), mas como pode ver saiu <strong>float</strong>. Isso porque o que você passou como
+                parâmetro da operação é um nº decimal(float).</p>
+
+            <img src="https://drive.google.com/thumbnail?id=14_920Cwkf-G3VZtpQp1cdCd3d7MEzBn9&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+
+            <p>Podemos converter isso facilmente utilizando uma função do php desta forma:</p> <br>
+
+            <img src="https://drive.google.com/thumbnail?id=16M7Lhkx2Z67mxmWvLh_TDWWO_NbkIWd2&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>...a saída será...</p><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1ad2YGAYvwiV5FDueRmS6Y8vzJ6-d_oLy&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>Utilizando a função <strong><em>(int)<em></strong>,o valor foi convertido para inteiro, pois o php não
+                faz isso automaticamente, já que o float é um número decimal e o inteiro não.</p> <br>
+
+            <p>Podemos da mesma forma converter para outros tipos como no exemplo abaixo:</p><br>
+            <img src="https://drive.google.com/thumbnail?id=1YiWP5vDm-KIwp6II9DMdzzmNbOFnTYgE&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>...a saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=1PkW8d7AsFov3Oi7kecAR5tapIocYNrv6&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>Utilizando a função <strong><em>(float)<em></strong>, o valor foi convertido para float.</p> <br>
+
+            <h4>Outroas formas de identificar tipos de dados</h4>
+            <p>Podemos utilizar a função <strong><em>is_int()</em></strong> para perguntar qual o tipo de dado que está
+                sendo utilizado, desta forma:</p><br>
+            <img src="https://drive.google.com/thumbnail?id=1z-uZxMK0hhOIpqhoY_RoAiDmk0--skWC&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>Observe que o valor retornado é um booleano, ou seja, verdadeiro, respondendo <em>sim</em> para a nossa
+                pergunta, se valor4 é um inteiro.</p>
+
+            <p>...a saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=1apYhFPnbgo78qWxZYwEFvV43P_orD5dL&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+
+            <p>Podemos desta forma fazer outras perguntas como:<br>
+            <ul>
+                <li><strong>is_float</strong> -> pergunta se é um decimal;</li>
+                <li><strong>is_bool</strong> -> pergunta se é um valor boleano;</li>
+                <li><strong>is_numeric</strong> -> pergunta se é um número;</li>
+                </p>
+
+
+
+                <br>
+                <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
 
 
 
