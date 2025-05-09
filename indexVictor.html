@@ -6881,6 +6881,162 @@
 
 
 
+        <div class="aula">
+            <h2 id="IABtqF" title="Pag. 174 - caderno Tigre">Aula05 - Operadores Aritméticos - Curso em Vídeo</h2>
+
+            <h3>Quais são os operadores aritméticos suportados pelo php?</h3>
+            <ul>
+                <li>Adição -> $r = $a + $b;</li>
+                <li>Subtração -> $r = $a - $b;</li>
+                <li>Multiplicação -> $r = $a* $b;</li>
+                <li>Divisão -> $r = $a / $b;</li>
+                <li>Modulo -> $r = $a % $b;</li>
+            </ul>
+            <p>Exemplo de operação:</p>
+            <img src="https://drive.google.com/thumbnail?id=1NlBaOIgrm8lQeU8Hf6hzGLkGafWPtNCA&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <p>A saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=1xod1hJuzPxW1x2aFOBRB6_uKKjRdDdHS&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <p>Demais exemplos de cálculos:</p>
+            <img src="https://drive.google.com/thumbnail?id=1DsNzmLWswUkUiqs07jDzydptssooo0Qk&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1pnliynRvQ7v8EmrfBh17OTGz2ytoOn53&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <span style="color: red;">IMPORTANTE: O operador de módulo(%), retorna o resto da divisão inteira. Por isso,
+                1.5 retornou 1.</span><br>
+            <hr>
+            <h3>Ordem de precedência</h3>
+            <p>A ordem de precedência dos operadores em php é a seguinte:</p><br>
+            <ol>
+                <li>( ) -> parênteses;</li>
+                <li> * , / , % -> multiplicação, divisão e módulo(o que vier primeiro...</li>
+                <li> + , <strong>-</strong> -> Adição e subtração.</li>
+            </ol>
+            <hr>
+            <h3>Cálculo de média</h3>
+            <p>O cálculo de média é um excelente exemplo de ordem de precedência.</p>
+            <img src="https://drive.google.com/thumbnail?id=1eb1_hTVdJymVIAGOFYOvaZG-o7zw0Ck8&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1cRRg3oJ4dp3OrNr_Y4tKxLQWjmIwOCT9&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <hr>
+            <h3>Como utilizar valores personalizados</h3>
+            <p>Podemos utilizar parâmetros declarados na url para testar de forma dinâmica, cálculos entre as variáveis
+                desta forma:</p>
+            <img src="https://drive.google.com/thumbnail?id=1JTB0lSiIe8KuwzDx9KvO6OAa_y7WBrcp&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Perceba , que após php, inserimos os valores <strong>?x=3&y=2</strong>. São os parâmetros que
+                atribuiremos às variáveis.</p><br>
+            <p>Para que possamos utilizar estes parâmetros nos cálculos, é necessário atribuirmos estes, à variáveis
+                desta forma:</p>
+            <img src="https://drive.google.com/thumbnail?id=1-OQIdCcfLqEydVFgkOdLJIq0Dly6fGaj&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>O <strong>$_GET</strong>, significa <em>"pegar"</em>.</p><br>
+            <img src="https://drive.google.com/thumbnail?id=14oAQRiuozjcNd6Yk3SzFpTjKF12w2inA&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=1DQ4zq5dhbwsnJcU30BYngUv7sNYCHyYs&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">Esta é uma excelente forma de realizar testes no php.</span>
+            <ul>
+                <li>Declaramos valores de parâmetros na url;</li>
+                <li>Atribuimos estes parâmetros à variáveis;</li>
+                <li>Fizemos os cálculos com estas variáveis.</li>
+            </ul>
+            <hr>
+            <h3>Funções matemáticas pré-definidas</h3>
+
+            <h4><mark>abs()</mark></h4>
+            <span style="color: blue;">Captura o valor absoluto de uma variável.</span><br>
+            <p>Vamos trocar os valores dos parâmetros na url para <em>x=4</em> e <em>y=-3</em>.</p>
+            <img src="https://drive.google.com/thumbnail?id=1DNfi_vL4GC6lXFM0VA9VLTuEsKVr9vfF&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Vamos criar duas novas variáveis, <strong>v1</strong> e <strong>v2</strong>, e atribuir a elas os novos
+                parâmetros:</p>
+            <img src="https://drive.google.com/thumbnail?id=1YGaCDufBr5gv_xY7uHP1Km3L3Qv0Qrsh&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Agora , vamos utilizar a função <strong>abs()</strong>:</p>
+            <img src="https://drive.google.com/thumbnail?id=1Yb8SA_b1odBuI8hZ_unB0Pg-cmEO_TIB&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Cuja saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=10jtjxxbmV8IdwOIdS88-UMwc0MAlaXZb&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">Agora, vamos mudar o valor do parâmetro y para 3:</span><br>
+            <img src="https://drive.google.com/thumbnail?id=1fUIz8ImDsFqPUDmzeOOSpynnYO1QdIDE&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <h4><mark>pow()</mark></h4>
+            <span style="color: blue;">Realiza operações de potenciação</span><br>
+            <img src="https://drive.google.com/thumbnail?id=1Pgb5fPaUx5RaQg9AoKhCqeYnXhKDZTTx&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1gn-QZVZxQkdBgbYYe_-InzQqRGc-X3HV&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">Agora vamos mudar o valor do parâmetro x para 81:</span><br>
+            <img src="https://drive.google.com/thumbnail?id=13zp2lUWtRX5XGr9Su7zbgVobJRMOb_DY&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <h4><mark>sqrt()</mark></h4>
+            <span style="color: blue;">Extrai a raiz quadrada do valor de uma variável.</span><br>
+            <img src="https://drive.google.com/thumbnail?id=1AQIKMRrvue0-UPi9NXWl6me7q223RfQf&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1OfYJridRVfy7_6yQ7eObvOwGc-MZHpPq&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">Agora, vamos mudar o valor do parâmetro y para 3.4.</span><br>
+            <img src="https://drive.google.com/thumbnail?id=1yUJuUK4nyvLv1RH6GGm0mHd51XmtF8kX&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <h4><mark>round()</mark></h4>
+            <span style="color: blue;">Arredonda valores de nº decimais(c/ vírgula), conforma as regras da matemática:
+                3.4 vira 3 - 3.5 vira 4.</span><br>
+            <img src="https://drive.google.com/thumbnail?id=14AKT7k-A2bw6jT5_Z_aS-SwVc7dE-uHG&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=12Vug_CR4w7IUwxLDaIyv0oq8ZQiZh27u&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <span style="color: red;">Existem outras duas funções de arredondamento específico:</span><br>
+            <h4><mark>ceil()</mark> -> Arredonda para cima</h4>
+            <img src="https://drive.google.com/thumbnail?id=15dFApdl_ppaKulX4D0kiEziTDhX5I6os&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1cS1Bw0MzNQMEBDrIz5VoRg6uJKa9-XU6&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <h4><mark>floor()</mark> -> Arredonda para baixo</h4>
+            <img src="https://drive.google.com/thumbnail?id=1tcpa6A4nlAxL3cWE45qESsVp0ApIofER&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1AWN_TaY1Zlwu0iUJm2uwD4XKMhQd1vy9&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+
+            <h4><mark>intval()</mark></h4>
+            <span style="color: blue;">Captura o valor inteiro de uma variável com valor decimal</span><br>
+            <img src="https://drive.google.com/thumbnail?id=1iDAWDlk9TVuO3fLjX1oG8aymRWm1achz&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1yBzcInQ03QkTS8pSl-296YnVcHKvFmUR&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <h4><mark>number_format()</mark></h4>
+            <span style="color: blue;">Serve para formatar um valor numérico em monetário.</span><br>
+            <img src="https://drive.google.com/thumbnail?id=1DB0wmX6cNeRZN5440zvleSkym02boZFu&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A sintaxe é a seguinte:</p>
+            <ul>
+                <li>$v2 -> é a variável;</li>
+                <li>2 -> é as casas decimais após o separador decimal;</li>
+                <li>" , " -> é o separador decimal;</li>
+                <li>" . " -> é o separador da casa do milhar, caso o nº seja desta grandeza.</li>
+            </ul>
+            <img src="https://drive.google.com/thumbnail?id=1kRhpdwvVZYNAg7NOYZegaHLdgv9Op2L7&sz=w800" alt="Imagem"
+                class="img-fluid">
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+
 
 
 
