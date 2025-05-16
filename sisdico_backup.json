@@ -212,17 +212,6 @@
     "id": 14
   },
   {
-    "titulo": "php",
-    "aulas": [
-      {
-        "titulo": "Aula10 - Funções matemáticas",
-        "id": "kfDr31",
-        "conteudo": "Funções prontas para cálculos como pi() , min() , max() , abs()valor absoluto , sqrt() raiz quadrada, round() arredondamento, rand() randônico, Extensão VSCode PHP Intelephense para endentação automática do php e do html, ADENDO de como imprimir na tela os nº de um array."
-      }
-    ],
-    "id": 16
-  },
-  {
     "titulo": "PHP",
     "aulas": [
       {
@@ -286,6 +275,11 @@
         "titulo": "Aula09 - Manipulação de números",
         "id": "o26951",
         "conteudo": "Função de conversão de tipos de dados (int), (float); Funções de identificação de tipos de dados is_int(), is_float(),is_bool(), is_numeric()."
+      },
+      {
+        "titulo": "Aula10 - Funções matemáticas",
+        "id": "kfDr31",
+        "conteudo": "Funções prontas para cálculos como pi() , min() , max() , abs()valor absoluto , sqrt() raiz quadrada, round() arredondamento, rand() randônico, Extensão VSCode PHP Intelephense para endentação automática do php e do html, ADENDO de como imprimir na tela os nº de um array."
       }
     ],
     "id": 12
