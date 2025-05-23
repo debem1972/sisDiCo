@@ -262,6 +262,11 @@
         "id": "9UB4d8"
       },
       {
+        "titulo": "Aula06 - Operadores de atribuição - Curso em vídeo",
+        "id": "xqwoHQ",
+        "conteudo": "Operador de atribuição com adição +=; Operador de incremento; number_format(); Operadores de auto incremento; (Pré-incremento); Pós-incremento; Pré-decremento; Pós-decremento; Comentários em php - (//), (#) e (/**/); Referenciar variáveis (&$a); Variáveis de variáveis ($$a)."
+      },
+      {
         "titulo": "Aula07 - Tipos de dados",
         "id": "yikvav",
         "conteudo": "Aula de tipos de dados como string, integer, float, boolean, null; Output var_dump; Quebra de linha;"

@@ -7195,6 +7195,169 @@
         </div>
 
 
+        <div class="aula">
+            <h2 id="xqwoHQ" title="Pag. 189 - caderno Tigre">Aula06 - Operadores de atribuição - Curso em vídeo</h2>
+
+            <h3>Como facilitar as atribuições feitas com php?</h3>
+            <p>Veja na imagem abaixo, uma atribuição comum:</p>
+            <img src="https://drive.google.com/thumbnail?id=1CW4ZFq8CCI4Eu_fUuacqcU_uTyzon-2T&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída desta expressão será <strong>A soma de 2 + 3 é igual a 5.</strong></p><br>
+
+            <h4>Operador de atribuição com adição -> +=</h4>
+            <p>Veremos agora, como simplificar esta operação, <span style="color: red;">mas isso somente será possível,
+                    se a variável do início fizer parte da expressão do lado direito!</span></p><br>
+            <p>Se formos fazer o seguinte cálculo: <strong>$c = $c + 5;</strong></p>
+            <p>Podemos simplificar a forma como declaramos a variável $c, desta forma: <strong>$c += 5;</strong></p>
+            <p>Existe ainda mais uma possibilidade que é a seguinte: <em>Se a variável está recebendo o valor dela mesma
+                    + 1</em>, podemos utilizar o <strong>operador de incremento.</strong> </p>
+            <img src="https://drive.google.com/thumbnail?id=10GVO3JUhcnnY59syOD4RwS5QIScAa16C&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Desta forma...</p>
+            <img src="https://drive.google.com/thumbnail?id=1xMzimNDnoCdKbyxo7TZ7qQh_bvMiYamF&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Os operadores de atribuição suportados pelo php são:</p>
+            <img src="https://drive.google.com/thumbnail?id=13hnDWq6daQk4vr63oX2NEDOx7mlrRxUZ&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <p>...onde...</p>
+            <ul>
+                <li><strong>$a = $a + $b; -> $a += $b;</strong></li>
+                <li><strong>$a = $a - $b; -> $a -= $b;</strong></li>
+                <li><strong>$a = $a * $b; -> $a *= $b;</strong></li>
+                <li><strong>$a = $a / $b; -> $a /= $b;</strong></li>
+                <li><strong>$a = $a % $b; -> $a %= $b;</strong></li>
+                <li><strong>$a = $a . $b; -> $a .= $b;</strong></li>
+            </ul>
+            <hr>
+            <h5>Exercício: </h5>
+            <p>Aplicar um desconto de 10% ao valor de uma compra!</p>
+            <p>...onde...</p>
+            <span style="color: blue;">$preco = 100;</span>
+            <p>echo "O preço do produto é <span style="color: blue;">$preco</span>!";</p>
+            <p>O cálculo será:</p>
+            <span style="color: blue;">$preco = $preco - $preco * 0.1;</span>
+            <p>...onde o valor 0.1 foi obtido fazendo o a divisão de 10 por 100(desconto de 10%)...</p>
+            <p>...simplificando...</p>
+            <span style="color: blue;">$preco -= $preco * 0.1;</span>
+            <p>...ou seja...</p>
+            <span style="color: blue;">$preco = 100 - (100*0.1);
+                $preco = 100 - 10;
+                $preco = 90;</span>
+            <p>echo "O preço do produto com desconto será <span style="color: blue;">$preco</span>!";</p>
+            <p>A saída será... O preço do produto com desconto será <strong>90</strong>!</p>
+
+            <p>Podemos ainda fazer mão do recurso de parâmetro na URL...</p>
+            <img src="https://drive.google.com/thumbnail?id=1Pjnwm0latp24-HluRRlYhal2y7HMirQf&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1j8q3nQZU0gwkJdM6FrZdSPkFMf9TQdPZ&sz=w800" alt="Imagem"
+                class="img-fluid">
+            <p>Desta forma, podemos de forma mais dinâmica, testar valores diferentes para preços mais rapidamente
+                somente alterando o valor do parâmetro <strong>p</strong> na URL.</p>
+
+            <h4>Estilizando estes valores para o formato monetário</h4>
+            <p>Podemos formatar estes valores como já vimos antes, utilizando a function <span
+                    style="color: blue;"><em>number_format</em>(<strong>variável</strong>, <strong>nº de casas
+                        decimais</strong>, "<strong>separador das casas decimais</strong>", "<strong>separador das cadas
+                        de milhar</strong>");</span></p>
+            <p>Vamos mudar o valor de <strong>p</strong> para 1000 na URL...</p>
+            <p>Para o mesmo cálculo do exercício anterior...</p>
+            <img src="https://drive.google.com/thumbnail?id=1p65F5nEeKcobC0pH6qFufmkCR42qMSmv&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1Sk9qS1Da0ZDucEl960E-mpZMcvOvxOVW&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Dando o desconto...</p>
+            <img src="https://drive.google.com/thumbnail?id=1FusK5U8MFMKercRz6M42aCaT6kD_VP3V&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=16FpiGQ63Z-IvCPAcK-WrOnocstAxjI1P&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <hr>
+            <h4>Operadores de auto incremento</h4>
+            <p>Existem dois operadores de incremento , que podem ser utilizados em 4 modalidades diferentes: </p>
+            <ul>
+                <li>Pré-incremento</li>
+                <li>Pós-incremento</li>
+                <li>Pré-decremento</li>
+                <li>Pós-decremento</li>
+            </ul>
+            <p>As formas de representação serão estas...</p>
+
+            <img src="https://drive.google.com/thumbnail?id=1QVTKi8gQRNgPrBT8ZjuCY5xsRJgl99oj&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">IMPORTANTE!!! A forma como utilizamos os operadores de incremento antes ou depois
+                da variável, mudo tudo, e são completamente distintas:</span>
+            <ul>
+                <li><strong>Pré-incremento</strong>: incrementa antes de qualquer coisa;</li>
+                <li><strong>Pós-incremento</strong>: 1º fará o uso da variável e depois vai incrementar.</li>
+            </ul>
+            <hr>
+            <h5>Exercício:</h5>
+            <p>Mostrar qual foi o ano anterior ao ano atual!</p>
+            <p>Vamos passar outro parâmetro e valor na URL.</p>
+            <img src="https://drive.google.com/thumbnail?id=1VvdrqqAv4OdKrUYBt4-pT3Xu-EG9kKLX&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br><img
+                src="https://drive.google.com/thumbnail?id=1hyPfgQfY42dNOHp2SV3u9wp_CvGGHdCm&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+
+            <p>Mostrando o ano atual e o anterior...</p>
+
+            <img src="https://drive.google.com/thumbnail?id=1eK47BPG-9AWPBhT0xFe92_WkjseqAbyb&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1NSoelLBvYSGtlG4myy9p3iR3V0blKAnm&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">Lembre-se: 1º tira-se o valor da variável(pré-decremento), depois mostra-se o
+                valor da variável.</span>
+            <hr>
+            <h4>Comentários em php</h4>
+            <p>Existem três métodos de comentar o código em php:</p>
+            <ul>
+                <li>Comentário inline: <span style="color: grey;">//este é um comentário inline</span>;</li>
+                <li>Outra forma de comentário inline: <span style="color: grey;">#esta é a outra forma de comentar
+                        inline</span>;</li>
+                <li>Comentário multiline: <span style="color: grey;">/*este é um comentário em multilinha*/</span></li>
+            </ul>
+            <hr>
+            <h4>Como referenciar variáveis -> &$a</h4>
+            <p>O php, permite referência entre variáveis, ou seja, uma variável irá se comportar conforme sua referência
+                se comporta.</p>
+            <img src="https://drive.google.com/thumbnail?id=17b_5mzdC_EW9fKYuO4qCqjak3851wEge&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1AVmk3w8z0yStP8XuxsBS4pe92CIMZalp&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>O 'e' comercial <strong><span style="color: pink;">&</span></strong> , indica que a partir daquele ponto,
+                <span style="color: blue;">$a</span> será referência de <span style="color: blue;">$b</span>.
+            </p>
+            <p>A diferença do primeiro código para o segundo é a seguinte:</p>
+            <p>No primeiro, eu estou dizendo que <span style="color: blue;">$b</span> irá receber o valor de <span
+                    style="color: blue;">$a</span>.</p>
+            <p>No segundo código, estou dizendo para que <span style="color: blue;">$b</span> seja uma referência para
+                <span style="color: blue;">$a</span>, isso é, a partir deste ponto estou ligando as variáveis <span
+                    style="color: blue;">$a</span> e <span style="color: blue;">$b</span> por referência.
+            </p>
+            <p>$a = 3;</p>
+            <p>$b = &$a; ...portanto, $a vale 3 e $b vale 3. </p>
+            <p>...agora, se ...</p>
+            <p>$b += 5; ou seja, $b = $b + 5; ou ... $b = 3 + 5;</p>
+            <p>Agora como $b vale 8, e $a é referência de $b, $a passa a valer 8 também.</p>
+            <hr>
+
+            <h4>Variáveis de variáveis</h4>
+            <p>Pouco utilizada mas poderá aparecer em códigos php. Ela consiste em variáveis que recebem como o nome já
+                diz, o nome como valor da variável de referência.</p>
+            <img src="https://drive.google.com/thumbnail?id=1ux_iYoIjjbX9EvXFGch7TH8jdyYSNS5A&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Quando a variável <span style="color: blue;">$site</span>, cujo valor é a string
+                <strong>"cursoEmVideo"</strong>, recebe o segundo cifrão na frente do seu nome <strong>$$site</strong>,
+                cujo valor é a string <strong>"cursoDePhp"</strong>, ela passará a se chamar <span
+                    style="color: blue;">$cursoEmVideo</span> e seu valor permanecerá sendo
+                <strong>"cursoDePhp"</strong>;
+            </p>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
 
 
 
