@@ -207,6 +207,11 @@
         "titulo": "Aula02 - Necessidade, Desejo e Demanda",
         "id": "JpiXaT",
         "conteudo": ""
+      },
+      {
+        "titulo": "Aula03 - Produtos, Serviços  e Experiências",
+        "id": "zNsfpD",
+        "conteudo": "Produto; Serviço; Miopia de Marketing; Experiência; Valor e satisfação."
       }
     ],
     "id": 14
@@ -285,6 +290,11 @@
         "titulo": "Aula10 - Funções matemáticas",
         "id": "kfDr31",
         "conteudo": "Funções prontas para cálculos como pi() , min() , max() , abs()valor absoluto , sqrt() raiz quadrada, round() arredondamento, rand() randônico, Extensão VSCode PHP Intelephense para endentação automática do php e do html, ADENDO de como imprimir na tela os nº de um array."
+      },
+      {
+        "titulo": "Aula11 - Constantes",
+        "id": "ij0d9e",
+        "conteudo": "Sintaxe: define();"
       }
     ],
     "id": 12
