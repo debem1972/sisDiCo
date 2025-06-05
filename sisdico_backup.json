@@ -277,6 +277,11 @@
         "conteudo": "Aula de tipos de dados como string, integer, float, boolean, null; Output var_dump; Quebra de linha;"
       },
       {
+        "titulo": "Aula07 - Operadores Relacionais - Curso em vídeo",
+        "id": "tw7SmZ",
+        "conteudo": "Operador Unário; Operadores lógicos;"
+      },
+      {
         "titulo": "Aula08 - Manipulação de Strings",
         "id": "OyNHxj",
         "conteudo": "Função para contar quantos caracteres tem uma string - strlen(); Função para contar palavras em uma frase - str_word_count(); Função para fornecer a posição de uma palavra ou caractere em uma string - strpos(); Função para reverter uma palavra - strrev(); Função para substituir uma palavra ou caractere em uma string - str_replace(). "

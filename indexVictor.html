@@ -7456,6 +7456,215 @@
             <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
         </div>
 
+        <div class="aula">
+            <h2 id="tw7SmZ" title="Pag. 213 - caderno Tigre">Aula07 - Operadores Relacionais - Curso em vídeo</h2>
+
+            <h3>Como realizar as comparações em php?</h3>
+            <p>Estes são os operadores de comparação compatíveis com o php:</p>
+            <img src="https://drive.google.com/thumbnail?id=1FpoePQT_ZWhjdterzUOHfozZ8TImXGbL&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <h4>Operador Unário</h4>
+            <p>O operador unário no php, serve para realizar comparações simples.</p>
+            <h5>Sintaxe</h5>
+            <p><span style="color: blue;">expresão</span> <mark><span
+                        style="color: red;font-size: 1.8em;">?</span></mark> <span style="color: blue;">valor se
+                    verdadeiro </span><mark><span style="color: red;font-size: 1.8em;">:</span></mark> <span
+                    style="color: blue;">valor se falso</span>;</p>
+            <h5>Exemplo</h5>
+            <p><strong>$a = 5;</strong></p>
+            <p><strong>$b = 7;</strong></p>
+            <p><strong>$maior</strong> = <strong>$a</strong> <span style="color: blue;">> </span><strong>$b
+                </strong><span style="color: red;font-size: 1.4em;">? </span><em>"$a é maior que $b"</em><span
+                    style="color: red;font-size: 1.4em;"> : </span><em>"$b é maior que $a";</em></p>
+            <p><span style="color: blue;">echo</span> "Comparando <strong>$a </strong>e <strong>$b</strong>
+                ,<strong><em>$maior</em></strong>.";</p>
+            <p>A saída deste eco será: <strong>Comparando 5 e 7, 7 é maior que 5;</strong></p>
+            <h5>Exemplo</h5>
+            <img src="https://drive.google.com/thumbnail?id=1B5nyliF3bRX5lMrl4yDl7hkdbjJRCHiG&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será: <strong>O maior valor entre 10 e 20 é 20</strong></p>
+            <hr>
+            <h5>Exercício</h5>
+            <p>O usuário terá de escolher entre somar ou multiplicar!</p>
+            <p>Os valores serão passados via URL.</p>
+            <img src="https://drive.google.com/thumbnail?id=1y2WTnwtLDK4DgkRJnNz2c6JH1KuW4_Dp&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Parâmetros passados na URL:</p>
+            <img src="https://drive.google.com/thumbnail?id=1M1ocX-CvX6jENMN2FNEm6n1MERpluOI1&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1lIwBAsqXvEtsFSb5oizOG1cUljhrgrh6&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Agora, vamos testar a saída da variável resposta $r:</p>
+            <p><strong>$r = ($tipo == "s") ? $n1 + $n2 : $n1 * $n2;</strong></p>
+            <p><span style="color: blue;">Se o valor de tipo for igual a <strong>"s" </strong>então soma n1 com n2,
+                    senão multiplica.</span></p>
+            <p><span style="color: blue;">echo</span> "O tipo de operação escolhida foi: <strong>$tipo</strong>";</p>
+            <p>A saída será : <strong>O tipo de operação escolhido foi <span
+                        style="font-size: 1.3em;"><em>s</em></span></strong></p>
+            <p><span style="color: blue;">echo</span> " O resultado da operação escolhida é <strong>$r</strong>";</p>
+            <p>A saída será: <strong>O resultado da operação escolhida é 8</strong></p>
+            <span style="color: red;">IMPORTANTE: Se colocarmos qualquer letra no valor do parâmetro
+                <strong>op</strong>, diferente de <strong><em>s </em></strong>e <strong><em>m</em></strong>, a operação
+                resultará em multiplicação, pois o operador unário é apenas uma estrutura simples de comparação.</span>
+            <hr>
+            <h5>Exercício1</h5>
+
+            <img src="https://drive.google.com/thumbnail?id=14GmvEoodCgRxYqgcKskggG63LI9pVOLG&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será: <strong>Os valores das variáveis <em>a</em> e <em>b </em>são iguais? São iguais</strong>
+            </p>
+            <p>Isso porque o operador <mark><strong>==</strong></mark>(igual), compara somente em relação ao valor.
+                Portanto, <mark>3 <em>number</em></mark>, possui o mesmo valor que <mark>3 <em>string</em></mark>!</p>
+            <p>Agora , vamos utilizar o operador <strong>idêntico</strong>:</p>
+            <p>$a = 3;</p>
+            <p>$b = "3";</p>
+            <p>$r = $a <strong>===</strong> $b ? "São idênticos" : "São diferentes";</p>
+            <p><span style="color: blue;">echo</span> "Os valores das variáveis <strong>a</strong> e <strong>b</strong>
+                são iguais? $r";</p>
+            <p>A saída será: <strong>Os valores das variáveis a e b são iguais? São diferentes</strong></p>
+            <p>Os resultados dos operadores ==(igual) e ===(idêntico) deram diferente, porque o primeiro, compara quanto
+                ao valor somente, e o segundo quanto ao valor e tipo. Veja este teste abaixo:</p>
+            <img src="https://drive.google.com/thumbnail?id=1yZ0mjUEpMnOt6r_uWWYcJenEycIR_j1G&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será <strong>O valor de a é numérico</strong></p>
+            <hr>
+            <h4>Exercício3</h4>
+            <p>Mostrar a situação do aluno de acordo com a média obtida.</p>
+            <p>As notas serão passadas pela URL.</p>
+            <img src="https://drive.google.com/thumbnail?id=1tXmzdSiRboLSbyMOXYVMIzUetF1CxVnV&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1agwNNlDK1FEcYPN0FlV8qPeU3TNOrnmo&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1bFa8FNJZ940Qa8Fi7Rhh3LMRtEeCN6q6&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Mostrar a situação do aluno de acordo com a média obtida:</p>
+            <img src="https://drive.google.com/thumbnail?id=15YP4X5Y1AiQCb0XnVeBF1T24v0quz7n2&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1a1JCp5jCq9uuRcdsDEE3FaqYp6nafr8x&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1AtW6jN5QCp4BtxSfiv5c6o_B35UJ_1xi&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Outra forma de mostrar o resultado acima é...</p>
+            <p><span style="color: blue;">echo</span> " A situação do aluno é " . <strong>(</strong><span
+                    style="color: red;">(</span>$media >=7<span style="color: red;">) </span>? "Aprovado" :
+                "Reprovado"<strong>)</strong>; </p>
+            <hr>
+            <h4>Operadores Lógicos</h4>
+            <p>Serão semelhantes ao javaScript!</p>
+            <p>Operador <mark>E( && )</mark>: Só será verdadeiro, se todos forem verdadeiros:</p>
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>p</th>
+                    <th>q</th>
+                    <th>p E q</th>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>V</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>F</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>V</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>F</td>
+                </tr>
+            </table>
+            <br><br>
+            <p>Operador <mark>OU( | | )</mark>:Basta que uma premissa seja verdadeira para que seja verdadeiro:</p>
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>p</th>
+                    <th>q</th>
+                    <th>p E q</th>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>V</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>F</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>V</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>F</td>
+                </tr>
+            </table>
+            <br><br>
+
+            <p>Operador <mark>XOU(ou exclusivo )</mark>: Este operador só será verdadeiro se uma ou outra for
+                verdadeiro:</p>
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>p</th>
+                    <th>q</th>
+                    <th>p E q</th>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>V</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>F</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>V</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>F</td>
+                </tr>
+            </table>
+
+            <br><br>
+            <p>Operador <mark>NÃO( ! )</mark>: Este operador inverte o valor da premissa:</p>
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>p</th>
+                    <th>não p</th>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>V</td>
+                </tr>
+            </table>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
 
 
 
