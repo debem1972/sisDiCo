@@ -7456,6 +7456,8 @@
             <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
         </div>
 
+
+
         <div class="aula">
             <h2 id="tw7SmZ" title="Pag. 213 - caderno Tigre">Aula07 - Operadores Relacionais - Curso em vídeo</h2>
 
@@ -7664,6 +7666,144 @@
             <br>
             <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
         </div>
+
+
+        <div class="aula">
+            <h2 id="50cgMc" title="Pag. 222 - caderno Tigre">Aula 08 - Integração HTML + PHP - Curso em Vídeo</h2>
+
+            <h3>Como obter dados de formulários html no php?</h3>
+            <p>Nesta aula veremos como interligar formulários html com scripts php.</p><br>
+            <ol>
+                <li>Criar um formulário HTML e abri-lo pelo localhost <span style="color: red;"><strong>Não pelo Go Live
+                            do VSCode;</strong></span></li>
+                <li>Enviar os dados do formulário para um script PHP;</li>
+                <li>Processar os dados no script PHP;</li>
+                <li>Exibir os resultados ou realizar ações com os dados recebidos.</li>
+            </ol>
+
+            <p>Em 1, devemos utilizar um dos métodos para envio dos dados:<span
+                    style="color: blue;font-size: 1.2em;"><em> get</em></span> ou <span
+                    style="color: blue;font-size: 1.2em;"><em>post</em></span>, onde o primeiro envia os dados pela
+                <strong>URL</strong>, <strong>é rápido </strong><strong>mas não é seguro</strong>, enquanto que o
+                segundo, <strong>envia os dados por pacotes</strong>, sendo <strong>um pouco mais seguro</strong> e
+                <strong>bem mais lento</strong>;
+            </p>
+            <span style="color: red;">Para esta aula utilizaremos o método get.</span><br><br>
+
+
+            <p>Em 2, devemos criar um formulário HTML com os campos necessários e definir o atributo
+                <strong>action</strong> no form, direcionando para o <strong>script PHP(nome do arquivo)</strong> que
+                irá processar os dados, e o atributo<strong> method</strong> para o método de envio escolhido;
+            </p><br>
+
+
+            <p>Em 3, no script PHP, podemos acessar os dados enviados pelo formulário usando as <strong>superglobais
+                    $_GET ou $_POST</strong>, dependendo do método escolhido. Podemos então processar esses dados, como
+                armazená-los em um banco de dados, realizar cálculos ou exibir resultados;</p><br>
+
+            <span style="color: red;font-size: 1.3em;">IMPORTANTE!!! Estar sempre atento aos objetos
+                <strong>name</strong>, pois é por eles que passaremos os parâmetros para as <em>superglobais</em> na URL
+                se utilizarmos o method get.</span><br><br>
+            <hr>
+
+            <h4>EXERCÍCIO 1</h4>
+            <h4>Ler um valor e mostrar sua raiz quadrada</h4>
+
+            <img src="https://drive.google.com/thumbnail?id=1c1uiVN36soE7vyRJjKqeVuoCBZSnOx38&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Criaremos 1º o form no html</p>
+            <img src="https://drive.google.com/thumbnail?id=1957G7Alxifl4-KfDqX4XDIOB0gwYQVIE&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Visualizando o html pelo localhost</p>
+            <img src="https://drive.google.com/thumbnail?id=10k-BsKj4P-eqnCM3SckRpllETIDwy-NN&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>No php, criamos o script:</p><br>
+
+
+            <p><strong><em>?php </em></strong></p>
+            <p><strong>$valor = $_GET('valor');</strong></p><br>
+            <p><span style="color: blue;">echo</span><strong> "O valor enviado foi $valor."</strong>;</p>
+            <p><strong><em>?></em></strong></p><br>
+
+            <p>Após dar enter depois de preencher os dados no form, o valor será repassado pelo método
+                <strong>get</strong> ao parâmetro valor na <strong>URL</strong>...
+            </p><br>
+            <img src="https://drive.google.com/thumbnail?id=1UIXxUj4_5pBQj_tA-W0xgweLmiMk_Jn0&sz=w800" alt="Imagem"
+                class="img-fluid">
+            <p>A saída então será...<span style="color: red;">(na verdade foi digitado 18 no form)</span>...</p><br>
+            <p>O cálculo da raiz quadrada é realizado pela function php <strong>sqrt()</strong>...</p>
+            <img src="https://drive.google.com/thumbnail?id=1SK4rhWEtrimy5zMS3kHnnUPEmVKrWYYV&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1UsCHoG0VLUxdGIXXAqVwJE90qjslxyVM&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1WNQcf769ZrAnVOlZgeD_LGupYVfoeCJ9&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1T-nMkGcBceCrOGN85wMmsRc6oQ6vA98S&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p><span style="color: red;">Alguns avisos importantes:</span></p>
+            <span style="color: red;">
+                <ul>
+                    <li>Abrir o HTML pelo localhost, caso contrário , não irá funcionar;</li>
+                    <li>No <strong>action</strong> do form, declarar o caminho absoluto ou relativo do script php;</li>
+                    <li>Para transitar entre o php e o html, utilizar as setas do browser ou criar uma tag<strong>
+                            'a'</strong> com o href apontando para o caminho do arquivo html.</li>
+                </ul>
+            </span>
+            <hr>
+
+            <h4>EXERCÍCIO 2</h4>
+
+            <h4>Ler o nome, ano de nascimento de uma pessoa e sexo, calculando sua idade atual.</h4>
+
+            <img src="https://drive.google.com/thumbnail?id=1LMgG0rkH_8ZZqGfXHdGGEtEDCNiG4g0s&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1uLS52a4KNf5_DwRZTIQ9Inb7raNHdbPd&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1ImOgnlQk1KpJYMNRbRLX2Ietz3A43i4j&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <img src="https://drive.google.com/thumbnail?id=19fGbcuPn3NsO1HaBYZfqceFgqKJV2FR5&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <span style="color: red;">IMPORTANTE: Se abrirmos o arquivo PHP antes de abrir o arquivo HTML, retornará um
+                erro, pois as superglobais no script PHP estão aguardando valores dos objetos provenientes do HTML como
+                nome, ano e sexo. Para resolver isso , podemos utilizar este método paliativo com a funtion php
+                <strong><em>isset()</em></strong> + <strong>operador unário</strong> onde, se nada for carregado
+                proveiniente do html, então carregue um valor alternativo:</span><br>
+            <img src="https://drive.google.com/thumbnail?id=144BY3oyea3WnShmnNf91-hMOTUUnzIHq&sz=w800" alt="Imagem"
+                class="img-fluid">
+            <hr>
+            <h4>EXERCÍCIO 3</h4>
+            <h4>Permitir a personalização de um texto por meio de um form.</h4>
+            <img src="https://drive.google.com/thumbnail?id=16TLNskJ36lZwfowc1cUtZL92RQ99D1MH&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1_b0nWPx7TPwHfARW40xeH133yP_3DJ2i&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">OBS: Podemos declarar scripts php em qualquer lugar do código, pois sua variáveis
+                são globais, por exemplo dentro do <strong><em>head</em></strong>. <strong>Mas vale lembrar que o PHP
+                    faz a leitura de seu código de cima para baixo, portanto, se for estilizar com style no próprio
+                    arquivo , colocá-lo após as superglobais.</strong></span><br>
+            <img src="https://drive.google.com/thumbnail?id=1VhxZD5uaBm1vzBJswLmbhvuy46SAn4iV&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1qhaqWPjxXTHzJlpWpdmcHzEWQoVkst6f&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1chyJfIdbjgJHMBRkxYbTCe4retAaqoz6&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+
+
 
 
 
