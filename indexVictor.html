@@ -7896,6 +7896,87 @@
 
 
 
+        <div class="aula">
+            <h2 id="pXe4aJ" title="Pag. 242 - caderno Tigre">Aula14 - Loops (while. do...while, for e foreach)</h2>
+
+            <h3>Laços de repetição em PHP</h3>
+            <h4><mark>while</mark></h4>
+            <p>Repete o laço, enquanto uma condição for <span style="color: green;">true</span>. Abaixo, veremos o form
+                html que captura o valor de uma variável e o envia pelo método <strong>get</strong> para o script
+                <em>php</em> para ser processado.
+            </p>
+            <img src="https://drive.google.com/thumbnail?id=1nFqG9izOGJn8WLUxy7Zga_klE-a1AIw6&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1B_-VF2xdYbcG8uNuF9uYt2lT3HZBCL-J&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>No script <em>php</em>, vemos o tratamento do objeto <em>number </em>ao ser recebido ou não pelo
+                <em>php</em>. Logo após, vemos a condição dentro do bloco do while: <strong>enquanto $n for menor ou
+                    igual a 10, acrescente ao valor recebido 1 e imprima na tela.</strong>
+            </p>
+            <img src="https://drive.google.com/thumbnail?id=1u1sHJ3E6WvgBCXc8vPZkQvgHP3M_Dz7Q&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=16II9AjY2UFEZEw_LC5eoQev5x1nsB7MU&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Podemos perceber pela saída, que ao alcançar o valor 10 previsto na condição, o loop encerrou.</p>
+            <p><span style="color: red;">IMPORTANTE!!! Devemos sempre tomar cuidado com loops infinitos, definindo bem a
+                    condição estabelecida para que isso não ocorra, pois poderá ocasionar travamento do sistema! Ex:
+                </span></p>
+            <p>$sentimento = "amor";</p>
+            <p><span style="color: blue;">while</span>(<em>$sentimento == "amor"</em>)<span
+                    style="color: red;font-size: 1.2em;">{</span></p>
+            <p><span style="color: blue;">echo</span> "<strong>O $sentimento é o sentimento mais nobre!</strong>";</p>
+            <p><span style="color: red;font-size: 1.2em;">}</span>;</p>
+            <p>Neste exemplo de loop, como o valor da variável sentimento é amor, e a condição diz que <em>enquanto o
+                    valor de sentimento for semelhante a amor, imprima na tela</em>. Isso causará um loop infinito
+                imprimindo na tela para sempre a frase <strong>"O amor é o sentimento mais nobre!"</strong></p>
+
+            <hr>
+
+            <h4><mark>do...while</mark></h4>
+            <p>Nete tipo de laço, é rodado primeiro o bloco do 'faça'. Se a condição mostrada dentro do bloco for
+                verdadeira, o script submete ao laço, caso contrário, encerra.</p>
+            <h5>Exemplo:</h5>
+            <img src="https://drive.google.com/thumbnail?id=1qpPHqRM0aaRgpk6wxsOQaVe72fyvwoJN&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1wF9FGqaDS7KsdD-rXWagNUYz6Z137zdm&sz=w800" alt="Imagem"
+                class="img-fluid">
+            <p>Perceba que foi impresso o valor 1 mostrando que este valor foi recebido, Feita a análise pela condição,
+                então começou o loop:</p>
+            <p><em>"1 é menor ou igual a 5? Sim é! Então, 1+1 = 2 e é impresso na tela.".</em>..e assim até a condição
+                deixar de ser <span style="color: green;"><em>true</em></span>.</p>
+            <hr>
+
+            <h4><mark>for</mark></h4>
+            <p>Neste tipo de loop, você passa quantas vezes você quer que seja feito o laço.</p>
+
+            <img src="https://drive.google.com/thumbnail?id=1Vt9kvIhk47sJ0DnINQLmJu1ip7GQDl2W&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>No caso acima, a variável i está recebendo o valor de n que é obtido pelo form html.</p>
+            <p>A condição testada diz que...<strong>"enquanto<em> i</em> for menor ou igual a 10, some 1 ao valor de
+                    <em>i</em> " </strong>e imprima na tela...<strong>" O nº recebido é : $i "</strong></p>
+            <hr>
+
+            <h4><mark>foreach</mark></h4>
+            <p>Este tipo de laço, ocorre de acordo com o nº de ítens que temos dentro de um array.</p>
+            <img src="https://drive.google.com/thumbnail?id=1XkshK0WsN21ldjKzNxmADDt_rIbZzMi0&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Temos o array <em>$cores</em>. </p>
+            <p>No bloco do foreach está escrito...<strong>"Cada item do array <em>$cores</em> agora se chamará <span
+                        style="color: blue;">$valor</span>"</strong></p>
+            <p>Exemplo: $cores = [ 0<sup>$valor = 'azul'</sup>, 1<sup>$valor = 'amarelo'</sup>, 2<sup>$valor =
+                    'verde'</sup>, 3<sup>$valor = 'vermelho'</sup> ]</p>
+            <p>O loop irá iterar sobre cada ítem do array que agora recebe o nome da variável $valor e imprimir na
+                tela...<strong>" A cor é : <span style="color: blue;">$valor</span> "</strong></p>
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
 
 
 

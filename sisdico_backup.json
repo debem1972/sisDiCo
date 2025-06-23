@@ -312,9 +312,14 @@
         "conteudo": "Sintaxe: define();"
       },
       {
-        "titulo": "Aula13 - If Else Elseif e Switch",
+        "titulo": "Aula13 - If Else Elseif",
         "id": "bmifDf",
         "conteudo": "if else(){}; elseif()"
+      },
+      {
+        "titulo": "Aula14 - Loops (while. do...while, for e foreach)",
+        "id": "pXe4aJ",
+        "conteudo": "while; do; for; foreach"
       }
     ],
     "id": 12
