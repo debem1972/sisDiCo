@@ -307,6 +307,11 @@
         "conteudo": "Funções prontas para cálculos como pi() , min() , max() , abs()valor absoluto , sqrt() raiz quadrada, round() arredondamento, rand() randônico, Extensão VSCode PHP Intelephense para endentação automática do php e do html, ADENDO de como imprimir na tela os nº de um array."
       },
       {
+        "titulo": "Aula10 - Estrutura condicional switch - Curso em vídeo",
+        "id": "QAmTsq",
+        "conteudo": "switch;  case;  break;  default;"
+      },
+      {
         "titulo": "Aula11 - Constantes",
         "id": "ij0d9e",
         "conteudo": "Sintaxe: define();"
