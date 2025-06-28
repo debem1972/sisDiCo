@@ -1,0 +1,86 @@
+[
+  {
+    "name": "sqrt()",
+    "description": "Função para efetuar o cálculo da raiz quadrada",
+    "syntax": "float sqrt(float $number)",
+    "usage": "Retorna a raiz quadrada de $number. Exemplo: $result = sqrt(16); // Retorna 4",
+    "id": 1
+  },
+  {
+    "name": "date()",
+    "description": "Formata uma data/hora local",
+    "syntax": "string date(string $format, ?int $timestamp = null)",
+    "usage": "Formata uma data. Exemplo: echo date('Y-m-d H:i:s'); // Exibe a data atual, como '2025-06-28 09:48:00'. Use com diferentes formatos, como 'd/m/Y'.",
+    "id": 2
+  },
+  {
+    "name": "strlen()",
+    "description": "Retorna o comprimento de uma string",
+    "syntax": "int strlen(string $string)",
+    "usage": "Calcula o número de caracteres em uma string. Exemplo: $length = strlen('Olá, mundo!'); // Retorna 11. Útil para validações de tamanho de texto.",
+    "id": 3
+  },
+  {
+    "name": "str_replace()",
+    "description": "Substitui todas as ocorrências de uma substring por outra",
+    "syntax": "string str_replace(string|array $search, string|array $replace, string|array $subject, int &$count = null)",
+    "usage": "Substitui texto em uma string. Exemplo: $new = str_replace('mundo', 'PHP', 'Olá, mundo!'); // Retorna 'Olá, PHP!'. Útil para manipulação de strings.",
+    "id": 4
+  },
+  {
+    "name": "array_push()",
+    "description": "Adiciona um ou mais elementos ao final de um array",
+    "syntax": "int array_push(array &$array, mixed ...$values)",
+    "usage": "Adiciona elementos a um array. Exemplo: $arr = [1, 2]; array_push($arr, 3, 4); // $arr agora é [1, 2, 3, 4]. Útil para construir listas dinamicamente.",
+    "id": 5
+  },
+  {
+    "name": "in_array()",
+    "description": "Verifica se um valor existe em um array",
+    "syntax": "bool in_array(mixed $needle, array $haystack, bool $strict = false)",
+    "usage": "Checa a existência de um valor. Exemplo: $arr = ['a', 'b', 'c']; if (in_array('b', $arr)) { echo 'Encontrado'; } // Retorna 'Encontrado'. Útil para validações.",
+    "id": 6
+  },
+  {
+    "name": "trim()",
+    "description": "Remove espaços em branco ou outros caracteres do início e fim de uma string",
+    "syntax": "string trim(string $string, string $characters = \\\" \\\\n\\\\r\\\\t\\\\v\\\\0\\\")",
+    "usage": "Remove espaços ou caracteres específicos. Exemplo: $clean = trim('  Olá  '); // Retorna 'Olá'. Útil para limpar entradas de formulários.",
+    "id": 7
+  },
+  {
+    "name": "array_merge()",
+    "description": "Combina dois ou mais arrays em um único array",
+    "syntax": "array array_merge(array ...$arrays)",
+    "usage": "Une arrays. Exemplo: $arr1 = ['a' => 1]; $arr2 = ['b' => 2]; $merged = array_merge($arr1, $arr2); // Retorna ['a' => 1, 'b' => 2]. Útil para consolidar dados.",
+    "id": 8
+  },
+  {
+    "name": "file_get_contents()",
+    "description": "Lê o conteúdo de um arquivo para uma string",
+    "syntax": "string file_get_contents(string $filename, bool $use_include_path = false, resource $context = null, int $offset = 0, int $length = null)",
+    "usage": "Lê arquivos. Exemplo: $content = file_get_contents('arquivo.txt'); // Retorna o conteúdo do arquivo. Útil para ler configurações ou dados.",
+    "id": 9
+  },
+  {
+    "name": "explode()",
+    "description": "Divide uma string em um array com base em um delimitador",
+    "syntax": "array explode(string $separator, string $string, int $limit = PHP_INT_MAX)",
+    "usage": "Separa strings. Exemplo: $arr = explode(',', 'a,b,c'); // Retorna ['a', 'b', 'c']. Útil para processar listas de texto, como CSV.",
+    "id": 10
+  },
+  {
+    "name": "isset()",
+    "description": "Verifica se uma variável está definida e não é null",
+    "syntax": "bool isset(mixed $var, mixed ...$vars)",
+    "usage": "Checa existência de variáveis. Exemplo: if (isset($var)) { echo 'Definida'; } // Só executa se $var existir. Útil para evitar erros de variáveis indefinidas.",
+    "id": 11
+  },
+  {
+    "name": "is_int()",
+    "description": "Define o valor de uma variável como inteiro.",
+    "syntax": "is_int($valor);",
+    "usage": "if(!is_int($valor1) || !is_int($valor2){\n      return \"<span style='color: red;'>Erro: Ambos os valores devem ser inteiros!</span>\";\n}",
+    "id": 12
+  }
+]
