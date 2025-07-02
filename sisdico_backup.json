@@ -269,7 +269,7 @@
       {
         "titulo": "Aula06 - Operadores de atribuição - Curso em vídeo",
         "id": "xqwoHQ",
-        "conteudo": "Operador de atribuição com adição +=; Operador de incremento; number_format(); Operadores de auto incremento; (Pré-incremento); Pós-incremento; Pré-decremento; Pós-decremento; Comentários em php - (//), (#) e (/**/); Referenciar variáveis (&$a); Variáveis de variáveis ($$a)."
+        "conteudo": "Operador de atribuição com adição +=; Operador de incremento; number_format(); Operadores de auto incremento; (Pré-incremento); Pós-incremento; Pré-decremento; Pós-decremento; Comentários em php - (//), (#) e (/**/);  &$a;  $$site."
       },
       {
         "titulo": "Aula07 - Tipos de dados",
@@ -325,6 +325,11 @@
         "titulo": "Aula14 - Loops (while. do...while, for e foreach)",
         "id": "pXe4aJ",
         "conteudo": "while; do; for; foreach"
+      },
+      {
+        "titulo": "Aula15 - Functions PHP",
+        "id": "Hjjf5K",
+        "conteudo": ""
       }
     ],
     "id": 12
