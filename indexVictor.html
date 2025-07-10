@@ -8112,6 +8112,115 @@
 
 
 
+        <div class="aula">
+            <h2 id="3cFUuJ" title="Pag. 264 - caderno Tigre">Aula11 - Estrutura de repetição While - Curso em Vídeo
+            </h2>
+
+            <h3>Estrutura de repetição while</h3>
+            <p>Esta é uma estrutura de repetição com teste lógico no início. Ou seja, se a condição dentro do teste
+                lógico for true, então, entra no escopo do while e inicia no loop.</p>
+            <p>Ex: Dado $c1 = 1;</p>
+            <p>while($c1 <=5){< /p>
+                    <p>echo $c1;</p>
+                    <p>$c++;</p>
+                    <p>}</p>
+                    <br><br>
+                    <p>Tradução da estrutura: <span style="color: blue;">"Enquanto $c1 for menor ou igual a 5,. escreva
+                            o valor de $c1 na tela somando 1 ao valor de $c1 a cada volta."</span></p>
+                    <hr>
+                    <h4>Exercício:</h4>
+                    <p><mark>Crie uma contagem regressiva simples recebendo o valor de um form!</mark></p>
+                    <h5>O form...</h5>
+                    <img src="https://drive.google.com/thumbnail?id=1WHcrsRI4V2jD7ibUMvvvn73JexpQIIYe&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <p>...o form renderizado...</p>
+                    <img src="https://drive.google.com/thumbnail?id=1KeGtfIbrbxpMne41kq-pT39HE_420inh&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <p>...o script php...</p>
+                    <img src="https://drive.google.com/thumbnail?id=1aWAIo4SWIzztDIsfIMOuqY9zTcM99iqX&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <p>Passando o valor para a contagem regressiva no form...</p>
+                    <img src="https://drive.google.com/thumbnail?id=1xigWvEQlPS_j-8k2SXP1YBQh_yBE3x_6&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <p>Renderizando a contagem na tela...</p>
+                    <img src="https://drive.google.com/thumbnail?id=1tzNAsNs-FzXq1Cs9PiQBYVwUsxwfk9RS&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+
+                    <p>Podemos ainda , criar outras formas de contagem...de 2 em 2 por exemplo, bastando para isso,
+                        incrementar ou decrementar no contador. Exemplos:</p>
+                    <ul>
+                        <li>$contador ++ = 2; <span style="color: red;">Pulará de 2 em 2 para a frente!</span></li>
+                        <li>$contador -- = 5; <span style="color: blue;">Pulará de 5 em 5 para traz!</span></li>
+                    </ul>
+                    <br>
+                    <hr><br><br>
+                    <h4>Exercício1</h4>
+                    <p><mark>Criar 5 caixas de texto dinamicamente em um form!</mark></p><br>
+                    <p>1º - Crie um form html normal com apenas um campo com label <u>campo1</u>, para só então
+                        posteriormente, inserir o php no form;</p><br>
+                    <span style="color: red;font-size: 1.2rem;">Detalhe importante: Veja na imagem abaixo nas abas do
+                        VSCode, que agora , tanto o arquivo que envia os dados pelo form, como o arquivo que recebe os
+                        dados no script php são .php.</span><br>
+                    <img src="https://drive.google.com/thumbnail?id=1HDLxjTjGWSJZapql4gx62ye-FeCk_t1d&sz=w800"
+                        alt="Imagem" class="img-fluid"><br>
+                    <p>O form depois de renderizado ficará assim, e ele é totalmente funcional.</p>
+                    <img src="https://drive.google.com/thumbnail?id=1mTKyizfK5gtlu56UhzzXxt9THT-Eoxrv&sz=w800"
+                        alt="Imagem" class="img-fluid"><br>
+                    <p>Agora o script php...</p>
+                    <img src="https://drive.google.com/thumbnail?id=1ZrncqJXgQbxrXg8r-kpb91RjcH5veQl6&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <p>Agora, passando os valores via form gerado...</p>
+                    <img src="https://drive.google.com/thumbnail?id=1L2AExWBsOU1FBVYyZtAE03ngHlDxIAS5&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <p>Renderizando o script php...</p>
+                    <img src="https://drive.google.com/thumbnail?id=14ssF3jMygkj0Kp4kLzXnojXht4bmGQ3V&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <hr><br>
+                    <h4>Operador de coalescência nula (??)</h4>
+                    <p>Ex: utilizando no operador ternário <strong>isset</strong>, o operador de coalescência nula...
+                    </p>
+                    <p><mark>$variavel = $_GET[$c1] <span style="color: red;font-size: 1.2rem;">??</span> 0;</mark></p>
+                    <p>...ou podemos representá-lo assim também...</p>
+                    <p><mark>$variavel = $_GET[<span style="color: blue;font-size: 1.2rem;">'c1'</span>] <span
+                                style="color: red;font-size: 1.2rem;">??</span> 0;</mark></p>
+                    <p>O <strong><em>null coalescencing operator</em></strong> diz o seguinte:</p>
+                    <p><em>Verifica se a expressão à esquerda existe e não é nula!...no caso se foi passado um valor
+                            para $c1 e se ele não é nulo!</em></p>
+                    <p><span style="color: green;">Se for <strong>true</strong> esta afirmação, ou seja, foi passado um
+                            valor para $c1 e ele é válido, então o operador ternário o passará para os cálculos
+                            posteriores serem executados...</span></p>
+                    <p><span style="color: red;">Se for <strong>false</strong> esta afirmação, ou seja, não foi passado
+                            um valor para $c1 ou foi passado um valor <strong>null</strong>, então envia para os
+                            cálculos o valor default zero(0).</span></p>
+
+                    <hr><br>
+
+                    <h4>Exercício2</h4>
+                    <p>Criar um contador personalizável!</p>
+                    <img src="https://drive.google.com/thumbnail?id=1onxNmLsFOx1XrhMkd3d6dv6KLbXyR2PP&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <img src="https://drive.google.com/thumbnail?id=1FfsvvAQPSic8Iqpm5pHPrxsi5GRg6HUq&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <img src="https://drive.google.com/thumbnail?id=1cAHRj7VJ6C9vMlm68Cnz479dhuc6kAiS&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <img src="https://drive.google.com/thumbnail?id=1iYvdq-Lcz4PpBZIB2jf0p1-gvqvC9FPu&sz=w800"
+                        alt="Imagem" class="img-fluid"><br>
+                    <p>Como podemos ver na imagem acima, este contador é personalizável, pois podemos:</p>
+                    <ol>
+                        <li>Passar os valores que quisermos onde inicia a contagem;</li>
+                        <li>Onde encerra a contagem;</li>
+                        <li> ...e de quanto em quanto o contador irá iterar.</li>
+                    </ol>
+                    <br><br>
+                    <img src="https://drive.google.com/thumbnail?id=16UzNvdzs-MS-jYHyvFAiqZC05LYogCgi&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+
+                    <br>
+                    <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
 
 
 
