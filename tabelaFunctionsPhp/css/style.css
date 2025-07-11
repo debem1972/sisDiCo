@@ -63,3 +63,32 @@ body {
 #searchInput {
     max-width: 500px;
 }
+
+/* ===== Efeito de cabeçalho fixo na tabela ===== */
+.table-container {
+    position: relative;
+    height: 400px;
+    /* Ajuste conforme necessário */
+    overflow: hidden;
+}
+
+.table-scroll {
+    height: 100%;
+    overflow-y: auto;
+    margin-top: 41px;
+    /* Compensa a altura do thead */
+}
+
+.table-fixed thead {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.table-fixed tbody {
+    margin-top: 41px;
+    /* Mesma altura do cabeçalho */
+}

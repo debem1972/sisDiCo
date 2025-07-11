@@ -43,16 +43,18 @@
             Função</button>
 
         <!-- Tabela -->
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>Função PHP</th>
-                        <th>Serve para...</th>
-                    </tr>
-                </thead>
-                <tbody id="functionTableBody"></tbody>
-            </table>
+        <div class="table-container">
+            <div class="table-scroll">
+                <table class="table table-striped table-bordered table-fixed">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Função</th>
+                            <th>Serve para...</th>
+                        </tr>
+                    </thead>
+                    <tbody id="functionTableBody"></tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -289,6 +291,22 @@
             };
             reader.readAsText(file);
         }
+
+        // Ajustar a largura das células do cabeçalho para corresponder às células do corpo
+        function ajustarLarguraCabecalho() {
+            const headerCells = document.querySelectorAll('.table-fixed thead th');
+            const firstRowCells = document.querySelectorAll('.table-fixed tbody tr:first-child td, .table-fixed tbody tr:first-child th');
+            headerCells.forEach((headerCell, index) => {
+                if (firstRowCells[index]) {
+                    headerCell.style.width = window.getComputedStyle(firstRowCells[index]).width;
+                }
+            });
+        }
+        // Chama o ajuste após renderizar a tabela
+        const observer = new MutationObserver(ajustarLarguraCabecalho);
+        observer.observe(document.getElementById('functionTableBody'), { childList: true });
+        // Também ajusta ao redimensionar a janela
+        window.addEventListener('resize', ajustarLarguraCabecalho);
     </script>
 </body>
 
