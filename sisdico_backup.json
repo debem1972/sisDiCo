@@ -317,6 +317,11 @@
         "conteudo": "Sintaxe: define();"
       },
       {
+        "titulo": "Aula11 - Estrutura de repetição While - Curso em Vídeo",
+        "id": "3cFUuJ",
+        "conteudo": "while() ; ?? ;"
+      },
+      {
         "titulo": "Aula13 - If Else Elseif",
         "id": "bmifDf",
         "conteudo": "if else(){}; elseif()"
@@ -330,6 +335,11 @@
         "titulo": "Aula15 - Functions PHP",
         "id": "Hjjf5K",
         "conteudo": ""
+      },
+      {
+        "titulo": "Aula16 - Arrays PHP",
+        "id": "XTkbFe",
+        "conteudo": "count(); sort(); rsort(); asort(); ksort();"
       }
     ],
     "id": 12

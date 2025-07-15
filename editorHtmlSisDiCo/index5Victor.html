@@ -75,6 +75,8 @@
 </head>
 
 <body>
+    <!-- Toast Container -->
+    <div id="toastContainer" class="position-fixed top-0 end-0 p-3" style="z-index: 2000"></div>
     <div class="contentControls fixed-top bg-light py-2 border">
         <div class="container">
             <h1 class="mb-4">sisDiCo Editor</h1>
@@ -127,6 +129,12 @@
                         class="bi bi-arrow-counterclockwise"></i>Desfazer</button>
                 <button class="btn btn-outline-primary" onclick="redo()"><i
                         class="bi bi-arrow-clockwise"></i>Refazer</button>
+                <button class="btn btn-outline-success" onclick="exportData()">
+                    <i class="bi bi-box-arrow-up"></i>Exportar Dados
+                </button>
+                <button class="btn btn-outline-warning" onclick="importData()">
+                    <i class="bi bi-box-arrow-in-down"></i>Importar Dados
+                </button>
             </div>
         </div>
     </div>
@@ -439,6 +447,162 @@
 
         window.addEventListener('load', adjustBodyPadding);
         window.addEventListener('resize', adjustBodyPadding);
+
+        function showToast(message, type = 'success') {
+            const toastId = 'toast-' + Date.now();
+            const icon = type === 'success'
+                ? '<i class="bi bi-check-circle-fill text-success"></i>'
+                : '<i class="bi bi-x-circle-fill text-danger"></i>';
+            const bgClass = type === 'success' ? 'bg-success text-white' : 'bg-danger text-white';
+
+            const toastHtml = `
+    <div id="${toastId}" class="toast align-items-center ${bgClass}" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+      <div class="d-flex">
+        <div class="toast-body">
+          ${icon} ${message}
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Fechar"></button>
+      </div>
+    </div>
+    `;
+            const container = document.getElementById('toastContainer');
+            container.insertAdjacentHTML('beforeend', toastHtml);
+
+            const toastElem = document.getElementById(toastId);
+            const toast = new bootstrap.Toast(toastElem);
+            toast.show();
+
+            toastElem.addEventListener('hidden.bs.toast', () => {
+                toastElem.remove();
+            });
+        }
+
+        //Persistência dos dados em IndexedDB
+
+        // IndexedDB setup
+        const DB_NAME = 'sisDiCoEditorDB';
+        const STORE_NAME = 'editorContent';
+        let db;
+
+        function openDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, 1);
+                request.onupgradeneeded = function (event) {
+                    db = event.target.result;
+                    if (!db.objectStoreNames.contains(STORE_NAME)) {
+                        db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+                    }
+                };
+                request.onsuccess = function (event) {
+                    db = event.target.result;
+                    resolve(db);
+                };
+                request.onerror = function (event) {
+                    reject(event.target.error);
+                };
+            });
+        }
+
+        function saveContentToDB(content) {
+            openDB().then(db => {
+                const tx = db.transaction(STORE_NAME, 'readwrite');
+                const store = tx.objectStore(STORE_NAME);
+                store.put({ id: 1, content });
+            });
+        }
+
+        function loadContentFromDB() {
+            openDB().then(db => {
+                const tx = db.transaction(STORE_NAME, 'readonly');
+                const store = tx.objectStore(STORE_NAME);
+                const request = store.get(1);
+                request.onsuccess = function () {
+                    if (request.result && request.result.content) {
+                        document.getElementById('editor').value = request.result.content;
+                        updatePreview();
+                    }
+                };
+            });
+        }
+
+        // Salva no IndexedDB sempre que o conteúdo muda
+        document.getElementById('editor').addEventListener('input', function () {
+            saveContentToDB(this.value);
+        });
+
+        // Carrega o conteúdo salvo ao iniciar
+        window.addEventListener('DOMContentLoaded', loadContentFromDB);
+
+        // Exporta dados como JSON
+        function exportData() {
+            openDB().then(db => {
+                const tx = db.transaction(STORE_NAME, 'readonly');
+                const store = tx.objectStore(STORE_NAME);
+                const request = store.get(1);
+                request.onsuccess = function () {
+                    const data = request.result ? request.result.content : '';
+                    const json = JSON.stringify({ content: data }, null, 2);
+                    const blob = new Blob([json], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'aulaEditorSisdico.json';
+                    document.body.appendChild(a);
+
+                    // Adiciona listener para mostrar o toast após o usuário voltar o foco à janela
+                    const onFocus = () => {
+                        showToast('Exportação realizada com sucesso!', 'success');
+                        window.removeEventListener('focus', onFocus);
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    };
+                    window.addEventListener('focus', onFocus);
+
+                    a.click();
+                };
+                request.onerror = function () {
+                    showToast('Erro ao exportar os dados!', 'error');
+                };
+            }).catch(() => {
+                showToast('Erro ao acessar o banco de dados!', 'error');
+            });
+        }
+
+
+        // Importa dados de um arquivo JSON
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'application/json';
+            input.onchange = function (event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    try {
+                        const json = JSON.parse(e.target.result);
+                        if (json && typeof json.content === 'string') {
+                            document.getElementById('editor').value = json.content;
+                            updatePreview();
+                            saveContentToDB(json.content);
+                            saveToHistory();
+                            showToast('Importação realizada com sucesso!', 'success');
+                        } else {
+                            showToast('Arquivo inválido.', 'error');
+                        }
+                    } catch (err) {
+                        showToast('Erro ao importar: ' + err.message, 'error');
+                    }
+                };
+                reader.onerror = function () {
+                    showToast('Erro ao ler o arquivo!', 'error');
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
 
     </script>
 </body>

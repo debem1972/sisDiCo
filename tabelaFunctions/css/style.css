@@ -9,6 +9,8 @@ body {
 
     background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
     font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .container {
@@ -17,6 +19,7 @@ body {
     padding: 20px;
     margin-top: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 720px;
 }
 
 .titulo {
@@ -67,7 +70,7 @@ body {
 /* ===== Efeito de cabeçalho fixo na tabela ===== */
 .table-container {
     position: relative;
-    height: 400px;
+    height: 420px;
     /* Ajuste conforme necessário */
     overflow: hidden;
 }
@@ -91,4 +94,23 @@ body {
 .table-fixed tbody {
     margin-top: 41px;
     /* Mesma altura do cabeçalho */
+}
+
+/*tentativa de ajuste das colunas do thead com as colunas do tbody*/
+.table-container,
+.table-scroll,
+.table-fixed {
+    width: 100%;
+}
+
+.table-fixed th,
+.table-fixed td {
+    white-space: nowrap;
+}
+
+/*Breakpoints*/
+@media (max-width: 1001px) {
+    .logoImages {
+        display: none !important;
+    }
 }
