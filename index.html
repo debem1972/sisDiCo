@@ -8510,8 +8510,87 @@
         </div>
 
 
+        <div class="aula">
+            <h2 id="jc6mMa" title="Pag. 000 - Não está no caderno">Aula1 - Tornando seu site instalável como um app</h2>
 
+            <h3>PWA</h3>
 
+            <p>📌 O que é um PWA?</p>
+            <p>PWA (Progressive Web App) é uma tecnologia que permite que aplicações web funcionem como se fossem
+                aplicativos nativos. Com um PWA, seu site pode:</p>
+            <ul>
+                <li>Ser instalado na tela inicial do celular/PC;</li>
+                <li>Funcionar offline (total ou parcialmente);</li>
+                <li>Usar notificações push e recursos do dispositivo;</li>
+                <li>Ter performance otimizada e carregamento rápido.</li>
+            </ul>
+
+            <br>
+            <p>🧰 Pré-requisitos:</p>
+            <ul>
+                <li>Projeto rodando em HTTPS (mesmo que local com localhost);</li>
+                <li>Estrutura de arquivos da aplicação organizada;</li>
+                <li>Acesso ao HTML principal do app;</li>
+                <li>Permissão para adicionar arquivos no root (/) da aplicação.</li>
+            </ul>
+            <br>
+            <p>📝 Criar o manifest.webmanifest</p>
+            <p>No <strong>diretório raiz</strong> do seu projeto, crie um arquivo:</p>
+            <img src="https://drive.google.com/thumbnail?id=1tVK01fHwA5Eo_JOA5VAvNJ-JKuSPx018&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>📝 Dica: adicione ícones no formato PNG nas dimensões 192x192 e 512x512 na pasta /icons/.</p>
+            <br>
+            <hr>
+
+            <p> 🔗 Vincular o manifest no HTML principal</p>
+            <p>No
+
+                <head> do seu index.html:
+            </p>
+            <img src="https://drive.google.com/thumbnail?id=1ROpcWBg-22MkSBxMfVjfNg5kXs5dfzKa&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <br>
+            <hr>
+            <p>💾 Criar o service-worker.js</p>
+            <p>No root da aplicação, crie:</p>
+            <img src="https://drive.google.com/thumbnail?id=1qnbR2hVU5yhwiZ6Wb9SagOLCUfoxWjyL&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <br>
+            <hr>
+            <p>📥 Registrar o service-worker.js no JS principal</p>
+            <p>No final do seu app.js ou main.js, adicione:</p>
+            <img src="https://drive.google.com/thumbnail?id=1LMs3dduiHMmXzT7pLAuVsIZ-P3LCQotg&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <br>
+            <hr>
+            <p>✅ Testar o PWA</p>
+            <ul>
+                <li>Acesse sua aplicação com o Chrome;</li>
+                <li>Abra o DevTools (F12) > Aba Application;
+                    <ul>
+                        <li>Verifique se o manifest foi carregado;</li>
+                        <li>Se o Service Worker está ativado.</li>
+                    </ul>
+                </li>
+                <li>Vá no menu de três pontos do Chrome > "Instalar sisDiCo".</li>
+            </ul>
+            <br><br>
+            <p>💡 Dica Extra: use Lighthouse</p>
+            <p>No DevTools (F12) > Aba Lighthouse > Gere um relatório e veja sugestões para melhorar a qualidade do seu
+                PWA.</p>
+
+            <br>
+            <p>📌 Resultado Esperado</p>
+            <ul>
+                <li>O sisDiCo poderá ser instalado como app em qualquer dispositivo;</li>
+                <li>Funcionará mesmo offline (as partes que estiverem em cache);</li>
+                <li>Experiência do usuário melhorada com velocidade e confiabilidade.</li>
+            </ul>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
 
 
 
