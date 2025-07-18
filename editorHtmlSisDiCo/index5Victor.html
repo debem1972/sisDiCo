@@ -135,6 +135,9 @@
                 <button class="btn btn-outline-warning" onclick="importData()">
                     <i class="bi bi-box-arrow-in-down"></i>Importar Dados
                 </button>
+                <button class="btn btn-outline-danger" onclick="clearEditor()">
+                    <i class="bi bi-trash"></i>Limpar Editor
+                </button>
             </div>
         </div>
     </div>
@@ -601,6 +604,17 @@
                 reader.readAsText(file);
             };
             input.click();
+        }
+
+
+        //Função para limpar o editor
+        function clearEditor() {
+            document.getElementById('editor').value = '';
+            updatePreview();
+            saveToHistory();
+            saveContentToDB('');
+            document.getElementById('copyContentBtn').disabled = true;
+            showToast('Editor limpo e pronto para nova aula!', 'success');
         }
 
 

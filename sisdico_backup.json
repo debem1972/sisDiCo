@@ -322,6 +322,11 @@
         "conteudo": "while() ; ?? ;"
       },
       {
+        "titulo": "Aula12 - Estrutura Do While - Curso em Vídeo",
+        "id": "yVt4Z9",
+        "conteudo": "do{}; while();"
+      },
+      {
         "titulo": "Aula13 - If Else Elseif",
         "id": "bmifDf",
         "conteudo": "if else(){}; elseif()"
@@ -340,6 +345,11 @@
         "titulo": "Aula16 - Arrays PHP",
         "id": "XTkbFe",
         "conteudo": "count(); sort(); rsort(); asort(); ksort();"
+      },
+      {
+        "titulo": "Aula17 - Superglobais",
+        "id": "yCTfPi",
+        "conteudo": "$GLOBALS; $_SERVER; $_REQUEST; $_POST; $_GET; $_FILES; $_ENV; $_COOKIE; $_SESSION;"
       }
     ],
     "id": 12

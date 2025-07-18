@@ -8352,6 +8352,166 @@
 
 
 
+        <div class="aula">
+            <h2 id="yVt4Z9" title="Pag. 280 - caderno Tigre">Estrutura Do While - Curso em Vídeo</h2>
+
+            <h3>Estrutura de repetição Do While</h3>
+            <p>Repetição com teste lógico no final</p>
+            <p><strong><u>Desmembrando a sintaxe</u></strong></p>
+            <p>Ex:</p>
+            <p><mark>$c = 1;</mark></p>
+            <p><mark><span style="color: #FF1493;">do</span> { <span style="color: green;">#faça</span></mark></p>
+            <p><mark>echo $c; <span style="color: green;">#Printa na tela o valor de <strong>c</strong></span></mark>
+            </p>
+            <p><mark>$c++; <span style="color: green;">#Incrementa o contador em 1</span></mark></p>
+            <p><mark>} <span style="color: #FF1493;">while</span>($c <=10); <span style="color: green;">
+                        #enquanto</span></mark></p>
+            <p>...a saída será...</p>
+            <p><strong>1 2 3 4 5 6 7 8 9 10</strong></p>
+            <p><span style="color: #FF1493;"><em><strong>(do)Faça</strong></em></span> algo <span
+                    style="color: #FF1493;"><em><strong>(while)enquanto</strong></em></span> a condição for esta...</p>
+
+            <hr>
+            <h4>Exercício:</h4>
+            <p>Crie um script php para calcular o fatorial de um nº inteiro!</p>
+            <p>Criando o algoritmo:</p>
+            <ol>
+                <li><em>Pesquisar análise combinatória em matemática;</em></li>
+                <p>Fórmula para determinar o fatorial de um número inteiro: <em><strong>n! = n X (n-1) X (n-2) X
+                            ...</strong></em></p>
+                <li>Construa o form para envio do número inteiro;</li>
+                <img src="https://drive.google.com/thumbnail?id=11JZqBD_oNHkOEzFtFzB21qmh4ObpHG5i&sz=w800" alt="Imagem"
+                    class="img-fluid"><br><img
+                    src="https://drive.google.com/thumbnail?id=13q2Z31zDtXULNGiM9pmy24NKufzMqQ-_&sz=w800" alt="Imagem"
+                    class="img-fluid"><br><br>
+
+                <li>Construa o script php.</li>
+                <img src="https://drive.google.com/thumbnail?id=1m4C7OZQcZdmuhEvnplmdeEIBs85wxx_C&sz=w800" alt="Imagem"
+                    class="img-fluid"><br><br>
+                <img src="https://drive.google.com/thumbnail?id=1odk-7I91hN5-njyiMU6yBI2bHTPKPrsl&sz=w800" alt="Imagem"
+                    class="img-fluid"><br><br>
+            </ol>
+            <hr>
+
+            <h4>Exercício1</h4>
+            <p>Construa um algorítmo php para mostrar a tabuada de um nº!</p>
+            <p>Primeiro, vamos criar um form com um select onde os options serão construidos dinamicamente...</p>
+
+            <img src="https://drive.google.com/thumbnail?id=1Ugbjlvcooizo3WFhixHfuRQW3sTL75tS&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1rHM-DgFXozgkMTZnnJzM2NM5fIVWPaM9&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>Agora o script php...</p>
+            <img src="https://drive.google.com/thumbnail?id=1qD1tC0fsMYI359R1GU9C83A1vm5IN_g0&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=100wOrP_FX0sjdZZNOlT-SyGH8xtdK9Fz&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="yCTfPi" title="Pag. 286 - caderno Tigre">Aula17 - Superglobais</h2>
+
+            <h3>O que são SUPERGLOBAIS?</h3>
+            <p>São variáveis pré definidas no php, que são sempre acessíveis, independente do escopo onde estiverem.</p>
+            <p>Abaixo veremos uma tabela das superglobais e suas funcionalidades específicas:</p>
+            <table class="table table-bordered shadow">
+                <tr>
+                    <th>Superglobal</th>
+                    <th>Funcionalidade</th>
+                </tr>
+                <tr>
+                    <td><em><strong>$GLOBALS</strong></em></td>
+                    <td>Torna as variáveis acessíveis em qualquer escopo;</td>
+                </tr>
+                <tr>
+                    <td><em><strong>$_SERVER</strong></em></td>
+                    <td>Contêm informações sobre requisições, caminhos etc...</td>
+                </tr>
+                <tr>
+                    <td>$_REQUEST</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>$_POST</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>$_GET</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>$_FILES</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>$_ENV</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>$_COOKIE</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>$_SESSION</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <br>
+            <hr>
+            <h4>$_GLOBALS</h4>
+            <p>Ex:</p>
+            <p>$a = 10;</p>
+            <p>$b = 2;</p>
+            <p>function soma(){</p>
+            <p>$c = $a + $b;</p>
+            <p>}</p>
+            <p>soma()</p>
+            <p>echo $c;</p>
+
+            <p><span style="color: red;">...a saída deste script será um erro no php, pois as variáveis $a e $b , estão
+                    sendo chamadas dentro do escopo da function soma, apesar de estarem fora dele.</span></p>
+            <p>Para resolvermos isso...</p>
+            <p>$a = 10;</p>
+            <p>$b = 2;</p>
+            <p>function soma(){</p>
+            <p><span style="color: blue;">global</span> $a, $b, $c;</p>
+            <p>$c = $a + $b;</p>
+            <p>}</p>
+            <p>soma()</p>
+            <p>echo $c;</p>
+            <p>...a saída será... <strong>12</strong></p>
+            <br>
+
+            <hr>
+
+            <h4>$_SERVER</h4>
+
+            <p>Buscar o caminho completo do arquivo vigente dentre outras informações...</p>
+            <img src="https://drive.google.com/thumbnail?id=19ogETcpdiRZji3jY-8x4-9f8eHcVLGa0&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1JUeRd3e_dxCdXpupM54Gu2ArJ2-rRWsM&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>...ou exibir uma lista completa de informações ...</p>
+            <img src="https://drive.google.com/thumbnail?id=1UzfPNJ9LoJdQr50qI_Gldl8ygLFY2y10&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1gCVbp5ddt69WQxybDoZE_gDlpMmL_3Xz&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+
 
 
 
