@@ -8676,6 +8676,108 @@
 
 
 
+        <div class="aula">
+            <h2 id="17OABM" title="Pag. 297 - caderno Tigre">Aula18 - Método $_GET</h2>
+
+            <h3>method = "get"</h3>
+            <p>É uma importante superglobal dentro do php.</p>
+            <p>Get do inglês, significa "pegar". Serve para pegar as informações passadas pela URL nos objetos
+                provenientes de um form, para ser utilizadas em variáveis dentro do script php.</p>
+            <br><br>
+            <p><span style="color: red;">IMPORTANTE!!!</span></p>
+            <p>Devemos sempre fazermos a verificação dos dados provenientes da URL via método get, para evitar assim,
+                erro na página, por meio de um operador ternário como <strong><em>isset</em></strong>, ou operador de
+                coalescência nula(<strong><em>??</em></strong>), ou um <strong><em>if</em></strong>, estabelecendo
+                valores <em>default</em> para o caso de os valores recebidos forem <strong><em> null</em></strong>.
+                Veja os exemplos abaixo:</p>
+            <p>O primeiro exemplo de verificação é com um <strong><em>if(){}</em></strong>...</p>
+            <img src="https://drive.google.com/thumbnail?id=1siF99QFa5qIqOwkhJyrSI90MBjvkc4S4&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1nKWVKq5ymZtap47JsAybBs3Nlvu2IN8v&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>Agora com o <strong><em>isset</em></strong></p>
+            <img src="https://drive.google.com/thumbnail?id=188ibC9c1xxIOc6kt7LvQWWDuZbjkDXjG&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>Com o operador de coalescência nula <strong><em>??</em></strong>...</p>
+            <img src="https://drive.google.com/thumbnail?id=10qShe1mPWcsG5Sr99-2h7VU9PBYTvZoo&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>E finalmente se a condição true não for atingida, é repassado o valor <em>default</em>
+                <strong>"Mundo!"</strong> como valor da variável...
+            </p>
+            <img src="https://drive.google.com/thumbnail?id=1bBwoV6xswgP875-iu1zgiMLceFbmgKfh&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <hr>
+            <br><br>
+            <h4>Mais de um parâmetro na URL</h4>
+            <p>Podemos atribuir mais de um parâmetro pela URL, utilizando o separador <strong><em>&</em></strong>(e
+                comercial) entre eles.</p>
+            <p>Exemplo: Vamos criar tres links, com parâmetros de cor de background e cor de fonte, que, ao serem
+                clicados, manipulam o css por meio destes parâmetros php, modificando a viewport.</p>
+            <p>Devemos seguir esta ordem, uma vez que o php lê o código de cima para baixo...</p>
+            <ul>
+                <li>1 - Declaramos os testes de validação das variáveis no início do código...</li>
+            </ul>
+            <img src="https://drive.google.com/thumbnail?id=1Oenzp1c-u7wlitKDvuOoVfDZlFOymAxC&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <ul>
+                <li>2 - declaramos o CSS incorporado à página...</li>
+            </ul>
+            <img src="https://drive.google.com/thumbnail?id=1OtmdJS7iC6ODjmVNM_VN9Zo5XF7ru6Ir&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p><span style="color: red;font-size: 1.2rem;">ADENDO!!!</span></p>
+            <h5><span style="color: blue;"><em>Sanitização</em></span> <span style="color: red;">da página como medida
+                    de segurança contra injeção de códigos maliciosos pela URL.</span></h5>
+            <p>Ainda que injeção de códigos seja menos comum em estilos que em html, é uma boa prática usar <span
+                    style="color: blue;">htmlspecialchars</span> para garantir que nenhum código malicioso seja
+                injetado, especialmente se estiver lidando com entradas de usuário.</p>
+            <p>Como você poderá observar na imagem acima...</p>
+            <ul>
+                <li><span style="color: blue;">htmlspecialchars</span>: <span style="color: deeppink;">converte
+                        caracteres especiais em entidades html.</span></li>
+                <li><span style="color: purple;">ENT_QUOTES</span>: <span style="color: deeppink;">Converte aspas duplas
+                        e aspas simples...</span></li>
+                <li><span style="color: gold;">'UTF-8'</span>: <span style="color: deeppink;">Especifica o conjunto de
+                        caracteres a ser utilizado</span>.</li>
+            </ul>
+            <p>...continuando no exemplo de manipulação do DOM pelo php...</p>
+            <ul>
+                <li>3 - Criamos os links e passamos os parâmetros em cada um deles...</li>
+            </ul>
+            <img src="https://drive.google.com/thumbnail?id=1bUrQ1W2lgRKaG9Z9kgejI7usDPwiz3zk&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1VSv9VUGqUDfY02o2ZAH5ljhfntZvv3j3&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1OsKwZSu9Dp9hCISIHgrHsgqUY5WfL8MU&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=104tNnp3qqIRGchkP7-dKrwU98MgzBhXR&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <br><br>
+            <hr>
+            <h4>Método get com form na mesma página</h4>
+            <p>Podemos passar dados por um form dentro da mesma página na qual enviaremos estes dados.</p>
+            <img src="https://drive.google.com/thumbnail?id=1B4E761zxp-lesl4dgVpEcAgxN265DJg2&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Podemos ainda, caso os campos input não sejam configurados com <span
+                    style="color: green;">required</span>, utilizar o método <span
+                    style="color: red;font-size: 1.2rem;">!</span><span style="color: blue;">empty </span>para realizar
+                a verificação de campos vazios e assim , passarmos um valor para default como "Nome ignorado...!!!" e
+                "Idade não informada...!!!":</p>
+            <p><mark><em>$nome = !empty($_GET['nome']) ? $_GET['nome'] : "Nome ignorado...!!!";</em></mark></p>
+            <p><mark><em>$idade = !empty($_GET['idade']) ? $_GET['idade'] : "Idade não informada...!!!";</em></mark></p>
+            <img src="https://drive.google.com/thumbnail?id=15EfXPx5sZRkjmHiMatDqBKQjPBB9VKNF&sz=w800" alt="Imagem"
+                class="img-fluid">
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+
 
 
 
