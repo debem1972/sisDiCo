@@ -167,6 +167,17 @@
     "id": 13
   },
   {
+    "titulo": "CSS",
+    "aulas": [
+      {
+        "titulo": "Aula01 - Testagem da aplicação correta de um estilo css a um arquivo",
+        "id": "DxZXuZ",
+        "conteudo": ""
+      }
+    ],
+    "id": 18
+  },
+  {
     "titulo": "Dados PC All-in-one",
     "aulas": [
       {
@@ -355,6 +366,11 @@
         "titulo": "Aula17 - Superglobais",
         "id": "yCTfPi",
         "conteudo": "$GLOBALS; $_SERVER; $_REQUEST; $_POST; $_GET; $_FILES; $_ENV; $_COOKIE; $_SESSION;"
+      },
+      {
+        "titulo": "Aula18 - Método $_GET",
+        "id": "17OABM",
+        "conteudo": "htmlspecialchars"
       }
     ],
     "id": 12
