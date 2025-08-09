@@ -376,6 +376,17 @@
     "id": 12
   },
   {
+    "titulo": "Processo de desenvolvimento",
+    "aulas": [
+      {
+        "titulo": "Aula01 - PRD - Product Requirements Document",
+        "id": "ePABxS",
+        "conteudo": "PRD"
+      }
+    ],
+    "id": 19
+  },
+  {
     "titulo": "Pseudo-classe css",
     "aulas": [
       {
