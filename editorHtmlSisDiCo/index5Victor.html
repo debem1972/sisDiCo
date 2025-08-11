@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sisDiCo Editor</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- DOMPurify para sanitizar HTML -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.1/purify.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa;
+            /*padding-top: 140px;*/
+            /* Ajustado para a altura da .contentControls */
+        }
+
+        .main-content {
+            padding-top: 1rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .contentControls {
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+
+
+
+        #preview {
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            background: #ffffff;
+            border-radius: 5px;
+            min-height: 200px;
+            height: 400px;
+            overflow: auto;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        #preview img {
+            max-width: 100%;
+            min-width: 300px;
+            height: auto;
+        }
+
+        .btn i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Toast Container -->
+    <div id="toastContainer" class="position-fixed top-0 end-0 p-3" style="z-index: 2000"></div>
+    <div class="contentControls fixed-top bg-light py-2 border">
+        <div class="container">
+            <h1 class="mb-4">sisDiCo Editor</h1>
+            <div class="toolbar mt-3 border">
+                <select id="optionSelected" class="form-select w-auto"
+                    onchange="wrapText(this.value, '</' + this.value.slice(1))">
+                    <option value="" disabled selected>Título</option>
+                    <option value="<h1>">H1</option>
+                    <option value="<h2>">H2</option>
+                    <option value="<h3>">H3</option>
+                    <option value="<h4>">H4</option>
+                    <option value="<h5>">H5</option>
+                    <option value="<h6>">H6</option>
+                </select>
+                <button class="btn btn-outline-primary" onclick="wrapText('<p>', '</p>')"><i
+                        class="bi bi-paragraph"></i>Parágrafo</button>
+                <button class="btn btn-outline-primary" onclick="wrapText('<strong>', '</strong>')"><i
+                        class="bi bi-type-bold"></i>Negrito</button>
+                <button class="btn btn-outline-primary" onclick="wrapText('<em>', '</em>')"><i
+                        class="bi bi-type-italic"></i>Itálico</button>
+                <button class="btn btn-outline-primary" onclick="wrapText('<u>', '</u>')"><i
+                        class="bi bi-type-underline"></i>Sublinhado</button>
+                <button class="btn btn-outline-primary" onclick="insertStyledSpan()"><i
+                        class="bi bi-code"></i>Span</button>
+                <button class="btn btn-outline-primary" onclick="wrapText('<mark>', '</mark>')"><i
+                        class="bi bi-highlighter"></i>Marca texto</button>
+                <button class="btn btn-outline-primary" onclick="insertButton()"><i
+                        class="bi bi-square"></i>Botão</button>
+                <button class="btn btn-outline-primary" onclick="insertLink()"><i
+                        class="bi bi-link-45deg"></i>Link</button>
+                <button class="btn btn-outline-primary" onclick="insertAtCursor('<br>')"><i
+                        class="bi bi-arrow-return-left"></i>Quebra de Linha</button>
+                <button class="btn btn-outline-primary" onclick="insertAtCursor('<hr>')"><i class="bi bi-hr"></i>Linha
+                    Divisória</button>
+                <button class="btn btn-outline-primary" onclick="insertList('ul')"><i class="bi bi-list-ul"></i>Lista
+                    Não Ordenada</button>
+                <button class="btn btn-outline-primary" onclick="insertList('ol')"><i class="bi bi-list-ol"></i>Lista
+                    Ordenada</button>
+                <button class="btn btn-outline-primary" onclick="insertTable()"><i
+                        class="bi bi-table"></i>Tabela</button>
+                <button class="btn btn-outline-primary" onclick="insertImage()"><i
+                        class="bi bi-image"></i>Imagem</button>
+                <button class="btn btn-outline-primary" onclick="wrapInAulaDiv()"><i class="bi bi-book"></i>Gerar
+                    Aula</button>
+                <button id="copyContentBtn" class="btn btn-outline-primary" onclick="copyContent()" disabled><i
+                        class="bi bi-clipboard"></i>Copiar Conteúdo</button>
+
+
+                <button class="btn btn-outline-primary" onclick="undo()"><i
+                        class="bi bi-arrow-counterclockwise"></i>Desfazer</button>
+                <button class="btn btn-outline-primary" onclick="redo()"><i
+                        class="bi bi-arrow-clockwise"></i>Refazer</button>
+                <button class="btn btn-outline-success" onclick="exportData()">
+                    <i class="bi bi-box-arrow-up"></i>Exportar Dados
+                </button>
+                <button class="btn btn-outline-warning" onclick="importData()">
+                    <i class="bi bi-box-arrow-in-down"></i>Importar Dados
+                </button>
+                <button class="btn btn-outline-danger" onclick="clearEditor()">
+                    <i class="bi bi-trash"></i>Limpar Editor
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container main-content">
+        <textarea id="editor" class="form-control mt-5" oninput="updatePreview()"></textarea>
+        <h2 class="mt-4">Visualização ao Vivo</h2>
+        <div id="preview" class="shadow-sm mt-3"></div>
+    </div>
+
+    <!-- Bootstrap 5 JS (necessário para alguns componentes) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let history = [''];
+        let historyIndex = 0;
+
+        function saveToHistory() {
+            const content = document.getElementById('editor').value;
+            history = history.slice(0, historyIndex + 1);
+            history.push(content);
+            historyIndex++;
+        }
+
+        function undo() {
+            if (historyIndex > 0) {
+                historyIndex--;
+                document.getElementById('editor').value = history[historyIndex];
+                updatePreview();
+            }
+        }
+
+        function redo() {
+            if (historyIndex < history.length - 1) {
+                historyIndex++;
+                document.getElementById('editor').value = history[historyIndex];
+                updatePreview();
+            }
+        }
+
+        function wrapText(startTag, endTag) {
+            const textarea = document.getElementById('editor');
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const selectedText = textarea.value.substring(start, end);
+            const select = document.getElementById('optionSelected'); // ID do select
+
+            const before = textarea.value.substring(0, start);
+            const after = textarea.value.substring(end);
+
+            const newText = selectedText ? startTag + selectedText + endTag : startTag + endTag;
+
+            textarea.value = before + newText + after;
+
+            saveToHistory();
+
+            // Posicionar o cursor após a tag de fechamento
+            textarea.selectionStart = textarea.selectionEnd = before.length + newText.length;
+            textarea.focus();
+            updatePreview();
+            // Resetar o select para a opção "Título"
+            select.value = "";
+        }
+        //----------------------------------------------------------------
+        function insertButton() {
+            const buttonText = prompt('Digite o texto do botão (ex.: "Clique Aqui"):') || 'Botão';
+            if (buttonText.trim()) {
+                // Pergunta se o usuário deseja adicionar uma classe ou outros atributos
+                const wantsAttributes = confirm('Deseja adicionar atributos ao botão (ex.: classe, tipo)?');
+                let buttonHTML = '<button';
+
+                if (wantsAttributes) {
+                    const buttonClass = prompt('Digite a classe CSS (ex.: btn btn-primary, ou deixe em branco):');
+                    if (buttonClass && buttonClass.trim()) {
+                        buttonHTML += ` class="${buttonClass.trim()}"`;
+                    }
+
+                    const buttonType = prompt('Digite o tipo do botão (ex.: button, submit, ou deixe em branco para "button"):', 'button');
+                    if (buttonType && buttonType.trim()) {
+                        buttonHTML += ` type="${buttonType.trim()}"`;
+                    }
+                } else {
+                    // Atributos padrão se não quiser personalizar
+                    buttonHTML += ' type="button" class="btn btn-primary"';
+                }
+
+                buttonHTML += `>${buttonText.trim()}</button>`;
+                insertAtCursor(buttonHTML);
+            } else {
+                alert('Por favor, insira um texto válido para o botão.');
+            }
+        }
+
+        //---------------------------------------------------------------------
+        function insertLink() {
+            const url = prompt('Digite o URL do link (ex.: https://exemplo.com, pagina.html, #secao1):');
+            if (url && url.trim()) {
+                // Validação flexível para URLs absolutos, relativos e âncoras
+                const isValidUrl = (
+                    // URLs absolutos (http://, https://, mailto:, etc.)
+                    /^([a-zA-Z][a-zA-Z0-9+.-]*):\/\/.+$/.test(url) ||
+                    // Âncoras (ex.: #secao1)
+                    /^#[a-zA-Z0-9_-]+$/.test(url) ||
+                    // Caminhos relativos (ex.: pagina.html, ../recurso, /caminho/arquivo.html)
+                    /^[a-zA-Z0-9_.-]+(\/[a-zA-Z0-9_.-]+)*(\.[a-zA-Z0-9]+)?$/.test(url) ||
+                    // Caminhos relativos com subpastas (ex.: subpasta/arquivo.html)
+                    /^([a-zA-Z0-9_.-]+\/)*[a-zA-Z0-9_.-]+(\.[a-zA-Z0-9]+)?$/.test(url) ||
+                    // Caminhos relativos começando com ../ ou /
+                    /^(\.\.\/)+[a-zA-Z0-9_.-]+(\/[a-zA-Z0-9_.-]+)*(\.[a-zA-Z0-9]+)?$/.test(url) ||
+                    /^\/[a-zA-Z0-9_.-]+(\/[a-zA-Z0-9_.-]+)*(\.[a-zA-Z0-9]+)?$/.test(url)
+                );
+
+                if (isValidUrl) {
+                    const wantsAttributes = confirm('Deseja adicionar atributos adicionais ao link (ex.: abrir em nova aba, título)?');
+                    let startTag = `<a href="${url.trim()}"`;
+
+                    if (wantsAttributes) {
+                        const target = confirm('Abrir o link em uma nova aba?') ? '_blank' : '';
+                        if (target) {
+                            startTag += ` target="${target}"`;
+                        }
+
+                        const title = prompt('Digite o título do link (ex.: "Visite nosso site", ou deixe em branco):');
+                        if (title && title.trim()) {
+                            startTag += ` title="${title.trim()}"`;
+                        }
+                    }
+
+                    startTag += '>';
+                    wrapText(startTag, '</a>');
+                } else {
+                    alert('Por favor, insira um URL válido (ex.: https://exemplo.com, pagina.html, #secao1).');
+                }
+            } else {
+                alert('Por favor, insira um URL válido.');
+            }
+        }
+
+
+
+        //-------------------------------------------------------------------
+        function insertStyledSpan() {
+            // Pergunta se o usuário deseja adicionar um estilo
+            const wantsStyle = confirm('Deseja adicionar um estilo ao span (cor ou tamanho da fonte)?');
+            let startTag = '<span>';
+
+            if (wantsStyle) {
+                let style = '';
+
+                // Pergunta sobre a cor
+                const color = prompt('Digite a cor desejada (ex.: red, #ff0000, ou deixe em branco para não aplicar):');
+                if (color && color.trim()) {
+                    style += `color: ${color.trim()};`;
+                }
+
+                // Pergunta sobre o font-size
+                const fontSize = prompt('Digite o tamanho da fonte (ex.: 16px, 1.5em, ou deixe em branco para não aplicar):');
+                if (fontSize && fontSize.trim()) {
+                    style += `font-size: ${fontSize.trim()};`;
+                }
+
+                // Se algum estilo foi definido, adiciona ao span
+                if (style) {
+                    startTag = `<span style="${style}">`;
+                }
+            }
+
+            // Insere a tag span com ou sem estilo
+            wrapText(startTag, '</span>');
+        }
+
+        function insertList(type) {
+            const items = parseInt(prompt('Quantos itens na lista?'), 10);
+            if (!isNaN(items) && items > 0) {
+                let listHTML = `<${type}>\n`;
+                for (let i = 0; i < items; i++) {
+                    listHTML += `  <li>Item ${i + 1}</li>\n`;
+                }
+                listHTML += `</${type}>\n`;
+                insertAtCursor(listHTML);
+            } else {
+                alert('Por favor, insira um número válido maior que 0.');
+            }
+        }
+
+        function insertTable() {
+            const rows = parseInt(prompt('Quantas linhas?'), 10);
+            const cols = parseInt(prompt('Quantas colunas?'), 10);
+            if (!isNaN(rows) && !isNaN(cols) && rows > 0 && cols > 0) {
+                let tableHTML = '<table class="table table-bordered">\n';
+                // Adiciona a linha de cabeçalho com <th>
+                tableHTML += '  <tr>\n';
+                for (let j = 0; j < cols; j++) {
+                    tableHTML += '    <th>Item</th>\n';
+                }
+                tableHTML += '  </tr>\n';
+                // Adiciona as linhas de dados com <td>
+                for (let i = 0; i < rows; i++) {
+                    tableHTML += '  <tr>\n';
+                    for (let j = 0; j < cols; j++) {
+                        tableHTML += '    <td>Item</td>\n';
+                    }
+                    tableHTML += '  </tr>\n';
+                }
+                tableHTML += '</table>\n';
+                insertAtCursor(tableHTML);
+            } else {
+                alert('Por favor, insira números válidos maiores que 0.');
+            }
+        }
+
+        function insertImage() {
+            const url = prompt('Cole aqui o link público da imagem (ex.: Google Drive):');
+            if (url && /^https?:\/\/.+$/.test(url)) {
+                const processedUrl = processGoogleDriveLink(url);
+                const imgHTML = `<img src="${processedUrl}" alt="Imagem" class="img-fluid">`;
+                insertAtCursor(imgHTML);
+            } else {
+                alert('Por favor, insira um URL válido.');
+            }
+        }
+
+        function processGoogleDriveLink(url) {
+            const drivePatterns = [
+                /https:\/\/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)\/view/,
+                /https:\/\/drive\.google\.com\/open\?id=([a-zA-Z0-9_-]+)/,
+                /https:\/\/drive\.google\.com\/uc\?export=[a-z]+&id=([a-zA-Z0-9_-]+)/
+            ];
+
+            for (const pattern of drivePatterns) {
+                const match = url.match(pattern);
+                if (match && match[1]) {
+                    const fileId = match[1];
+                    const newUrl = `https://drive.google.com/thumbnail?id=${fileId}&sz=w800`;
+                    console.log(`URL gerada para a imagem: ${newUrl}`); // Para debugging
+                    return newUrl;
+                }
+            }
+
+            console.log(`URL não processada, usando original: ${url}`); // Para debugging
+            return url;
+        }
+
+        function insertAtCursor(content) {
+            const textarea = document.getElementById('editor');
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+
+            const before = textarea.value.substring(0, start);
+            const after = textarea.value.substring(end);
+
+            textarea.value = before + content + after;
+
+            saveToHistory();
+
+            textarea.selectionStart = textarea.selectionEnd = (before + content).length;
+            textarea.focus();
+            updatePreview();
+        }
+
+        function wrapInAulaDiv() {
+            const content = document.getElementById('editor').value;
+
+            const aulaHTML = `
+<div class="aula">
+  <h2 id="" title="Pag. 000 - caderno Tigre">Aula00 - matéria/aula</h2>
+
+  ${content}
+
+  <br>
+  <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+</div>`.trim();
+
+            document.getElementById('editor').value = aulaHTML;
+            saveToHistory();
+            updatePreview();
+            // Habilitar o botão "Copiar Conteúdo"
+            document.getElementById('copyContentBtn').disabled = false;
+        }
+        //-----------------------------------------------------------------
+        function copyContent() {
+            const textarea = document.getElementById('editor');
+            textarea.select();
+            try {
+                navigator.clipboard.writeText(textarea.value);
+                alert('Conteúdo copiado para a área de transferência!');
+            } catch (err) {
+                console.error('Erro ao copiar: ', err);
+                alert('Erro ao copiar o conteúdo. Tente novamente.');
+            }
+        }
+        //----------------------------------------------------------------
+
+        function updatePreview() {
+            const content = document.getElementById('editor').value;
+            document.getElementById('preview').innerHTML = DOMPurify.sanitize(content);
+            // Desabilitar o botão "Copiar Conteúdo" ao editar
+            document.getElementById('copyContentBtn').disabled = true;
+        }
+
+        // Inicializa o histórico com o conteúdo vazio
+        document.getElementById('editor').value = '';
+        saveToHistory();
+
+        // Ajuste dinâmico do padding-top
+        function adjustBodyPadding() {
+            const contentControls = document.querySelector('.contentControls');
+            const height = contentControls.offsetHeight;
+            document.body.style.paddingTop = `${height + 20}px`; // Altura + margem extra
+        }
+
+        window.addEventListener('load', adjustBodyPadding);
+        window.addEventListener('resize', adjustBodyPadding);
+
+        function showToast(message, type = 'success') {
+            const toastId = 'toast-' + Date.now();
+            const icon = type === 'success'
+                ? '<i class="bi bi-check-circle-fill text-success"></i>'
+                : '<i class="bi bi-x-circle-fill text-danger"></i>';
+            const bgClass = type === 'success' ? 'bg-success text-white' : 'bg-danger text-white';
+
+            const toastHtml = `
+    <div id="${toastId}" class="toast align-items-center ${bgClass}" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+      <div class="d-flex">
+        <div class="toast-body">
+          ${icon} ${message}
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Fechar"></button>
+      </div>
+    </div>
+    `;
+            const container = document.getElementById('toastContainer');
+            container.insertAdjacentHTML('beforeend', toastHtml);
+
+            const toastElem = document.getElementById(toastId);
+            const toast = new bootstrap.Toast(toastElem);
+            toast.show();
+
+            toastElem.addEventListener('hidden.bs.toast', () => {
+                toastElem.remove();
+            });
+        }
+
+        //Persistência dos dados em IndexedDB
+
+        // IndexedDB setup
+        const DB_NAME = 'sisDiCoEditorDB';
+        const STORE_NAME = 'editorContent';
+        let db;
+
+        function openDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, 1);
+                request.onupgradeneeded = function (event) {
+                    db = event.target.result;
+                    if (!db.objectStoreNames.contains(STORE_NAME)) {
+                        db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+                    }
+                };
+                request.onsuccess = function (event) {
+                    db = event.target.result;
+                    resolve(db);
+                };
+                request.onerror = function (event) {
+                    reject(event.target.error);
+                };
+            });
+        }
+
+        function saveContentToDB(content) {
+            openDB().then(db => {
+                const tx = db.transaction(STORE_NAME, 'readwrite');
+                const store = tx.objectStore(STORE_NAME);
+                store.put({ id: 1, content });
+            });
+        }
+
+        function loadContentFromDB() {
+            openDB().then(db => {
+                const tx = db.transaction(STORE_NAME, 'readonly');
+                const store = tx.objectStore(STORE_NAME);
+                const request = store.get(1);
+                request.onsuccess = function () {
+                    if (request.result && request.result.content) {
+                        document.getElementById('editor').value = request.result.content;
+                        updatePreview();
+                    }
+                };
+            });
+        }
+
+        // Salva no IndexedDB sempre que o conteúdo muda
+        document.getElementById('editor').addEventListener('input', function () {
+            saveContentToDB(this.value);
+        });
+
+        // Carrega o conteúdo salvo ao iniciar
+        window.addEventListener('DOMContentLoaded', loadContentFromDB);
+
+        // Exporta dados como JSON
+        function exportData() {
+            openDB().then(db => {
+                const tx = db.transaction(STORE_NAME, 'readonly');
+                const store = tx.objectStore(STORE_NAME);
+                const request = store.get(1);
+                request.onsuccess = function () {
+                    const data = request.result ? request.result.content : '';
+                    const json = JSON.stringify({ content: data }, null, 2);
+                    const blob = new Blob([json], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'aulaEditorSisdico.json';
+                    document.body.appendChild(a);
+
+                    // Adiciona listener para mostrar o toast após o usuário voltar o foco à janela
+                    const onFocus = () => {
+                        showToast('Exportação realizada com sucesso!', 'success');
+                        window.removeEventListener('focus', onFocus);
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    };
+                    window.addEventListener('focus', onFocus);
+
+                    a.click();
+                };
+                request.onerror = function () {
+                    showToast('Erro ao exportar os dados!', 'error');
+                };
+            }).catch(() => {
+                showToast('Erro ao acessar o banco de dados!', 'error');
+            });
+        }
+
+
+        // Importa dados de um arquivo JSON
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'application/json';
+            input.onchange = function (event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    try {
+                        const json = JSON.parse(e.target.result);
+                        if (json && typeof json.content === 'string') {
+                            document.getElementById('editor').value = json.content;
+                            updatePreview();
+                            saveContentToDB(json.content);
+                            saveToHistory();
+                            showToast('Importação realizada com sucesso!', 'success');
+                        } else {
+                            showToast('Arquivo inválido.', 'error');
+                        }
+                    } catch (err) {
+                        showToast('Erro ao importar: ' + err.message, 'error');
+                    }
+                };
+                reader.onerror = function () {
+                    showToast('Erro ao ler o arquivo!', 'error');
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
+
+        //Função para limpar o editor
+        function clearEditor() {
+            document.getElementById('editor').value = '';
+            updatePreview();
+            saveToHistory();
+            saveContentToDB('');
+            document.getElementById('copyContentBtn').disabled = true;
+            showToast('Editor limpo e pronto para nova aula!', 'success');
+        }
+
+
+    </script>
+</body>
+
+</html>

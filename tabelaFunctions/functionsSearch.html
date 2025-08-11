@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Funções</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="titulo">
+            <h1 class="text-center">Tabela de Funções</h1>
+            <div class="logoImages">
+                <img src="./image/elefantePHPSemFundo.png" alt="logoS do PHP" class="logo-table">
+                <img src="./image/jqueryLogo.png" alt="Logo do jQuery" class="logo-table">
+                <img src="./image/jsLogo.png" alt="Logo do javaScript" class="logo-table">
+            </div>
+        </header>
+
+        <!-- Campo de busca -->
+        <div class="mb-4">
+            <input type="text" class="form-control" id="searchInput"
+                placeholder="Pesquisar funções (ex: 'função para calcular raiz quadrada')">
+        </div>
+
+        <!-- Botões de exportar e importar -->
+        <div class="mb-3">
+            <button class="btn btn-primary me-2" onclick="exportData()">Exportar JSON</button>
+            <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importData(event)">
+            <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">Importar
+                JSON</button>
+        </div>
+
+        <!-- Botão para abrir formulário -->
+        <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addFunctionModal">Adicionar Nova
+            Função</button>
+
+        <!-- Tabela -->
+        <div class="table-container">
+            <div class="table-scroll">
+                <table class="table table-striped table-bordered table-fixed">
+                    <colgroup>
+                        <col style="width: 20%;">
+                        <col style="width: 25%;">
+                        <col style="width: 55%;">
+                    </colgroup>
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Linguagem</th>
+                            <th>Função</th>
+                            <th>Serve para...</th>
+                        </tr>
+                    </thead>
+                    <tbody id="functionTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para adicionar função -->
+    <div class="modal fade" id="addFunctionModal" tabindex="-1" aria-labelledby="addFunctionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addFunctionModalLabel">Adicionar Nova Função</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addFunctionForm">
+                        <div class="mb-3">
+                            <label for="functionLanguage" class="form-label">Linguagem</label>
+                            <select class="form-control" id="functionLanguage" required>
+                                <option value="">Selecione...</option>
+                                <option>PHP</option>
+                                <option>JavaScript</option>
+                                <option>Python</option>
+                                <option>Java</option>
+                                <option>C</option>
+                                <option>C++</option>
+                                <option>C#</option>
+                                <option>Ruby</option>
+                                <option>Go</option>
+                                <option>TypeScript</option>
+                                <option>Swift</option>
+                                <option>Kotlin</option>
+                                <option>Rust</option>
+                                <option>Perl</option>
+                                <option>Scala</option>
+                                <option>R</option>
+                                <option>SQL</option>
+                                <option>Shell</option>
+                                <option>HTML</option>
+                                <option>CSS</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="functionName" class="form-label">Nome da Função</label>
+                            <input type="text" class="form-control" id="functionName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="functionDescription" class="form-label">Descrição (Serve para...)</label>
+                            <input type="text" class="form-control" id="functionDescription" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="functionSyntax" class="form-label">Sintaxe</label>
+                            <textarea class="form-control" id="functionSyntax" rows="4" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="functionUsage" class="form-label">Instruções de Uso</label>
+                            <textarea class="form-control" id="functionUsage" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal para edição dos dados-->
+    <div class="modal fade" id="editFunctionModal" tabindex="-1" aria-labelledby="editFunctionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editFunctionModalLabel">Editar Função</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editFunctionForm">
+                        <input type="hidden" id="editFunctionId">
+                        <div class="mb-3">
+                            <label for="editFunctionLanguage" class="form-label">Linguagem</label>
+                            <select class="form-control" id="editFunctionLanguage" required>
+                                <option value="">Selecione...</option>
+                                <option>PHP</option>
+                                <option>JavaScript</option>
+                                <option>Python</option>
+                                <option>Java</option>
+                                <option>C</option>
+                                <option>C++</option>
+                                <option>C#</option>
+                                <option>Ruby</option>
+                                <option>Go</option>
+                                <option>TypeScript</option>
+                                <option>Swift</option>
+                                <option>Kotlin</option>
+                                <option>Rust</option>
+                                <option>Perl</option>
+                                <option>Scala</option>
+                                <option>R</option>
+                                <option>SQL</option>
+                                <option>Shell</option>
+                                <option>HTML</option>
+                                <option>CSS</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editFunctionName" class="form-label">Nome da Função</label>
+                            <input type="text" class="form-control" id="editFunctionName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editFunctionDescription" class="form-label">Descrição (Serve para...)</label>
+                            <input type="text" class="form-control" id="editFunctionDescription" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editFunctionSyntax" class="form-label">Sintaxe</label>
+                            <textarea class="form-control" id="editFunctionSyntax" rows="4" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editFunctionUsage" class="form-label">Instruções de Uso</label>
+                            <textarea class="form-control" id="editFunctionUsage" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para exibir detalhes -->
+    <div class="modal fade" id="functionDetailModal" tabindex="-1" aria-labelledby="functionDetailModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="functionDetailModalLabel"></h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalLanguage" class="mb-2"></p>
+                    <h6>Sintaxe:</h6>
+                    <pre id="modalSyntax"></pre>
+                    <h6>Instruções de Uso:</h6>
+                    <p id="modalUsage"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Função para normalizar texto (remover acentos e ignorar maiúsculas/minúsculas)
+        function normalizeText(text) {
+            return text
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '');
+        }
+
+        // Inicializar IndexedDB
+        let db;
+        const request = indexedDB.open('PHPLibrary', 1);
+
+        request.onupgradeneeded = function (event) {
+            db = event.target.result;
+            const store = db.createObjectStore('functions', { keyPath: 'id', autoIncrement: true });
+            store.createIndex('name', 'name', { unique: false });
+            store.createIndex('description', 'description', { unique: false });
+        };
+
+        request.onsuccess = function (event) {
+            db = event.target.result;
+            loadFunctions();
+        };
+
+        request.onerror = function (event) {
+            console.error('Erro ao abrir o IndexedDB:', event);
+        };
+
+        // Carregar funções do IndexedDB
+        function loadFunctions() {
+            const transaction = db.transaction(['functions'], 'readonly');
+            const store = transaction.objectStore('functions');
+            const request = store.getAll();
+
+            request.onsuccess = function (event) {
+                const functions = event.target.result;
+                if (functions.length === 0) {
+                    // Adicionar função inicial (sqrt)
+                    addInitialFunction();
+                } else {
+                    renderTable(functions);
+                }
+            };
+        }
+
+        // Adicionar função inicial (sqrt)
+        function addInitialFunction() {
+            const initialFunction = {
+                language: 'PHP',
+                name: 'sqrt()',
+                description: 'Função para efetuar o cálculo da raiz quadrada',
+                syntax: 'float sqrt(float $number)',
+                usage: 'Retorna a raiz quadrada de $number. Exemplo: $result = sqrt(16); // Retorna 4'
+            };
+            const transaction = db.transaction(['functions'], 'readwrite');
+            const store = transaction.objectStore('functions');
+            store.add(initialFunction);
+            transaction.oncomplete = function () {
+                loadFunctions();
+            };
+        }
+
+        // Renderizar tabela
+        function renderTable(functions) {
+            const tableBody = document.getElementById('functionTableBody');
+            tableBody.innerHTML = '';
+            functions.forEach(func => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${func.language || ''}</td>    
+                    <td>${func.name}</td>
+                    <td><a class="function-link" onclick="showFunctionDetails(${func.id})">${func.description}</a>
+                        <button class="btn btn-sm btn-warning ms-2" onclick="editFunction(${func.id})">Editar</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Exibir detalhes da função no modal
+        function showFunctionDetails(id) {
+            const transaction = db.transaction(['functions'], 'readonly');
+            const store = transaction.objectStore('functions');
+            const request = store.get(id);
+
+            request.onsuccess = function (event) {
+                const func = event.target.result;
+                document.getElementById('modalLanguage').textContent = 'Linguagem: ' + (func.language || '');
+                document.getElementById('functionDetailModalLabel').textContent = func.name;
+                document.getElementById('modalSyntax').textContent = func.syntax;
+                document.getElementById('modalUsage').textContent = func.usage;
+                new bootstrap.Modal(document.getElementById('functionDetailModal')).show();
+            };
+        }
+
+        // Adicionar nova função
+        document.getElementById('addFunctionForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const newFunction = {
+                language: document.getElementById('functionLanguage').value,
+                name: document.getElementById('functionName').value,
+                description: document.getElementById('functionDescription').value,
+                syntax: document.getElementById('functionSyntax').value,
+                usage: document.getElementById('functionUsage').value
+            };
+
+            const transaction = db.transaction(['functions'], 'readwrite');
+            const store = transaction.objectStore('functions');
+            store.add(newFunction);
+
+            transaction.oncomplete = function () {
+                document.getElementById('addFunctionForm').reset();
+                bootstrap.Modal.getInstance(document.getElementById('addFunctionModal')).hide();
+                loadFunctions();
+            };
+        });
+
+        // Filtro de busca
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const searchTerms = normalizeText(this.value).split(' ').filter(term => term);
+            if (searchTerms.length === 0) {
+                loadFunctions();
+                return;
+            }
+
+            const transaction = db.transaction(['functions'], 'readonly');
+            const store = transaction.objectStore('functions');
+            const request = store.getAll();
+
+            request.onsuccess = function (event) {
+                const functions = event.target.result;
+                const filtered = functions.filter(func => {
+                    const normalizedName = normalizeText(func.name);
+                    const normalizedDesc = normalizeText(func.description);
+                    const normalizedLang = normalizeText(func.language || '');
+                    return searchTerms.every(term =>
+                        normalizedName.includes(term) || normalizedDesc.includes(term) || normalizedLang.includes(term)
+                    );
+                });
+                renderTable(filtered);
+            };
+        });
+
+        // Exportar dados como JSON
+        function exportData() {
+            const transaction = db.transaction(['functions'], 'readonly');
+            const store = transaction.objectStore('functions');
+            const request = store.getAll();
+
+            request.onsuccess = function (event) {
+                const data = event.target.result;
+                const json = JSON.stringify(data, null, 2);
+                const blob = new Blob([json], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'php_functions.json';
+                a.click();
+                URL.revokeObjectURL(url);
+            };
+        }
+
+        // Importar dados JSON
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    const transaction = db.transaction(['functions'], 'readwrites');
+                    const store = transaction.objectStore('functions');
+                    store.clear(); // Limpar dados existentes
+                    data.forEach(item => store.add(item));
+                    transaction.oncomplete = function () {
+                        loadFunctions();
+                        alert('Dados importados com sucesso!');
+                    };
+                } catch (error) {
+                    alert('Erro ao importar dados: ' + error.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // Ajustar a largura das células do cabeçalho para corresponder às células do corpo
+        function ajustarLarguraCabecalho() {
+            const headerCells = document.querySelectorAll('.table-fixed thead th');
+            const firstRowCells = document.querySelectorAll('.table-fixed tbody tr:first-child td, .table-fixed tbody tr:first-child th');
+            headerCells.forEach((headerCell, index) => {
+                if (firstRowCells[index]) {
+                    headerCell.style.width = window.getComputedStyle(firstRowCells[index]).width;
+                }
+            });
+        }
+        // Chama o ajuste após renderizar a tabela
+        const observer = new MutationObserver(ajustarLarguraCabecalho);
+        observer.observe(document.getElementById('functionTableBody'), { childList: true });
+        // Também ajusta ao redimensionar a janela
+        window.addEventListener('resize', ajustarLarguraCabecalho);
+
+        // Editar dados
+        function editFunction(id) {
+            const transaction = db.transaction(['functions'], 'readonly');
+            const store = transaction.objectStore('functions');
+            const request = store.get(id);
+
+            request.onsuccess = function (event) {
+                const func = event.target.result;
+                document.getElementById('editFunctionId').value = func.id;
+                document.getElementById('editFunctionLanguage').value = func.language || '';
+                document.getElementById('editFunctionName').value = func.name;
+                document.getElementById('editFunctionDescription').value = func.description;
+                document.getElementById('editFunctionSyntax').value = func.syntax;
+                document.getElementById('editFunctionUsage').value = func.usage;
+                new bootstrap.Modal(document.getElementById('editFunctionModal')).show();
+            };
+        }
+
+        // Salvar alterações do formulário de edição
+        document.getElementById('editFunctionForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const id = Number(document.getElementById('editFunctionId').value);
+            const updatedFunction = {
+                id: id,
+                language: document.getElementById('editFunctionLanguage').value,
+                name: document.getElementById('editFunctionName').value,
+                description: document.getElementById('editFunctionDescription').value,
+                syntax: document.getElementById('editFunctionSyntax').value,
+                usage: document.getElementById('editFunctionUsage').value
+            };
+
+            const transaction = db.transaction(['functions'], 'readwrite');
+            const store = transaction.objectStore('functions');
+            store.put(updatedFunction);
+
+            transaction.oncomplete = function () {
+                bootstrap.Modal.getInstance(document.getElementById('editFunctionModal')).hide();
+                loadFunctions();
+            };
+        });
+
+
+    </script>
+</body>
+
+</html>

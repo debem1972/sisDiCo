@@ -1,0 +1,415 @@
+[
+  {
+    "titulo": "Bootstrap5",
+    "aulas": [
+      {
+        "titulo": "Aula01 - Apresentação",
+        "id": "w7wjcb"
+      },
+      {
+        "titulo": "Aula02 - Preparação do ambiente",
+        "id": "AsjJvi"
+      },
+      {
+        "titulo": "Aula03 - Referenciando o bootstrap5 em um doc html",
+        "id": "hJcXYS"
+      },
+      {
+        "titulo": "Aula04 - Breakpoints para criação de layouts responsivos",
+        "id": "nzWPQy"
+      },
+      {
+        "titulo": "Aula05 - Containers p/ criação de layouts responsivos",
+        "id": "iCMEjb"
+      },
+      {
+        "titulo": "Aula06 - Sistema de layout em grid",
+        "id": "WnEzcw"
+      },
+      {
+        "titulo": "Aula07 - Formatação de colunas de layout",
+        "id": "nWQmv0"
+      },
+      {
+        "titulo": "Aula08 - Tipografia e Fonts",
+        "id": "Cg7huY"
+      },
+      {
+        "titulo": "Aula09 - Imagens e figuras",
+        "id": "Xmuyxo"
+      },
+      {
+        "titulo": "Aula10 - Tabelas",
+        "id": "evy9KB"
+      },
+      {
+        "titulo": "Aula11- Cores e opacidade",
+        "id": "NyWaBf"
+      },
+      {
+        "titulo": "Aula12 - Bootstrap ícon",
+        "id": "PMMD9R"
+      },
+      {
+        "titulo": "Aula13 - Margens e paddings",
+        "id": "Jj2JCv"
+      },
+      {
+        "titulo": "Aula14 - Bordas e sombras",
+        "id": "LObYkX"
+      },
+      {
+        "titulo": "Aula15 - Formatação de textos",
+        "id": "QV0hpq"
+      },
+      {
+        "titulo": "Aula16 - Configurações de visibilidade",
+        "id": "ZJAdiZ"
+      },
+      {
+        "titulo": "Aula17 - Configurações de posicionamento",
+        "id": "eh4pJ5"
+      },
+      {
+        "titulo": "Aula18 - Formulários",
+        "id": "miUWE0"
+      },
+      {
+        "titulo": "Aula19 - Campos Select, Range e Buttons",
+        "id": "Ka5er4"
+      },
+      {
+        "titulo": "Aula20 - Campos de checagem",
+        "id": "StmKOn"
+      },
+      {
+        "titulo": "Aula21 - Campos com Título Flutuante",
+        "id": "KWo2jf"
+      },
+      {
+        "titulo": "Aula22 - Complementos de campos de formulários",
+        "id": "HHE3e7"
+      },
+      {
+        "titulo": "Aula23 - Layout de formulários",
+        "id": "5ew7Ix"
+      },
+      {
+        "titulo": "Aula24 - Validação de formulários",
+        "id": "cClEgn"
+      },
+      {
+        "titulo": "Aula25 - Agrupamentos de botões e menus flutuantes",
+        "id": "vwhgH4"
+      },
+      {
+        "titulo": "Aula26 - Barras de navegação",
+        "id": "N75BDH"
+      },
+      {
+        "titulo": "Aula27 - Cards",
+        "id": "SAZTF7"
+      },
+      {
+        "titulo": "Aula28 - Alertas, badges e listas",
+        "id": "sB0oM0"
+      },
+      {
+        "titulo": "Aula29 - Carrouceis de slides",
+        "id": "lfRv0L"
+      },
+      {
+        "titulo": "Aula30 - Mensagens flutuantes Toast, Tooltip e Popover",
+        "id": "NEvKHM"
+      },
+      {
+        "titulo": "Aula31 - Painéis deslizantes - Offcanvas",
+        "id": "XZVPEW"
+      },
+      {
+        "titulo": "Aula32 - Componentes simples: Breadcrumb, Spinner, Collapse, Progress e Pagination",
+        "id": "pzFoHy"
+      },
+      {
+        "titulo": "Aula33 - Regiões retráteis e expansíveis - Acordion",
+        "id": "EWrQxG"
+      },
+      {
+        "titulo": "Aula34 - Menus de navegação",
+        "id": "AhccBM"
+      },
+      {
+        "titulo": "Aula35 - Scroll spy",
+        "id": "7kVuvN"
+      }
+    ],
+    "id": 3
+  },
+  {
+    "titulo": "chatBot",
+    "aulas": [
+      {
+        "titulo": "Aula01 - Criação do chatBot",
+        "id": "wpclXu",
+        "conteudo": ""
+      }
+    ],
+    "id": 15
+  },
+  {
+    "titulo": "Colocando o site em produção",
+    "aulas": [
+      {
+        "titulo": "Aula02 - Como publicar o site(método gratuíto)",
+        "id": "wOIHEs"
+      }
+    ],
+    "id": 13
+  },
+  {
+    "titulo": "CSS",
+    "aulas": [
+      {
+        "titulo": "Aula01 - Testagem da aplicação correta de um estilo css a um arquivo",
+        "id": "DxZXuZ",
+        "conteudo": ""
+      }
+    ],
+    "id": 18
+  },
+  {
+    "titulo": "Dados PC All-in-one",
+    "aulas": [
+      {
+        "titulo": "Aula001 - Dados da bios",
+        "id": "ug3UoK"
+      }
+    ],
+    "id": 11
+  },
+  {
+    "titulo": "Git e GitHub",
+    "aulas": [
+      {
+        "titulo": "Aula01 - Lista de comandos git",
+        "id": "RofgDe"
+      },
+      {
+        "titulo": "Aula02 - Conceitos, Instalando e Configurando o git",
+        "id": "gc1sq4"
+      }
+    ],
+    "id": 10
+  },
+  {
+    "titulo": "Marketing Digital - Curso em Vídeo",
+    "aulas": [
+      {
+        "titulo": "Aula00 - Por que aprender Marketing?",
+        "id": "rMpLjE",
+        "conteudo": "Técnicas de SEO, técnicas de Marketing e um resumo das necessidades que o profissional de TI encontrará no começo."
+      },
+      {
+        "titulo": "Aula01 - O processo de Marketing",
+        "id": "WKegwm",
+        "conteudo": "Conceito de Marketing, formas de como fazer marketing."
+      },
+      {
+        "titulo": "Aula02 - Necessidade, Desejo e Demanda",
+        "id": "JpiXaT",
+        "conteudo": ""
+      },
+      {
+        "titulo": "Aula03 - Produtos, Serviços  e Experiências",
+        "id": "zNsfpD",
+        "conteudo": "Produto; Serviço; Miopia de Marketing; Experiência; Valor e satisfação."
+      }
+    ],
+    "id": 14
+  },
+  {
+    "titulo": "PHP",
+    "aulas": [
+      {
+        "titulo": "Aula01 - Introdução ao PHP",
+        "id": "02cYh5"
+      },
+      {
+        "titulo": "Aula01 - História do PHP - Curso em Vídeo",
+        "id": "uZl8js"
+      },
+      {
+        "titulo": "Aula02 - Instalando o XAMPP",
+        "id": "Jtv9VB"
+      },
+      {
+        "titulo": "Aula02 - Como funciona o PHP - Curso em Vídeo",
+        "id": "IngEYP"
+      },
+      {
+        "titulo": "Aula03 - Criando um novo projeto localhost",
+        "id": "K4wqSY"
+      },
+      {
+        "titulo": "Aula03 - Como instalar o PHP - Curso em Vídeo",
+        "id": "P5o0Zj",
+        "conteudo": "Recursos de instalação do servidor apache e editor de código para rodar php; "
+      },
+      {
+        "titulo": "Aula04 - Sintaxe",
+        "id": "Nk55p5"
+      },
+      {
+        "titulo": "Aula04 - Tipos de dados em PHP - Curso em Vídeo",
+        "id": "n1I29l",
+        "conteudo": "Definição do tipo de dado em php por COERSÃO; Forçar a mudança do tipo de dado com TYPECAST; Tipos de concatenação de dados com dois pontos e com aspas duplas."
+      },
+      {
+        "titulo": "Aula05 - Variaveis",
+        "id": "bmGyCu"
+      },
+      {
+        "titulo": "Aula05 - Operadores Aritméticos - Curso em Vídeo",
+        "id": "IABtqF",
+        "conteudo": ""
+      },
+      {
+        "titulo": "Aula06 - ECHO  e PRINT",
+        "id": "9UB4d8"
+      },
+      {
+        "titulo": "Aula06 - Operadores de atribuição - Curso em vídeo",
+        "id": "xqwoHQ",
+        "conteudo": "Operador de atribuição com adição +=; Operador de incremento; number_format(); Operadores de auto incremento; (Pré-incremento); Pós-incremento; Pré-decremento; Pós-decremento; Comentários em php - (//), (#) e (/**/);  &$a;  $$site."
+      },
+      {
+        "titulo": "Aula07 - Tipos de dados",
+        "id": "yikvav",
+        "conteudo": "Aula de tipos de dados como string, integer, float, boolean, null; Output var_dump; Quebra de linha;"
+      },
+      {
+        "titulo": "Aula07 - Operadores Relacionais - Curso em vídeo",
+        "id": "tw7SmZ",
+        "conteudo": "Operador Unário; Operadores lógicos;"
+      },
+      {
+        "titulo": "Aula08 - Manipulação de Strings",
+        "id": "OyNHxj",
+        "conteudo": "Função para contar quantos caracteres tem uma string - strlen(); Função para contar palavras em uma frase - str_word_count(); Função para fornecer a posição de uma palavra ou caractere em uma string - strpos(); Função para reverter uma palavra - strrev(); Função para substituir uma palavra ou caractere em uma string - str_replace(). "
+      },
+      {
+        "titulo": "Aula08 - Integração HTML + PHP - Curso em Vídeo",
+        "id": "50cgMc",
+        "conteudo": "method = \"get\"; Parâmetro action; Objetos name; number_format(); isset(); superglobais."
+      },
+      {
+        "titulo": "Aula09 - Manipulação de números",
+        "id": "o26951",
+        "conteudo": "Função de conversão de tipos de dados (int), (float); Funções de identificação de tipos de dados is_int(), is_float(),is_bool(), is_numeric()."
+      },
+      {
+        "titulo": "Aula09 - If else , elseif - Curso em Vídeo",
+        "id": "gLvNrU",
+        "conteudo": "ternário;"
+      },
+      {
+        "titulo": "Aula10 - Funções matemáticas",
+        "id": "kfDr31",
+        "conteudo": "Funções prontas para cálculos como pi() , min() , max() , abs()valor absoluto , sqrt() raiz quadrada, round() arredondamento, rand() randônico, Extensão VSCode PHP Intelephense para endentação automática do php e do html, ADENDO de como imprimir na tela os nº de um array."
+      },
+      {
+        "titulo": "Aula10 - Estrutura condicional switch - Curso em vídeo",
+        "id": "QAmTsq",
+        "conteudo": "switch;  case;  break;  default;"
+      },
+      {
+        "titulo": "Aula11 - Constantes",
+        "id": "ij0d9e",
+        "conteudo": "Sintaxe: define();"
+      },
+      {
+        "titulo": "Aula11 - Estrutura de repetição While - Curso em Vídeo",
+        "id": "3cFUuJ",
+        "conteudo": "while() ; ?? ;"
+      },
+      {
+        "titulo": "Aula12 - Estrutura Do While - Curso em Vídeo",
+        "id": "yVt4Z9",
+        "conteudo": "do{}; while();"
+      },
+      {
+        "titulo": "Aula13 - If Else Elseif",
+        "id": "bmifDf",
+        "conteudo": "if else(){}; elseif()"
+      },
+      {
+        "titulo": "Aula13 - Estrutura de repetição for",
+        "id": "0Ctmql",
+        "conteudo": ""
+      },
+      {
+        "titulo": "Aula14 - Loops (while. do...while, for e foreach)",
+        "id": "pXe4aJ",
+        "conteudo": "while; do; for; foreach"
+      },
+      {
+        "titulo": "Aula14 - Rotinas em PHP - Parte1",
+        "id": "UW1egZ",
+        "conteudo": ""
+      },
+      {
+        "titulo": "Aula15 - Functions PHP",
+        "id": "Hjjf5K",
+        "conteudo": ""
+      },
+      {
+        "titulo": "Aula16 - Arrays PHP",
+        "id": "XTkbFe",
+        "conteudo": "count(); sort(); rsort(); asort(); ksort();"
+      },
+      {
+        "titulo": "Aula17 - Superglobais",
+        "id": "yCTfPi",
+        "conteudo": "$GLOBALS; $_SERVER; $_REQUEST; $_POST; $_GET; $_FILES; $_ENV; $_COOKIE; $_SESSION;"
+      },
+      {
+        "titulo": "Aula18 - Método $_GET",
+        "id": "17OABM",
+        "conteudo": "htmlspecialchars"
+      }
+    ],
+    "id": 12
+  },
+  {
+    "titulo": "Processo de desenvolvimento",
+    "aulas": [
+      {
+        "titulo": "Aula01 - PRD - Product Requirements Document",
+        "id": "ePABxS",
+        "conteudo": "PRD"
+      }
+    ],
+    "id": 19
+  },
+  {
+    "titulo": "Pseudo-classe css",
+    "aulas": [
+      {
+        "titulo": "Aula01 - Seletor :has()",
+        "id": "YmHuf9"
+      }
+    ],
+    "id": 9
+  },
+  {
+    "titulo": "PWA - Progressive Web App",
+    "aulas": [
+      {
+        "titulo": "Aula1 - Tornando seu site instalável como um app",
+        "id": "jc6mMa",
+        "conteudo": ""
+      }
+    ],
+    "id": 17
+  }
+]

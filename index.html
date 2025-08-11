@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SisDiCo - Sistema Dinâmico de Conteúdo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style2Victor.css">
@@ -41,6 +41,13 @@
                 <datalist id="aulas-list"></datalist>
             </div>
 
+            <div class="mb-3">
+                <label for="conteudo-aula" class="form-label">Conteúdo aula:</label>
+                <textarea id="conteudo-aula" class="form-control" rows="5"
+                    placeholder="Digite um resumo do conteúdo da aula...">
+                </textarea>
+            </div>
+
             <div class="btn-group gap-3 flex-wrap">
                 <button id="lancar-btn" class="btn btn-primary rounded" data-bs-toggle="tooltip"
                     data-bs-title="Lançar">📚 Lançar Matéria</button>
@@ -48,6 +55,11 @@
                     data-bs-title="Exportar">📤 Exportar Dados</button>
                 <button id="importar-btn" class="btn btn-success rounded" data-bs-toggle="tooltip"
                     data-bs-title="Importar">📥 Importar Dados</button>
+                <a class="btn btn-outline-info rounded" href="./editorHtmlSisDiCo/index5Victor.html" target="_blank"
+                    title="Ir para o editor html"><i class="bi bi-pencil"></i></a>
+                <a class="btn btn-outline-secondary rounded" href="./tabelaFunctions/functionsSearch.html"
+                    target="_blank" title="Buscador de functions"><i class="bi bi-braces"></i>
+                </a>
                 <button type="button" id="helpMe" class="btn btn-link p-0 order-sm-last" data-bs-toggle="tooltip"
                     data-bs-title="Ajuda" aria-label="Abrir ajuda em vídeo">
                     <i class="bi bi-info-circle-fill fs-4"></i>
@@ -4734,6 +4746,7 @@
 
             <hr>
             <p class="h4 mt-3"><mark>Tooltip</mark></p>
+            <!--<p class="assunto d-none">Cria uma mensagem flutuante sobre um elemento, que aparece com efeito hover</p>-->
             <p>Tolltip, são mensagens flutuantes que podemos colocar em qualquer elemento. <br>
                 Vamos colocar um tooltip em um botão "Plubicar"...</p>
             <p>Basta para isso, acrescentarmos dentro do elemento button, os atributos <i>data-bs-toggle="tooltip"</i> e
@@ -5043,10 +5056,6 @@
                     </li>
                 </ul>
             </div>
-
-
-
-
 
             <br>
             <a href="#topo" title="Ir ao tôpo...">☝️</a>
@@ -5808,7 +5817,9 @@
                 pode ser embutida no html.<br>
                 Por ser uma linguagem de <b>back-end</b>(<i>server-side</i>), não é lida pelo navegador diretamente. É
                 interpretada e renderizada por um servidor, um computador que tenha um interpretador de php e que
-                desenvolverá uma resposta. Entenda a dinâmica de como funciona o output do php(saída).<br>
+                desenvolverá uma resposta.<br>
+                Vamos ver um pouco de história: Criado em 1995, por Rasmus Lerdorf.<br>
+                Entenda a dinâmica de como funciona o output do php(saída).<br>
                 <img src="./image/cliente-servidor-php.jpg" alt="Imagem do fluxo de requizição cliente servidor php"
                     class="img-fluid"><br>
                 Créditos: <a href="https://naninho.blog.br/wp-content/uploads/cliente-servidor-php.jpg">Blog do
@@ -5932,12 +5943,3132 @@
         </div>
 
 
+        <div class="aula">
+            <h2 id="K4wqSY" title="Pag. 083 - caderno Tigre">Aula03 - Criando um novo projeto localhost</h2>
+            <p>Nesta aula, iremos criar nosso primeiro projeto em php no servidor local, que é o XAMPP. Ou seja, neste
+                momento, o nosso projeto irá rodar na nossa máquina. Quando finalizado, então o colocaremos para rodar
+                em um servidor externo.</p>
+            <hr>
+            <p class="h4 mt-3">Passo -a -passo para a criação do projeto</p>
+            <ol>
+                <li>Como estamos no Linux/Ubuntu, abra o terminal com <b>ctrl+alt+t</b> e digite o comando
+                    <strong><i>sudo /opt/lampp/manager-linux-x64.run</i></strong>, para abrir a interface gráfica de
+                    gerenciamento do XAMPP;
+                </li>
+                <li>Ative o servidor <i>Apache</i>, selecionando-o e clicando em <b>start</b>;</li>
+                <li>Para testar se o localhost está ativo, abra o navegador e digite <strong>localhost</strong>: deverá
+                    abrir uma página do XAMPP;</li>
+                <li>No XAMPP, existe um lugar onde colocamos os nossos projetos. No Ubuntu, é na pasta <mark><i>+outros
+                            locais/opt/lampp/htdocs</i></mark>. <span style="color:red;">Sempre devem ser começados
+                        projetos php
+                        dentro da pasta <i>htdocs</i> no diretório do XAMPP.</span>. Como no Ubuntu, este diretório é
+                    criado junto às pastas de arquivos do sistema, você terá de ter permissão de adm para criar pastas e
+                    arquivos neste local. Digite o comando <span style="color:blue;"><strong><i>sudo chown -R
+                                nome-de-usuario:nome-de-usuario
+                                /opt/lampp/htdocs</i></strong></span> para adicionar o seu usuário a este grupo de
+                    arquivos.</li>
+                <li>Já com as devidas permissões concedidas, vá até o diretório htdocs e crie dentre deste a pasta
+                    <i>aulaPhp</i>;
+                </li>
+                <li>Agora, dentro da pasta aulaPhp, criaremos o nosso arquivo index.php;<br>
+                    Digite dentro dele...<br>
+                    <img src="./image/phpAula3.png" alt="Print da tela do vscode" class="img-fluid mt-3">
+                </li>
+                <li>Vá até uma aba do navegador e digite <i>localhost/aulaPhp</i>. Deverá abrir uma página no browser
+                    como esta...<br>
+                    <img src="./image/phpAula3a.png" alt="Print da tela do pc" class="img-fluid mt-3"><br>
+                    <span style="color:red;">Sempre que tiver que atualizar o projeto php, terá de dar um f5 para
+                        atualizar a página do localhost, pois ela não o fará automaticamente.</span>
+                </li>
+
+            </ol>
+            <br>
+            <a href="#topo" title="Ir ao tôpo...">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="Nk55p5" title="Pag. 099 - caderno Tigre">Aula04 - Sintaxe</h2>
+            <p>Nesta aula, veremos como são as regras gramaticais que copõe a escrita do código php.</p>
+            <p>Para darmos os primeiros passos em php temos que seguir esta sequência:</p>
+            <ol>
+                <li>Abrir o seridor XAMPP: <i>ctrl+alt+t</i> para abrir o terminal e digitar o comando para abrir a
+                    interface gráfica de gerencimento do XAMPP...<i><span style="color:red;">sudo
+                            /opt/lampp/manager-linux-x64.run</span></i>;</li>
+                <li>Dar o start no servidor apache;</li>
+                <li>Abrir no VSCode a pasta htdocs do XAMPP onde está nosso projeto;</li>
+                <li>Abrir a aba do browser do localhost com <i>http://localhost/aulaPhp</i>+ enter(abrirá o arquivo
+                    index.php dentro desta);</li>
+            </ol>
+            <p>Todo bloco de código PHP começa com um sinal de menor, seguido de um ponto de interrogação, seguido de
+                php, e fecha o bloco com um ponto de interrogação, seguido por um sinal de maior.<br>
+                Tudo que estiver dentro do bloco será um código válido , exceto é claro os códigos comentados.</p>
+            <p class="h4">Comentários</p>
+            <p>Os comentários assim como no javaScript podem ser duas barras para uma linha única ou cerquilha. Para
+                linhas diversas, utiliza-se barra + asterísco e o fechamento com asterísco + barra.</p>
+            <p>As palavras chave do php não são case sensitive, ou seja, tanto faz maiúsculas ou minúsculas.</p>
+            <p>As variáveis são case sensitive.</p>
+            <p>No PHP, é obrigatório terminar uma sentença com ponto e vírgula. Veja estes e os demais detalhes na
+                imagem abaixo:</p><br>
+            <img src="./image/sintaxe.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <hr>
+            <p>Se for inserir apenas código php em um bloco, não é necessário o fechamento. Mas é uma boa prática
+                colocá-lo.</p>
+            <p>O PHP é pré-processado, ou seja, pode ser rodado junto ao html e css. Veja o exemplo na imagem abaixo:
+            </p><br>
+            <img src="./image/sintaxe1.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <p>Ao atualizar a página do localhost, verá que mostrará o título html. Se solicitar ver o código fonte da
+                página, perceberá que apenas o html é mostrado.</p>
+            <img src="./image/sintaxe2.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <p>Com PHP podemos construir o html. Veja:</p>
+            <img src="./image/sintaxe4.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <p class="mt-3">Com o PHP, podemos construir o javaScript...</p>
+            <img src="./image/sintaxe5.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+
+            <img src="./image/sintaxe6.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <p>Com o PHP, observamos controle total sobre o HTML, o CSS e o javaSCript...</p>
+            <img src="./image/sintaxe7.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <img src="./image/sintaxe8.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <br>
+            <a href="#topo" title="Ir ao tôpo...">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="wOIHEs" title="Pag. 078 - caderno Imbé letras vermelhas">Aula02 - Como publicar o site(método
+                gratuíto)</h2>
+            <p>Nesta aula, veremos como publicar nosso site em um provedor com domínio, hospedagem e certificado SSL
+                totalmente gratuitos.<br>
+                Digite no google <i>Infinityfree.net</i>. Você localizará o site
+                <span style="color:blue;"><strong><i>https://www.infinityfree.com/</i></strong></span>.<br>
+                A maneira gratuita de publicar o site é através do InfinityFree. É um provedor de hospedagem gratuito
+                que
+                oferece espaço em disco, largura de banda e suporte a PHP e MySQL. É uma opção popular para quem deseja
+                hospedar sites sem custos. No entanto, é importante observar que a hospedagem gratuita pode ter
+                limitações em termos de recursos, desempenho e suporte técnico. Além disso, a qualidade do serviço pode
+                variar, e é recomendável ler os termos de serviço e as avaliações antes de usar qualquer provedor de
+                hospedagem gratuita.<br>
+            <p class="h3 mt 3">Passo a passo para começar</p><br>
+            Crie uma conta no site clicando em <i>Create account</i>. Crie uma senha forte, pois será o controle da sua
+            hospedagem.Escolha o plano gratuito. Este, prevê hoje, em 04/04/2025, um ano de hospedagem gratuita, com
+            renovação anual não automática infinita. Ou seja, você deverá renovar a hospedagem anualmente, mas não
+            precisará pagar nada por isso. O plano gratuito oferece 5 GB de espaço em disco, 20 GB de largura de
+            banda mensal, suporte a PHP e MySQL, e não exibe anúncios no seu site.<br>
+
+            <img src="./image/hospedar.png" alt="Print da tela do site" class="img-fluid">
+            </p>
+            <p class="h3 mt-3">Escolhendo o domínio</p>
+            <p>Após criar a conta, clicando em <strong>custon domain</strong> você será direcionado para uma página onde
+                escolherá o domínio. Escolha um domínio
+                gratuito. Você pode escolher entre os domínios disponíveis ou usar um domínio próprio(domínio
+                customizado),ou se já tiver um.<br>
+                <img src="./image/hospedar1.png" alt="Print da tela do site" class="img-fluid">
+
+                O InfinityFree oferece subdomínios gratuitos com a extensão <i>.epizy.com</i> ou
+                <i>infinityfreeapp.com</i>.
+            </p>
+            <p>Após inserir um nome de domínio de sua escolha, clique em <span style="color:blue;">Check
+                    Availability</span>, para ver se está disponível. Se estiver, passará então para a etapa3.<br>
+                <img src="./image/hospedar2.png" alt="Print da tela do site" class="img-fluid"><br>
+                Nesta etapa, você será convidado a inserir uma breve descrição do seu site em <b>Account Label</b>,
+                escolher uma senha de 8 a 15 caracteres contendo letras e números e emitir o consentimento do contato
+                por email.
+            </p>
+            <br>
+            <a href="#topo" title="Ir ao tôpo...">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="bmGyCu" title="Pag. 119 - caderno Tigre">Aula05 - Variaveis</h2>
+            <p>As variáveis são espaços na memória do computador que armazenam dados temporariamente assim como no
+                javaScript. São representadas
+                por um nome que começa com o símbolo de cifrão e podem conter letras, números e sublinhados. As
+                variáveis são sensíveis a maiúsculas e minúsculas, ou seja, $nome e $Nome são variáveis diferentes.<br>
+                Podemos exibir o valor de uma variável utilizando <span style="color:blue;">echo</span>.<br>
+                Veja a imagem abaixo:<br>
+                <img src="./image/variaveisPhp.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+                <img src="./image/variaveisPhp1.png" alt="Print da tela do vscode" class="img-fluid mt-3">
+            <p class="h4 mt-3">Quanto as regras de nomenclatura</p>
+            <span style="color:red;">As variáveis não podem começar com...<br>
+                <ul>
+                    <li>Um número;</li>
+                    <li>Um caractere especial;</li>
+                    <li>Um espaço;</li>
+                    <li>Uma palavra reservada.</li>
+                </ul>
+            </span><br>
+            <img src="./image/variaveisPhp4.png" alt="Print da tela do vscode" class="img-fluid mt-3">
+            <p class="mt-3">Se redeclararmos uma variável dentro do mesmo escopo, o php, assumirá o último valor como o
+                oficial.</p>
+            <img src="./image/variaveisPhp2.png" alt="Print da tela do vscode" class="img-fluid">
+            <p>Ao renderizarmos a página do localhost...</p>
+            <img src="./image/variaveisPhp3.png" alt="Print da tela do vscode" class="img-fluid mt-3">
+
+            <p class="h4 mt-3">Como as variáveis se comportam em relação ao escopo do código</p>
+            <p>No php, o comportamento é muito semelhante ao javaScript, onde obecem ao escopo global e local.</p>
+            <img src="./image/variaveisPhp5.png" alt="Print da tela do vscode" class="img-fluid mt-3">
+            <img src="./image/variaveisPhp6.png" alt="Print da tela do vscode" class="img-fluid mt-3">
+
+            <p>Para uma variável global passar a valer dentro do escopo de uma function, temos que declarar a palavra
+                rezervada <span style="color: red;">global</span>...</p>
+            <img src="./image/variaveisPhp7.png" alt="Print da tela do vscode" class="img-fluid mt-3">
+            <img src="./image/variaveisPhp8.png" alt="Print da tela do vscode" class="img-fluid mt-3">
+            <p class="mt-3">Neste outro exemplo, temos a variável $z, que representa a soma de $x + $y, porém, $z, está
+                dentro da
+                function teste(). Se chamarmos teste(), o valor de $z não será localizado no escopo global, retornando
+                erro. Para que evitemos este erro, é necessário que se inclua $z no escopo global desta forma...</p>
+            <img src="./image/variaveisPhp9.png" alt="Print da tela do vscode." class="img-fluid mt-3">
+            <img src="./image/variaveisPhp10.png" alt="Print da tela do vscode." class="img-fluid mt-3">
+            <p class="mt-3">Podemos estilizar a saída do php, com css inline.</p>
+            <img src="./image/variaveisPhp11.png" alt="Print da tela do vscode." class="img-fluid mt-3">
+            <img src="./image/variaveisPhp12.png" alt="Print da tela do vscode." class="img-fluid mt-3">
+
+            <br>
+            <a href="#topo" title="Ir ao tôpo...">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="uZl8js" title="Pag. 128 - caderno Tigre">Aula01 - História do PHP - Curso em Vídeo</h2>
+            <p>A Linguagem PHP começou em 1994, quando Rasmus Lerdorf resolveu criar um gerenciador de visitas para o
+                seu site. Sua primeira criação não era uma linguagem, e sim uma ferramenta. Batizada de Personal Home
+                Page, usava comandos simples inspirados da linguagem PERL. A segunda versão da ferramenta já permitia a
+                manipulação de formulários e pequenos livros de visita: o Personal Home Page/ Forms Interpreter, ou
+                PHP/FI. Essa versão ficou bastante popular e começou a se espalhar em 1995.</p>
+            <p>Rasmus Lerdorf, nasceu na Groelândia, criou-se na Dinamarka e foi embora para o Canadá onde se
+                profissionalizou em programação na linguagem <strong><i>c</i></strong>.<br>
+                Como na época a internet não passava de um envio de um arquivo ao usuário, ele fez a seguinte pergunta:
+                <i>E se eu quizer saber quantas pessoas visitaram o meu site?</i>
+            </p>
+            <p>Foi então que criou o PHP nomeando na época como <i>Personal Home Page Tools</i>.No início não era uma
+                linguagem de programação. Era apenas uma interface para saber quantas pessoas estavam visitando o site
+                naquele momento.Utilizou a linguagem <strong>Perl</strong> para sua construção.<br>
+                Na segunda versão, já era possível o usuário preencher dados em um form para interagir com o dono do
+                site. A aplicação mudou então para o nome <strong>Personal Home Page Forms Interpreter.</strong></p>
+            <p>Após a versão dois do php, Rasmus resolveu abrir o código para toda a comunidade que quizesse colaborar
+                para implementar melhorias.</p>
+            <p>Em 1998, dois programadores Israelenses: <i>Zeev Suraski</i> e <i>Andi Gutmans</i> resolveram reescrever
+                completamente o php, dando-lhe características de linguagem de programação.</p>
+            <p>A partir da versão 3 já como linguagem de programação, a comunidade resolver mudar o nome do PHP para
+                <strong>PHP Hypertext Preprocessor</strong>. Mas não mudaram a sigla, pois já estava muito difundida.
+                Usaram então o <i>Acrônimo recursivo</i> onde uma letra representa a sigla toda.
+            </p>
+            <p>Em 2000, foram implementadas medidas de segurança na versão 4 do php.</p>
+            <p>Em 2004, surge a versão 5, que é a que dura até então, com 32 versões. <span style="color:red;">O php
+                    enfrenta ainda hoje(2025), problemas com unicode, que é a linguagem que permite a compatibilidade de
+                    textos em qualquer língua.</span>
+            </p>
+            <p class="h6 mt-3">Curiosidades</p>
+            <ul>
+                <li>Hoje, mais de 75% dos servidores utilizam php em sites hospedados;</li>
+                <li>Em <strong><i>www.museum.php.net</i></strong> consegue-se ter acesso a todas as versões do php desde
+                    a versão 1.0;</li>
+                <li>A mascote foi escolhida como sendo um elefante, devido a php parecer um elefante.</li>
+                <li>O <b>wordpress</b> é criado em php;</li>
+                <li>Zend e Andi, fundaram a empresa Zend, uma das empresas responsáveis por manter o código PHP e
+                    criadora do framework mais famoso da linguagem, o ZendFramwork.</li>
+            </ul>
+
+
+            <br>
+            <a href="#topo" title="Ir ao tôpo...">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="9UB4d8" title="Pag. 135 - caderno Tigre">Aula06 - ECHO e PRINT</h2>
+            <p class="h4">Tipos de saída ECHO e PRINT no PHP.</p>
+            <p>O PHP possui dois tipos de saída: <strong>echo</strong> e <strong>print</strong>. Ambos são utilizados
+                para exibir dados na tela, mas possuem algumas diferenças sutis. Veja a imagem abaixo:<br>
+                <img src="./image/saidasPhp3.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <p class="mt-3"><span style="color:red;">Saiba que se utilizar aspas simples para mostrar uma saída, não
+                    será possível
+                    utilizar variáveis dentro dela. Para isso, utilize aspas duplas</span></p><br>
+            <img src="./image/saidasPhp.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <img src="./image/saidasPhp1.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+
+            <p>Para podermos utilizar aspas simples em uma saída e mostrar valores das variáveis, necessitamos
+                <strong>concatenar</strong> as variáveis às strings por meio de ponto(.). Veja na imagem o exemplo:
+            </p>
+            <br>
+            <img src="./image/saidasPhp2.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <p>Perceba na imagem acima, que podemos em muitos casos ter de utilizar aspas duplas e simples na mesma
+                saída.</p><br>
+            <span style="color:red;">Perceba também no exemplo acima, como é feita uma quebra de linha na saída com
+                aspas simples, concatenando as variáveis no final da expressão por meio de ponto e inserindo a tag "br"
+                entre aspas simples no final. </span><br>
+            <img src="./image/saidasPhp4.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+
+            <br>
+            <a href="#topo" title="Ir ao tôpo...">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="IngEYP" title="Pag. 000 - caderno Tigre">Aula02 - Como funciona o PHP - Curso em Vídeo</h2>
+            <p>Nesta aula, poderemos obter respostas a estas perguntas:<br>
+            <ul>
+                <li>Como funciona o PHP?</li>
+                <li>Como transformar meu computador em um servidor?</li>
+                <li>Como funcionam e exemplos de tecnologias Server-side?</li>
+            </ul><br>
+            </p>
+            <p>O PHP é uma linguagem de programação server-side, ou seja, o código é processado no servidor e não no
+                cliente. O cliente envia uma requisição ao servidor, que processa o código PHP e devolve a resposta ao
+                cliente. O cliente não tem acesso ao código PHP, apenas à resposta gerada pelo servidor. Isso garante a
+                segurança do código e dos dados do servidor.</p>
+            <p>Sabemos então que:<br>
+            <ul>
+                <li>HTML é para conteúdo;</li>
+                <li>CSS é para estilo;</li>
+                <li>JavaScript é para interatividade;</li>
+                <li>PHP é para processamento de dados.</li>
+            </ul><br>
+            O PHP vêio para completar o nosso conhecimento em Dev Web.
+            </p>
+            <hr>
+            <p class="h4 mt-3 mb-0">Como funciona o PHP?</p><br>
+            <p>O PHP é uma linguagem de programação dentro do HTML, e funciona em um servidor (um computador) preparado
+                para interpretá-lo por meio de um programa chamado APACHE.<br>
+                O processamento do php gerará um arquivo HTML;
+                O navegador não verá o código php, apenas o HTML gerado pelo servidor.<br>
+                Neste arquivo html, veremos apenas tags html ou qualquer outra tecnologia
+                <strong>client-side</strong>.<br>
+                O arquivo html gerado, não será armazenado no servidor, apenas será enviado ao cliente.<br>
+                A partir daí, o browser começa a interpretar o arquivo html recebido.<br>
+            </p><br>
+            <p class="h4 mt-3 mb-0">Como transformar meu computador em um servidor?</p><br>
+            <p>Faremos isso instalando um programa chamado <i>Apache</i>, e uma ferramenta de banco de dados chamada
+                <i>MySQL</i> e um interpretador PHP.
+            </p>
+            <div class="card-group">
+                <div class="card px-2">
+                    <img src="./image/apache-logo.png" alt="Logo Apache" class="img-fluid">
+                </div>
+                <div class="card px-2">
+                    <img src="./image/mysql-logo-5.png" alt="Logo mySQL " class="img-fluid">
+                </div>
+                <div class="card px-2">
+                    <img src="./image/php-logo.png" alt="Logo php" class="img-fluid">
+                </div>
+            </div><br>
+            <p class="h4 mt-3">Como funcionam e exemplos de outras tecnologias Server-side</p>
+            <p> Não é só o PHP que possui esta função de processamento server-side. Outras linguagens também o fazem,
+                como o
+                <strong>ASP</strong>, <strong>JSP</strong>, <strong>Node.js</strong>, <strong>Ruby on Rails</strong>,
+                <strong>Python</strong>, <strong>Java</strong>, <strong>C#</strong>, entre outras.
+            </p>
+
+
+
+            <br>
+            <a href="#topo" title="Ir ao tôpo...">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="yikvav" title="Pag. 146 - caderno Tigre">Aula07 - Tipos de dados</h2>
+            <p>Nesta aula , vamos aprender sobre os tipos de dados com os quais podemos trabalhar no php:
+            <ul>
+                <li><strong>Integer</strong>: Números inteiros, positivos ou negativos;</li>
+                <li><strong>Float</strong>: Números decimais;</li>
+                <li><strong>Strings</strong>: Cadeias de caracteres, palavras;</li>
+                <li><strong>Boolean</strong>: True or false;</li>
+                <li><strong>Array</strong>: Matriz,Conjunto de valores;</li>
+                <li><strong>Object</strong>: Conjunto de ARRAYS, Instância de uma classe;</li>
+                <li><strong>NULL</strong>: Ausência de valor.</li>
+            </ul>
+            </p>
+            <br>
+            <p class="h4 mt-3">Exemplos de uso dos tipos de dados</p>
+            <p>Veremos exemplos destes tipos de dados abaixo:</p>
+            <img src="./image/tiposDeDadosPhp.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <br>
+            <p class="h4 mt-3">Saída dos tipos de dados</p>
+            <p class="h5 mt-3">Saída tipo <i>integer</i> e tipo <i>string</i></p>
+            <p>Existe uma função do PHP chamada <strong><i>var_dump()</i></strong>, com o qual conseguimos mostrar na
+                tela, o
+                tipo de dado e o seu valor. Veremos na imagem abaixo, dois exemplos de saídas: <i>integer</i> e
+                <i>string</i>.
+            </p>
+            <img src="./image/tiposDeDadosPhp0.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <img src="./image/tiposDeDadosPhp2.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <p><span style="color:red;">Aproveitando o ensejo, veja na imagem acima, como inserir uma <strong><u>quebra
+                            de
+                            linha</u></strong> nas saídas da function var_dump.</span></p><br>
+            <p>Perceba que a function var_dump() mostra o tipo de dado e o seu valor. No caso do <i>integer</i> mostra
+                dentro dos parênteses o valor da saída.<br>
+                No caso da <i>string</i>, mostra quantos caracteres possui a string dentro dos parênteses, incluindo os
+                espaços, e ao lado,
+                entre aspas duplas o valor da string.</p>
+            <img src="./image/tiposDeDadosPhp3.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <p class="h5 mt-3">Saída tipo <i>float</i></p>
+            <br>
+            <p>O mesmo acontece com o tipo <i>float</i>, que são os valores decimais. Veja na imagem abaixo:</p>
+            <img src="./image/tiposDeDadosPhp4.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <img src="./image/tiposDeDadosPhp5.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <p class="h5 mt-3">Saída tipo <i>boolean</i></p>
+            <p>O mesmo acontece com o tipo <i>boolean</i>, que são os valores lógicos. Veja na imagem abaixo:</p>
+            <img src="./image/tiposDeDadosPhp6.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <img src="./image/tiposDeDadosPhp7.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <p class="h5 mt-3">Saída tipo <i>array</i></p>
+            <p>O mesmo acontece com o tipo <i>array</i>, que são os valores lógicos. Veja na imagem abaixo:</p>
+            <img src="./image/tiposDeDadosPhp8.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <img src="./image/tiposDeDadosPhp9.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <p>Perceba que a saída do array temos em sequência:
+            <ul>
+                <li>O tipo de dado: array;</li>
+                <li>O número de elementos do array entre chaves(3);</li>
+                <li>A posiçãp do elemento do array entre colchetes(0,1,2);</li>
+                <li>O valor de cada elemento do array.</li>
+            </ul>
+            </p><br>
+            <p class="h5 mt-3">Saída tipo <i>object</i></p>
+            <p>O mesmo acontece com o tipo <i>object</i>, que são os valores lógicos. Veja na imagem abaixo:</p>
+            <img src="./image/tiposDeDadosPhp10.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <img src="./image/tiposDeDadosPhp11.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <p>Perceba que a saída do object temos em sequência:
+            <ul>
+                <li>O tipo de dado: object;</li>
+                <li>O nome da classe entre chaves(Classe);</li>
+                <li>A designação do objeto(#1);</li>
+                <li>A posiçãp do elemento do array entre colchetes(0,1,2);</li>
+                <li>O valor de cada elemento do array.</li>
+            </ul>
+            </p><br>
+            <p class="h5 mt-3">Saída tipo <i>NULL</i></p>
+            <p>O mesmo acontece com o tipo <i>NULL</i>, que são os valores lógicos. Veja na imagem abaixo:</p>
+            <img src="./image/tiposDeDadosPhp12.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+            <img src="./image/tiposDeDadosPhp13.png" alt="Print da tela do vscode" class="img-fluid mt-3"><br>
+
+            <br>
+            <a href="#topo" title="Ir ao tôpo...">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="P5o0Zj" title="Pag.155 - caderno Tigre">Aula03 - Como instalar o php - Curso em Vídeo</h2>
+            <p><span style="color:red;">Como o vídeo da aula foi gravado à muito tempo, os recursos divulgados já estão
+                    defazados, além de os exemplos terem sido mostrados para windows.</span></p>
+            <p>Utilizo o XAMPP para Linux para start do servidor, e o VSCode para os códigos.</p>
+            <p>Para ver como instalar o XAMPP, ver em <a href="#Jtv9VB" class="aula-link" data-expressao="">🔗 Aula02 -
+                    Instalando o XAMPP</a> </p>
+
+            <br>
+            <a href="#topo" title="Ir ao tôpo...">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="rMpLjE" title="Pag. 159 - caderno Tigre">Aula00 - Por que aprender Marketing?</h2>
+
+            <h3>Por que aprender Marketing?</h3>
+            Todo o profissional de TI, em um dado momento, irá se deparar com a necessidade de vender sua criação, seja
+            ela um aplicativo web, um site, um blog, uma Loja virtual. É ai que entra o <strong>Marketing</strong>!
+            Técnicas de SEO para ferramentas de busca na internet, para ajudar a ranquear e divulgar seu site na web;
+            Monitorar métricas do seu site, para saber:
+            <ul>
+                <li>Quem está visitando seu site? Homens ou mulheres?</li>
+                <li>Qual a idade do público que está visitando seu site?</li>
+                <li>Quanto tempo as pessoas que visitam seu site passam nele?</li>
+                <li>Em qual área do seu site as pessoas passaram mais tempo?</li>
+                <li>O público que está visitando seu site é de fato o público alvo para o qual ele foi criado?</li>
+            </ul>
+            Estas e outras perguntas, utilizando técnicas de <em>Marketing</em>, poderão ser respondidas com muita
+            facilidade.
+
+            <br>
+            <a href="#topo" title="Ir ao topo...">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="WKegwm" title="Pag. 159 - caderno Tigre">Aula01 - O processo de Marketing</h2>
+
+            <h3>Fundamentos do Marketing</h3>
+            Marketing e Marketing Digital, são exatamente a mesma coisa, uma vez, que o segundo, utiliza os fundamentos
+            do primeiro só que em um ambiente diferente.<br>
+
+            Você já ouviu falar em <strong>B2W</strong>, <strong>Enova</strong> e <strong>GFG</strong>?
+            São grandes grupos que estão por detrás de marcas muito conhecidas:
+            <ol>
+                <li>B2W
+                    <ul>
+                        <li>Americanas</li>
+                        <li>Submarino</li>
+                        <li>Shoptime</li>
+                    </ul>
+                </li>
+                <li>Enova
+                    <ul>
+                        <li>Casas Bahia</li>
+                        <li>Extra</li>
+                        <li>Barateiro</li>
+                    </ul>
+                </li>
+                <li>GFG
+                    <ul>
+                        <li>Daifiti</li>
+                        <li>Kanui</li>
+                        <li>trical</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <span style="color:red;">Todas estas marcas agem da mesma maneira quanto ao
+                <strong>marketing</strong>?</span><br>
+            A resposta para esta pergunta é não! Não existe uma fórmula mágica. O que existe, é uma ciência que estuda
+            comportamento, e com base nisso, sugere estratégias para criação, divulgação e venda de um determinado
+            produto ou serviço, identificando para qual público alvo foi criado.<br>
+
+            <h3 class="mt-3">Como era o Marketing antigamente</h3>
+            Ainda se praticam diversas formas de Marketing que eram praticadas no passado. Sem depreciar estas formas,
+            mas, não deixando de lado o novo modelo de marketing do futuro, é que evoluiremos neste sentido.<br>
+            Veja algumas formas de fazer marketing antigas:
+            <ul>
+                <li>Tele Lista (páginas amarelas);</li>
+                <li>Classificados dos Jornais;</li>
+                <li>Carro de som;</li>
+                <li>Telemarketing.</li>
+            </ul>
+
+            O pai da Administração de Marketing é <em><strong>Philip Kotler</strong></em>.<br>
+            Segundo Kotler,o marketing antigamente era <strong>mostrar e vender</strong>.<br>
+            Já no marketing moderno é <strong>Identificar e satisfazer necessidades</strong>.
+
+            <h3 class="mt-3">Conceito de Marketing segundo Kotler</h3>
+            "<em>Marketing é um processo social pelo qual se cria <span style="color:red;">valor</span> e se constrói
+                <span style="color:red;">relacionamentos</span> baseados em <span
+                    style="color:red;">trocas</span>.</em>".<br>
+            <strong>Mostrar valor:</strong> Mostrar ao cliente em potencial, que o objeto de desejo oferecido, realmente
+            irá satisfazer este desejo por meio de valores. Ex: "Já pensou a família chegar em casa e ao entrar na sala
+            de estar, se deparar com esta telona de 55" na estante? Não seria incrível?".<br>
+
+            <h3 class="mt-3">Processo do Marketing</h3>
+            CRIAR VALOR => CAPTURAR VALOR(objetivo);<br>
+            Criar valor possui 4 passos:
+            <ol>
+                <li><strong>Entender necessidades</strong>;</li>
+                <li><strong>Elaborar estratégia</strong>;</li>
+                <li><strong>Programa de marketing</strong>;</li>
+                <li><strong>Construir um relacionamento</strong>.</li>
+            </ol>
+            Estes 4 processos, se sub-dividem em outros para cada um. Vejamos o primeiro grupo de subdivisão:<br>
+            PASSO 1 - ENTENDER AS NECESSIDADES E DEMANDAS:
+            <ul>
+                <li>1.1 - Necessidades, desejos e demandas;</li>
+                <li>1.2 - Produtos, serviços e expectativas;</li>
+                <li>1.3 - Valor e Satisfação;</li>
+                <li>1.4 - Trocas e Relacionamentos;</li>
+                <li>1.5 - Mercado.</li>
+            </ul>
+
+            <br>
+            <a href="#topo" title="Ir ao topo...">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="OyNHxj" title="Pag. 162 - caderno Tigre">Aula08 - Manipulação de Strings</h2>
+
+            <h3>Funções de manipulação de strings no php</h3>
+            <p>Veremos nesta aula, algumas funções que possibilitam a manipulação de strings dentro do
+                <strong>PHP</strong>, que serão elas:
+            </p><br>
+            <ul>
+                <strong>
+                    <li>strlen()</li>
+                </strong>
+                <strong>
+                    <li>str_word_count()</li>
+                </strong>
+                <strong>
+                    <li>strrev()</li>
+                </strong>
+                <strong>
+                    <li>strpos()</li>
+                </strong>
+                <strong>
+                    <li>str_replace()</li>
+                </strong>
+            </ul>
+            <hr>
+            <h4>strlen()</h4>
+            <p>Esta função serve para contar quantos caracteres tem uma string. Veja o exemplo na imagem abaixo:</p><br>
+            <img src="https://drive.google.com/thumbnail?id=1CgXKz6Uvt23GxqW6bKEqvVz42aNfitfs&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída desta função será:</p><br>
+            <img src="https://drive.google.com/thumbnail?id=18gAAUF6bhPr3z965xnm8X23DPeji7LdA&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Perceba que foram contados 20 caracteres da string "Daniel Lopes Bemfica". <span
+                    style="color: red;"><strong>OBS: Todos os espaços e caracteres como sinais de pontuação são
+                        contabilizados!</strong></span></p><br>
+            <hr>
+            <h4>str_word_count()</h4>
+            <p>Esta função serve para contar palavras em uma frase. Veja o exemplo na imagem abaixo:</p><br>
+            <img src="https://drive.google.com/thumbnail?id=1PDgl9XoaMF6b9ttgHZX5eFMyP_Srg6E_&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será:</p><br>
+            <img src="https://drive.google.com/thumbnail?id=138PNHZNfZrsuszEHWj8pyQwJds2QSgDF&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Vemos na imagem da saída, que foram contabilizadas duas palavras na frase "Beleza Daniel!". <span
+                    style="color: red;"><strong>OBS: Não contabiliza espaços e nem caracteres como sinais de
+                        pontuação!</strong></span></p><br>
+            <hr>
+            <h4>strrev()</h4>
+            <p>Esta função, serve para reverter uma palavra, ou , escrevê-la ao contrário. Veja na imagem abaixo:</p>
+            <br>
+            <img src="https://drive.google.com/thumbnail?id=1zB3eJFHSPXxuu0DhqEDAxlIQtkhC0mTY&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída desta função será:</p><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1Dd9ayRdznqnMG6QeXX5VgTzXEmqMXAYi&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <hr>
+            <h4>strpos()</h4>
+            <p>Esta função serve para fornecer a posição de uma palavra ou caractere no contexto de uma string. Esta
+                função
+                possui dois parâmetros:</p> <br>
+            <ol>
+                <li>A string</li>
+                <li>Qual a palavra ou caractere buscado</li>
+            </ol>
+            <br>
+            <p>Veja abaixo como isso funciona:</p><br><br>
+            <img src="https://drive.google.com/thumbnail?id=15NlPhYxMse5-DuGp8RNAhoZ97C770xPG&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Perceba que os dois parâmetros estão muito claros dentro da função, que são <em>a string onde será feita
+                    a
+                    busca</em> <strong>"Oi tudo bem"</strong>, e <em>a palavra que será buscada nesta string</em>
+                <strong>"tudo"</strong>. A saída desta função será:
+            </p><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1RaDl8-4XV86Llo3lB_40y7WXXV4iRzsQ&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Este valor se deve ao fato de que a letra <strong>"O"</strong> ocupa a posição <strong>0</strong>, a
+                letra
+                <strong>"i" </strong>ocupa a posição <strong>1</strong>, o <strong>espaço</strong> ocupa a posição
+                <strong>2
+                </strong>e a letra <strong>"t" </strong>ocupa a <strong>terceira posição</strong>, dando a palavra
+                <em>"tudo"</em> esta posição. <span style="color: red;"><strong>OBS: Cada caractere e espaço é
+                        contabilizado.</strong></span>
+            </p><br><br>
+            <p>Em um contexto onde a palavra ou caractere buscado não existe, o php nativamente retornará <em>nada</em>
+                ou
+                <em>erro</em> no browser. Mas podemos resolver isso facilmente com uma condicional conforme a figura
+                abaixo:
+            </p><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1yvLIRKXeTfRXdrrWytIGQC7vMrA_Lfp-&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída desta função mediante a condicional será:</p><br><br>
+            <img src="https://drive.google.com/thumbnail?id=190fbg7QdmP_y7IM4ODZ61KTMaaClzldR&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <hr>
+            <h4>str_replace()</h4>
+            <p>Esta função servirá para realizar substituições no contexto de uma string. Possui 3 parâmetros:</p><br>
+            <ol>
+                <li>A palavra ou caractere que deverá ser substituida </li>
+                <li>A palavra ou caractere que substituirá</li>
+                <li>O contexto de string na qual haverá a substituição</li>
+            </ol>
+            <br>
+            <p>Veja neste exemplo, que substituiremos um dos sobrenomes do nome, por outro:</p><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1ToJMg_5NmejPDidcRO6cl5AIaQmdSccq&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será:</p><br>
+            <img src="https://drive.google.com/thumbnail?id=1fYarrlW8mRD2tBagOJ0MirWragoRK9_j&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <h5>Aplicação prática</h5>
+            <p>Veja abaixo um exemplo de aplicação prática desta função, talvez, uma das mais importantes e mais
+                utilizadas
+                no PHP:</p><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1Z2smY_bJOiKgvfwxIPgDIKaJCRzng8Qf&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Bastante comum, este exemplo demonstra a substituição de caracteres <strong>"-"</strong> de separador dos
+                dados da data por <strong>"/"</strong>. Veja na imagem a saída deste exemplo:</p><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1lFk9x-7uRD8P5eDfUHGD2WaH4D9gKAgY&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+
+        <div class="aula">
+            <h2 id="n1I29l" title="Pag. 166 - caderno Tigre">Tipos de dados em PHP - Curso em Vídeo</h2>
+
+            <h3>Como são definidos os tipos de dados em PHP?</h3>
+            <p>Em PHP, assim como em outras linguagens de programação, temos peculiaridades quanto aos tipos de dados.
+                No PHP temos:</p><br>
+            <ul>
+                <li><em>string</em> -> para textos;</li>
+                <li><em>integer</em> -> para nº inteiros;</li>
+                <li><em>float</em> -> para nº decimais(c/ vírgula);</li>
+                <li><em>boolean</em> -> para valores lógicos true ou false;</li>
+                <li><em>array</em> -> para listas de diversos tipos de dados;</li>
+                <li><em>object</em> -> para conjuntos de diversos arrays;</li>
+                <li><em>null</em> -> para valores nulos.</li>
+            </ul>
+            <br>
+            <p>Clique no botão abaixo para saber tudo sobre tipos de dados php na Aula07 do Curso de PHP da Genial
+                Cursos:</p><br>
+            <button class="btn btn-outline-primary" type="button"><a href="#yikvav"
+                    title="Ir a aula07 - Tipos de Dados php do curso Genial Cursos.">Tipos de Dados</a></button><br>
+            <hr>
+            <h3>Definição do tipo de dado no PHP</h3>
+            <p>No php os tipos de dados são definidos automaticamente por <strong>COERSÃO</strong>, ou seja, não é
+                necessário defini-los.<br>
+                Mas podemos "forçar" a mudança deste tipo de dado com <strong>TYPECAST</strong>(proveniente da linguagem
+                <em>C</em>).
+            </p><br>
+            <p>Vejamos os tipos de <strong>TYPECAST</strong> para realizarmos estas mudanças:</p><br>
+            <ul>
+                <li>inteiro -> (int), (integer);</li>
+                <li>real -> (real), (float) e (double);</li>
+                <li>caractere -> (string);</li>
+                <li>lógico -><span style="color: red;">No php, valores lógicos são considerados nº inteiros sendo 1 p/
+                        true e vazio p/ false.</span></li>
+            </ul>
+            <p>Veja o exemplo de como transformar uma string em inteiro na imagem abaixo:</p>
+            <img src="https://drive.google.com/thumbnail?id=1ThNmUKQG0ni7XAvgqah1D75HJ_KXfliL&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Perceba que o valor da saída foi zero(0), pois no caso desta string havia somente letras entre os
+                caracteres.</p>
+            <img src="https://drive.google.com/thumbnail?id=1_-TwEhp4Q8dCx7n0etwzpSrhi56b6uxb&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <hr>
+            <h3>Concatenação</h3>
+            <p>Podemos concatenar dados de duas principais formas no php:</p><br>
+            <ul>
+                <li>Utilizando ponto(.);</li>
+                <li>Utilizando aspas duplas(" ").</li>
+            </ul>
+            <p>Veja o exemplo de concatenação utilizando ponto(.) na imagem abaixo:</p>
+            <img src="https://drive.google.com/thumbnail?id=1eHXhQSEAyX8x_2068yjlX5YkGqMby_m2&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <span style="color: red;">Perceba que não foi necessário concatenar espaços vazios entre os dados. Bastou
+                dar espaços dentro das aspas duplas nos lugares específicos.</span><br><br>
+            <p>Veja na imagem abaixo agora, o exemplo com concatenação utilizando aspas duplas(" "):</p>
+            <img src="https://drive.google.com/thumbnail?id=1s4ptYyHkmNvFD4lSrrIsaU1iv-3mTgeI&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: blue;font-size: 1.1em;">IMPORTANTE: Vale lembrar sempre, que devemos utilizar aspas
+                duplas durante a concatenação para que o php a reconheça como tal!</span>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="wpclXu" title="Pag. 222 - caderno SpeedCar">Aula01 - Criação do chatBot</h2>
+
+            <h3>Manual de Treinamento de Chatbot: Guia Prático</h3>
+            <h4>1. Estrutura Básica de um Chatbot</h4>
+            <p>Para começar, vamos entender os componentes fundamentais:</p>
+            <ul>
+                <li><strong>Intenções (Intents)</strong>: O que o usuário deseja realizar</li>
+                <li><strong>Entidades (Entities)</strong>: Informações específicas extraídas da mensagem</li>
+                <li><strong>Respostas</strong>: Como o bot responde a cada intenção</li>
+                <li><strong>Contexto</strong>: Acompanhamento do fluxo da conversa</li>
+            </ul>
+
+            <h4>2. Processo de Criação e Treinamento</h4>
+            <strong>
+                <p>Passo 1: Definir o Domínio do Bot</p>
+            </strong>
+            <p>Primeiro, defina claramente qual será o escopo do seu bot. Por exemplo, vamos criar um bot de suporte
+                técnico para uma empresa de software:</p>
+            <ul>
+                <li><strong>Domínio</strong>: Suporte técnico para o software "GestãoFácil"</li>
+                <li><strong>Funções</strong>: Responder dúvidas, solucionar problemas comuns, encaminhar para
+                    atendimento humano</li>
+            </ul>
+
+            <strong>
+                <p>Passo 2: Mapeamento de Intenções</p>
+            </strong>
+            <p>Identifique todas as possíveis intenções dos usuários:</p>
+
+            <p><strong>saudacao</strong>: Cumprimentos iniciais<br>
+                <strong>problema_login</strong>: Problemas para acessar o sistema<br>
+                <strong>recuperar_senha</strong>: Necessidade de recuperar senha<br>
+                <strong>erro_sistema</strong>: Reportar um erro no software<br>
+                <strong>horario_funcionamento</strong>: Perguntar sobre horários de atendimento<br>
+                <strong>falar_atendente</strong>: Solicitar atendimento humano<br>
+                <strong>agradecer</strong>: Agradecimentos ao bot<br>
+                <strong>despedida</strong>: Encerrar a conversa
+            </p><br>
+
+            <strong>
+                <p>Passo 3: Cadastro de Intenções</p>
+            </strong>
+            <p>Para cada intenção, cadastre múltiplas frases de exemplo (utterances):</p>
+
+            <div style="border:1px solid black; border-radius:5px; background-color:beige; padding:5px;">
+                <strong>intenção</strong>: <span style="color: blue;">saudacao</span><br>
+                <ul>
+                    <li>Olá</li>
+                    <li>Oi, tudo bem?</li>
+                    <li>Bom dia</li>
+                    <li>Boa tarde</li>
+                    <li>E aí</li>
+                    <li>Como vai?</li>
+                    <li>Hey</li>
+                </ul>
+
+
+                <strong>intenção</strong>: <span style="color: blue;">problema_login</span><br>
+                <ul>
+                    <li>Não consigo entrar no sistema</li>
+                    <li>Estou com problemas para fazer login</li>
+                    <li>O sistema não aceita minha senha</li>
+                    <li>Meu usuário não está funcionando</li>
+                    <li>Tentei acessar mas dá erro de login</li>
+                    <li>Como resolvo um problema de acesso?</li>
+                    <li>Meu login não funciona</li>
+                </ul>
+
+
+
+                <strong>intenção</strong>: <span style="color: blue;">recuperar_senha</span><br>
+                <ul>
+                    <li>Esqueci minha senha</li>
+                    <li>Como recupero minha senha?</li>
+                    <li> Preciso de uma nova senha</li>
+                    <li>Não lembro minha senha de acesso</li>
+                    <li>Quero resetar minha senha</li>
+                    <li>Como faço para redefinir minha senha?</li>
+                    <li>Perdi meu acesso, como recupero?</li>
+                </ul>
+            </div><br>
+
+            <strong>
+                <p>Passo 4: Definir Entidades</p>
+            </strong>
+            <p>Entidades são informações específicas que extraímos das mensagens:</p>
+            <ol>
+                <li><strong>@sistema</strong>: Módulos do software (financeiro, estoque, vendas)</li>
+                <li><strong>@versao</strong>: Versão do software (1.0, 2.0, beta)</li>
+                <li><strong>@plataforma</strong>: Sistema operacional (Windows, Mac, Linux)</li>
+                <li><strong>@tempo</strong>: Expressões temporais (ontem, há uma semana)</li>
+            </ol>
+
+            <p>Exemplos de anotação de entidades:</p>
+            <p>"Estou com um erro no módulo <span style="color: green;">[financeiro]</span><span
+                    style="color: red;">(@sistema)</span> da <span style="color: green;">[versão 2.1]</span><span
+                    style="color: red;">(@versao)</span>"</p><br>
+            <p>"Meu<span style="color: green;"> [Windows 11]</span><span style="color: red;">(@plataforma)</span> não
+                abre o programa <span style="color: green;">[desde ontem]</span><span
+                    style="color: red;">(@tempo)</span>"</p><br>
+
+            <strong>
+                <p>Passo 5: Criar Respostas Variadas</p>
+            </strong>
+
+            <p>Para cada intenção, crie respostas variadas para tornar o bot mais natural:</p>
+            <div style="border:1px solid black; border-radius:5px; background-color:beige; padding:5px;">
+                <p><strong>intenção</strong>:<span style="color: blue;"> saudacao</span></p>
+                <ul>
+                    <li> Olá! Como posso ajudar você hoje com o GestãoFácil?</li>
+                    <li>Oi! Bem-vindo ao suporte do GestãoFácil. Em que posso ser útil?</li>
+                    <li>Olá! Sou o assistente virtual do GestãoFácil. Como posso te auxiliar?</li>
+                    <li>Oi! Tudo bem? Estou aqui para ajudar com qualquer dúvida sobre o GestãoFácil.</li>
+                </ul>
+
+
+                <p><strong>intenção</strong>: <span style="color: blue;">problema_login</span></p>
+                <ul>
+                    <li>Entendi que você está com dificuldades para acessar o sistema. Vamos resolver isso! Você já
+                        tentou redefinir sua senha?</li>
+                    <li>Problemas de login são comuns e geralmente fáceis de resolver. Primeiro, verifique se o caps
+                        lock está desativado e tente novamente.</li>
+                    <li>Sinto muito pelo inconveniente com o login. Vamos verificar algumas possíveis causas: 1) seu
+                        usuário está correto? 2) você digitou a senha corretamente?</li>
+                </ul>
+            </div>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="o26951" title="Pag. 171 - caderno Tigre">Aula09 - Manipulação de números
+            </h2>
+
+            <h2>Funções de manipulação de nº</h2>
+            <p>Observe a saída abaixo:</p>
+
+            <img src="https://drive.google.com/thumbnail?id=1e4nTM8XQ09_WY1cy87FoIAMC-iCYX0Ki&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>Ela veio deste cálculo abaixo, onde estamos tentando somar uma string a um inteiro.</p>
+            <img src="https://drive.google.com/thumbnail?id=1R-2NYIJYbmeepv-14EAjyrfXBSJSaTb3&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>Observe que o valor retornado é um inteiro, pois o PHP converteu a string em número. <br>
+                Isso ocorre devido ao php possuir a característica de tentar entender o que você deseja e realizar e
+                fazer esta conversão automática.<br>
+                <span style='color:red;font-weight:bold;' </span>Isso poderá ser um problema, dependendo do objetivo do
+                    sistema criado por você.
+            </p>
+
+
+            <p>Veja este outro exemplo:</p>
+            <p>...a saída será...</p><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1oxZSBc_Gk8Fz9Cqxi0VQFdwqMW6xwAG9&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>Ele veio deste cálculo abaixo, onde estamos multiplicando um inteiro por um float. A saída deveria ser um
+                nº inteiro(10), mas como pode ver saiu <strong>float</strong>. Isso porque o que você passou como
+                parâmetro da operação é um nº decimal(float).</p>
+
+            <img src="https://drive.google.com/thumbnail?id=14_920Cwkf-G3VZtpQp1cdCd3d7MEzBn9&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+
+            <p>Podemos converter isso facilmente utilizando uma função do php desta forma:</p> <br>
+
+            <img src="https://drive.google.com/thumbnail?id=16M7Lhkx2Z67mxmWvLh_TDWWO_NbkIWd2&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>...a saída será...</p><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1ad2YGAYvwiV5FDueRmS6Y8vzJ6-d_oLy&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>Utilizando a função <strong><em>(int)<em></strong>,o valor foi convertido para inteiro, pois o php não
+                faz isso automaticamente, já que o float é um número decimal e o inteiro não.</p> <br>
+
+            <p>Podemos da mesma forma converter para outros tipos como no exemplo abaixo:</p><br>
+            <img src="https://drive.google.com/thumbnail?id=1YiWP5vDm-KIwp6II9DMdzzmNbOFnTYgE&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>...a saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=1PkW8d7AsFov3Oi7kecAR5tapIocYNrv6&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>Utilizando a função <strong><em>(float)<em></strong>, o valor foi convertido para float.</p> <br>
+
+            <h4>Outroas formas de identificar tipos de dados</h4>
+            <p>Podemos utilizar a função <strong><em>is_int()</em></strong> para perguntar qual o tipo de dado que está
+                sendo utilizado, desta forma:</p><br>
+            <img src="https://drive.google.com/thumbnail?id=1z-uZxMK0hhOIpqhoY_RoAiDmk0--skWC&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>Observe que o valor retornado é um booleano, ou seja, verdadeiro, respondendo <em>sim</em> para a nossa
+                pergunta, se valor4 é um inteiro.</p>
+
+            <p>...a saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=1apYhFPnbgo78qWxZYwEFvV43P_orD5dL&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+
+            <p>Podemos desta forma fazer outras perguntas como:<br>
+            <ul>
+                <li><strong>is_float</strong> -> pergunta se é um decimal;</li>
+                <li><strong>is_bool</strong> -> pergunta se é um valor boleano;</li>
+                <li><strong>is_numeric</strong> -> pergunta se é um número;</li>
+            </ul>
+            </p>
+
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="IABtqF" title="Pag. 174 - caderno Tigre">Aula05 - Operadores Aritméticos - Curso em Vídeo</h2>
+
+            <h3>Quais são os operadores aritméticos suportados pelo php?</h3>
+            <ul>
+                <li>Adição -> $r = $a + $b;</li>
+                <li>Subtração -> $r = $a - $b;</li>
+                <li>Multiplicação -> $r = $a* $b;</li>
+                <li>Divisão -> $r = $a / $b;</li>
+                <li>Modulo -> $r = $a % $b;</li>
+            </ul>
+            <p>Exemplo de operação:</p>
+            <img src="https://drive.google.com/thumbnail?id=1NlBaOIgrm8lQeU8Hf6hzGLkGafWPtNCA&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <p>A saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=1xod1hJuzPxW1x2aFOBRB6_uKKjRdDdHS&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <p>Demais exemplos de cálculos:</p>
+            <img src="https://drive.google.com/thumbnail?id=1DsNzmLWswUkUiqs07jDzydptssooo0Qk&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1pnliynRvQ7v8EmrfBh17OTGz2ytoOn53&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <span style="color: red;">IMPORTANTE: O operador de módulo(%), retorna o resto da divisão inteira. Por isso,
+                1.5 retornou 1.</span><br>
+            <hr>
+            <h3>Ordem de precedência</h3>
+            <p>A ordem de precedência dos operadores em php é a seguinte:</p><br>
+            <ol>
+                <li>( ) -> parênteses;</li>
+                <li> * , / , % -> multiplicação, divisão e módulo(o que vier primeiro...</li>
+                <li> + , <strong>-</strong> -> Adição e subtração.</li>
+            </ol>
+            <hr>
+            <h3>Cálculo de média</h3>
+            <p>O cálculo de média é um excelente exemplo de ordem de precedência.</p>
+            <img src="https://drive.google.com/thumbnail?id=1eb1_hTVdJymVIAGOFYOvaZG-o7zw0Ck8&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1cRRg3oJ4dp3OrNr_Y4tKxLQWjmIwOCT9&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <hr>
+            <h3>Como utilizar valores personalizados</h3>
+            <p>Podemos utilizar parâmetros declarados na url para testar de forma dinâmica, cálculos entre as variáveis
+                desta forma:</p>
+            <img src="https://drive.google.com/thumbnail?id=1JTB0lSiIe8KuwzDx9KvO6OAa_y7WBrcp&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Perceba , que após php, inserimos os valores <strong>?x=3&y=2</strong>. São os parâmetros que
+                atribuiremos às variáveis.</p><br>
+            <p>Para que possamos utilizar estes parâmetros nos cálculos, é necessário atribuirmos estes, à variáveis
+                desta forma:</p>
+            <img src="https://drive.google.com/thumbnail?id=1-OQIdCcfLqEydVFgkOdLJIq0Dly6fGaj&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>O <strong>$_GET</strong>, significa <em>"pegar"</em>.</p><br>
+            <img src="https://drive.google.com/thumbnail?id=14oAQRiuozjcNd6Yk3SzFpTjKF12w2inA&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=1DQ4zq5dhbwsnJcU30BYngUv7sNYCHyYs&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">Esta é uma excelente forma de realizar testes no php.</span>
+            <ul>
+                <li>Declaramos valores de parâmetros na url;</li>
+                <li>Atribuimos estes parâmetros à variáveis;</li>
+                <li>Fizemos os cálculos com estas variáveis.</li>
+            </ul>
+            <hr>
+            <h3>Funções matemáticas pré-definidas</h3>
+
+            <h4><mark>abs()</mark></h4>
+            <span style="color: blue;">Captura o valor absoluto de uma variável.</span><br>
+            <p>Vamos trocar os valores dos parâmetros na url para <em>x=4</em> e <em>y=-3</em>.</p>
+            <img src="https://drive.google.com/thumbnail?id=1DNfi_vL4GC6lXFM0VA9VLTuEsKVr9vfF&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Vamos criar duas novas variáveis, <strong>v1</strong> e <strong>v2</strong>, e atribuir a elas os novos
+                parâmetros:</p>
+            <img src="https://drive.google.com/thumbnail?id=1YGaCDufBr5gv_xY7uHP1Km3L3Qv0Qrsh&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Agora , vamos utilizar a função <strong>abs()</strong>:</p>
+            <img src="https://drive.google.com/thumbnail?id=1Yb8SA_b1odBuI8hZ_unB0Pg-cmEO_TIB&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Cuja saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=10jtjxxbmV8IdwOIdS88-UMwc0MAlaXZb&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">Agora, vamos mudar o valor do parâmetro y para 3:</span><br>
+            <img src="https://drive.google.com/thumbnail?id=1fUIz8ImDsFqPUDmzeOOSpynnYO1QdIDE&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <h4><mark>pow()</mark></h4>
+            <span style="color: blue;">Realiza operações de potenciação</span><br>
+            <img src="https://drive.google.com/thumbnail?id=1Pgb5fPaUx5RaQg9AoKhCqeYnXhKDZTTx&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1gn-QZVZxQkdBgbYYe_-InzQqRGc-X3HV&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">Agora vamos mudar o valor do parâmetro x para 81:</span><br>
+            <img src="https://drive.google.com/thumbnail?id=13zp2lUWtRX5XGr9Su7zbgVobJRMOb_DY&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <h4><mark>sqrt()</mark></h4>
+            <span style="color: blue;">Extrai a raiz quadrada do valor de uma variável.</span><br>
+            <img src="https://drive.google.com/thumbnail?id=1AQIKMRrvue0-UPi9NXWl6me7q223RfQf&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1OfYJridRVfy7_6yQ7eObvOwGc-MZHpPq&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">Agora, vamos mudar o valor do parâmetro y para 3.4.</span><br>
+            <img src="https://drive.google.com/thumbnail?id=1yUJuUK4nyvLv1RH6GGm0mHd51XmtF8kX&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <h4><mark>round()</mark></h4>
+            <span style="color: blue;">Arredonda valores de nº decimais(c/ vírgula), conforma as regras da matemática:
+                3.4 vira 3 - 3.5 vira 4.</span><br>
+            <img src="https://drive.google.com/thumbnail?id=14AKT7k-A2bw6jT5_Z_aS-SwVc7dE-uHG&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=12Vug_CR4w7IUwxLDaIyv0oq8ZQiZh27u&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <span style="color: red;">Existem outras duas funções de arredondamento específico:</span><br>
+            <h4><mark>ceil()</mark> -> Arredonda para cima</h4>
+            <img src="https://drive.google.com/thumbnail?id=15dFApdl_ppaKulX4D0kiEziTDhX5I6os&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1cS1Bw0MzNQMEBDrIz5VoRg6uJKa9-XU6&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <h4><mark>floor()</mark> -> Arredonda para baixo</h4>
+            <img src="https://drive.google.com/thumbnail?id=1tcpa6A4nlAxL3cWE45qESsVp0ApIofER&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1AWN_TaY1Zlwu0iUJm2uwD4XKMhQd1vy9&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+
+            <h4><mark>intval()</mark></h4>
+            <span style="color: blue;">Captura o valor inteiro de uma variável com valor decimal</span><br>
+            <img src="https://drive.google.com/thumbnail?id=1iDAWDlk9TVuO3fLjX1oG8aymRWm1achz&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1yBzcInQ03QkTS8pSl-296YnVcHKvFmUR&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <h4><mark>number_format()</mark></h4>
+            <span style="color: blue;">Serve para formatar um valor numérico em monetário.</span><br>
+            <img src="https://drive.google.com/thumbnail?id=1DB0wmX6cNeRZN5440zvleSkym02boZFu&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A sintaxe é a seguinte:</p>
+            <ul>
+                <li>$v2 -> é a variável;</li>
+                <li>2 -> é as casas decimais após o separador decimal;</li>
+                <li>" , " -> é o separador decimal;</li>
+                <li>" . " -> é o separador da casa do milhar, caso o nº seja desta grandeza.</li>
+            </ul>
+            <img src="https://drive.google.com/thumbnail?id=1kRhpdwvVZYNAg7NOYZegaHLdgv9Op2L7&sz=w800" alt="Imagem"
+                class="img-fluid">
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+
+        <div class="aula">
+            <h2 id="JpiXaT" title="Pag. 182 - caderno Tigre">Aula02 - Necessidade, Desejo e Demanda</h2>
+
+            <h3>Conceito de necessidades</h3>
+            <h4>NECESSIDADES</h4>
+            <p>As necessidades , são aquelas exigências humanas básicas, conforme a <em><strong>Pirâmide de
+                        Maslow</strong></em> e sua hierarquia:</p><br>
+            <img src="https://drive.google.com/thumbnail?id=1p7WgGLVxCjoTVNfxhLaiJVLLPvijNqnL&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <span style="color: red;font-size: 1.3em;">O marketing, não cria as necessidades. Elas já existem!
+            </span><br>
+            <hr>
+            <h4>DESEJOS</h4>
+            <p>Os <span style="color: red;">desejos</span>, referem-se às <span style="color: red;">necessidades</span>
+                dirigidas à produtos, que sejam capazes de satisfazê-las.<br>O marketing, atua, criando objetos de
+                desejo, focando nestes para atender as necessidades.</p><br>
+            <p>Ex: A necessidade não muda, oque muda é o desejo:</p><br>
+            <ul>
+                <li>Estou com fome: necessidade de alimento;</li>
+                <li>Vou comer um hamburguer; R$15,00</li>
+                <li>Vou comer um buffet: R$65,00</li>
+            </ul>
+            <p>Os dois desejos possuem valores financeiros diferentes;</p><br>
+            <hr>
+            <h4>DEMANDA</h4>
+            <p>Define, se vai existir mercado para o produto. Só funciona, se o público alvo tiver condições de adquirir
+                o produto.<br>
+                No marketing, fazemos as seguintes perguntas:<br>
+            <ul>
+                <li>Identicar as <strong>necessidades</strong> em aberto dentro de um<strong> público alvo</strong>;
+                </li>
+                <li>Identificadas as <strong>necessidades</strong>, é hora de criar um produto que seja <strong>objeto
+                        de desejo</strong>;</li>
+                <li>O <strong>objeto de desejo</strong> deverá ser possível de ser adquirido pelo <strong>público
+                        alvo</strong>.</li>
+            </ul>
+            </p><br>
+            <h5>Exemplo prático:</h5>
+            <p><strong>PRODUTO</strong>: Aplicação web para gestão de insumos de sobrevivência;</p>
+            <p><strong>PÚBLICO ALVO</strong>: sobrevivencialistas, militares, forças policiais e de segurança como
+                defesa civil, bombeiros voluntários e bombeiros, escoteiros,socorristas, pessoas antenadas com as
+                notícias sociais, políticas e econômicas.</p><br>
+            <p><strong>NECESSIDADES</strong>: Ver na Pirâmide de Maslow em qual das necessidades seu produto melhor se
+                encaixa;<br>
+            <ul>
+                <li><em>FISIOLÓGICAS</em>: Alimento e água</li>
+                <li><em>SEGURANÇA</em>: Física e financeira;</li>
+                <li><em>SOCIAIS</em>: Familia</li>
+                <li><em>AUTOESTIMA</em>: Confiança e êxito.</li>
+            </ul>
+            </p><br>
+            <p><strong>DESEJOS</strong>:<br>
+            <ul>
+                <li>Organizar os produtos por data de validade não perdendo o investimento;</li>
+                <li>Manter o estoque de insumos essenciais organizado.</li>
+            </ul>
+            </p><br>
+            <p><strong>DEMANDAS</strong>:<br>
+            <ul>
+                <li>Aplicação capaz de catalogar e gerir estoque de insumos perecíveis;</li>
+                <li>Controle dos vencimentos e gestão na palma da mão;</li>
+                <li>Fornecer insigths por meio de dashboard informativo com gráficos de quantia total de insumos, volume
+                    e massa por tipo de insumo, insumos válidos e por vencer, etc...</li>
+                <li>Gerar relatórios para impressão e controle</li>
+            </ul>
+            </p><br>
+            <p>Um excelente exemplo de caze de sucesso é a <strong><em>Amazon</em></strong> de Jeff Bezos, pois se
+                destaca no mercado como sendo a segunda maior loja de comércio varejista do mundo e a primeira loja
+                online do mundo.<br>
+                Conforme seu CEO, a Amazon faz sucesso porque se preoculpa em criar objetos de desejo que satisfaçam as
+                necessidades de seus clientes.</p>
+
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="kfDr31" title="Pag. 186 - caderno Tigre">Aula10 - Funções matemáticas</h2>
+
+            <h3>Funções Matemáticas</h3>
+            <p>No php, além das operações matemáticas básicas, temos funções prontas para realizar determinados
+                cálculos. Vejamos abaixo:</p><br>
+
+            <h4><strong>pi()</strong></h4>
+            <p>Mostra o nº pi.</p>
+            <img src="https://drive.google.com/thumbnail?id=1Bj-Af1gmNtqhwD0Lu3zWiadXSz8U3GNe&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1QkgiScz86Ru8h9YchzXXPbI_xmCknPAW&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <hr>
+
+            <h4><strong>min()</strong></h4>
+            <p>Mostra o menor valor em uma lista de valores.</p>
+            <p>Dados os nº...</p>
+            <img src="https://drive.google.com/thumbnail?id=15FwtMPWFjOvW68Vhi2acKyqxCxumQiH2&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1RMz_sRHdqYsMLYlXS9Q_VO6w-Dm6pHOv&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <h5><u>ADENDO</u></h5>
+            <img src="https://drive.google.com/thumbnail?id=15K7qMJE2_ht_OIlqdw4-Nvoz9CUa_QaT&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <hr>
+
+
+            <h4><strong>max()</strong></h4>
+            <p>Mostra o maior valor em uma lista de valores.</p><br>
+            <hr>
+            <h4><strong>abs()</strong></h4>
+            <p>Mostra o valor absoluto de um nº.</p>
+            <img src="https://drive.google.com/thumbnail?id=1IUcDFS_iNZJNqPrxF4dGKjoHyWB0N1of&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1A5yHNawIMO9R1zF8uDozRHhRc2adUJFG&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <hr>
+
+            <h4><strong>sqrt()</strong> ou <em>square root</em>(raiz quadrada)</h4>
+            <p>Mostra a raiz quadrada de um nº.</p>
+            <img src="https://drive.google.com/thumbnail?id=1LVsNLu5LU5xBulYQEdMnN_7Po4MIQGtn&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=14tHznz73-BMcybh32aQz3JYOCusHyEuL&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <hr>
+
+            <h4><strong>round()</strong></h4>
+            <p>Arredonda os valores decimais conforme as regras da matemática.<br>
+                Por exemplo, para valores até 1.4, o arredondamento será <strong>para menos</strong>, ficando 1 o valor
+                arredondado. Para valores iguais ou maiores que 1.5, o arredondamento será <strong>para mais</strong>,
+                ficando 2 o valor arredondado.</p><br>
+            <hr>
+
+            <h4><strong>rand()</strong> - randônico</h4>
+            <p>Gera um nº aleatório entre 0 e o infinito, quando não atribuído um intervalo.</p>
+            <img src="https://drive.google.com/thumbnail?id=1D-q_wslDDHYFOfyK4exai825wkFALVrg&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <p>Neste caso irá gerar a saída por exemplo <strong>296785750</strong>.</p><br>
+
+            <p>Atribuindo um intervalo por variáveis:</p>
+            <img src="https://drive.google.com/thumbnail?id=1Wws0UAhzKNUC8dqwrp3cjQfUZlIkyqU_&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1PmsfpUApc9ohsllmek5JWABDAGzBlxfZ&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <p>Neste caso a saída poderá ser qualquer nº entre 1 e 10, inclusive o 1 e o 10.</p><br>
+
+            <p>Atribuindo um intervalo como parâmetros:</p>
+            <img src="https://drive.google.com/thumbnail?id=17dJOYx1QxgaIrpaZ1THbyVdOFViw2nkl&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <p>A saída, poderá ser qualquer nº dentro deste intervalo.</p>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="xqwoHQ" title="Pag. 189 - caderno Tigre">Aula06 - Operadores de atribuição - Curso em vídeo</h2>
+
+            <h3>Como facilitar as atribuições feitas com php?</h3>
+            <p>Veja na imagem abaixo, uma atribuição comum:</p>
+            <img src="https://drive.google.com/thumbnail?id=1CW4ZFq8CCI4Eu_fUuacqcU_uTyzon-2T&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída desta expressão será <strong>A soma de 2 + 3 é igual a 5.</strong></p><br>
+
+            <h4>Operador de atribuição com adição -> +=</h4>
+            <p>Veremos agora, como simplificar esta operação, <span style="color: red;">mas isso somente será possível,
+                    se a variável do início fizer parte da expressão do lado direito!</span></p><br>
+            <p>Se formos fazer o seguinte cálculo: <strong>$c = $c + 5;</strong></p>
+            <p>Podemos simplificar a forma como declaramos a variável $c, desta forma: <strong>$c += 5;</strong></p>
+            <p>Existe ainda mais uma possibilidade que é a seguinte: <em>Se a variável está recebendo o valor dela mesma
+                    + 1</em>, podemos utilizar o <strong>operador de incremento.</strong> </p>
+            <img src="https://drive.google.com/thumbnail?id=10GVO3JUhcnnY59syOD4RwS5QIScAa16C&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Desta forma...</p>
+            <img src="https://drive.google.com/thumbnail?id=1xMzimNDnoCdKbyxo7TZ7qQh_bvMiYamF&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Os operadores de atribuição suportados pelo php são:</p>
+            <img src="https://drive.google.com/thumbnail?id=13hnDWq6daQk4vr63oX2NEDOx7mlrRxUZ&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <p>...onde...</p>
+            <ul>
+                <li><strong>$a = $a + $b; -> $a += $b;</strong></li>
+                <li><strong>$a = $a - $b; -> $a -= $b;</strong></li>
+                <li><strong>$a = $a * $b; -> $a *= $b;</strong></li>
+                <li><strong>$a = $a / $b; -> $a /= $b;</strong></li>
+                <li><strong>$a = $a % $b; -> $a %= $b;</strong></li>
+                <li><strong>$a = $a . $b; -> $a .= $b;</strong></li>
+            </ul>
+            <hr>
+            <h5>Exercício: </h5>
+            <p>Aplicar um desconto de 10% ao valor de uma compra!</p>
+            <p>...onde...</p>
+            <span style="color: blue;">$preco = 100;</span>
+            <p>echo "O preço do produto é <span style="color: blue;">$preco</span>!";</p>
+            <p>O cálculo será:</p>
+            <span style="color: blue;">$preco = $preco - $preco * 0.1;</span>
+            <p>...onde o valor 0.1 foi obtido fazendo o a divisão de 10 por 100(desconto de 10%)...</p>
+            <p>...simplificando...</p>
+            <span style="color: blue;">$preco -= $preco * 0.1;</span>
+            <p>...ou seja...</p>
+            <span style="color: blue;">$preco = 100 - (100*0.1);
+                $preco = 100 - 10;
+                $preco = 90;</span>
+            <p>echo "O preço do produto com desconto será <span style="color: blue;">$preco</span>!";</p>
+            <p>A saída será... O preço do produto com desconto será <strong>90</strong>!</p>
+
+            <p>Podemos ainda fazer mão do recurso de parâmetro na URL...</p>
+            <img src="https://drive.google.com/thumbnail?id=1Pjnwm0latp24-HluRRlYhal2y7HMirQf&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1j8q3nQZU0gwkJdM6FrZdSPkFMf9TQdPZ&sz=w800" alt="Imagem"
+                class="img-fluid">
+            <p>Desta forma, podemos de forma mais dinâmica, testar valores diferentes para preços mais rapidamente
+                somente alterando o valor do parâmetro <strong>p</strong> na URL.</p>
+
+            <h4>Estilizando estes valores para o formato monetário</h4>
+            <p>Podemos formatar estes valores como já vimos antes, utilizando a function <span
+                    style="color: blue;"><em>number_format</em>(<strong>variável</strong>, <strong>nº de casas
+                        decimais</strong>, "<strong>separador das casas decimais</strong>", "<strong>separador das cadas
+                        de milhar</strong>");</span></p>
+            <p>Vamos mudar o valor de <strong>p</strong> para 1000 na URL...</p>
+            <p>Para o mesmo cálculo do exercício anterior...</p>
+            <img src="https://drive.google.com/thumbnail?id=1p65F5nEeKcobC0pH6qFufmkCR42qMSmv&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1Sk9qS1Da0ZDucEl960E-mpZMcvOvxOVW&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Dando o desconto...</p>
+            <img src="https://drive.google.com/thumbnail?id=1FusK5U8MFMKercRz6M42aCaT6kD_VP3V&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=16FpiGQ63Z-IvCPAcK-WrOnocstAxjI1P&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <hr>
+            <h4>Operadores de auto incremento</h4>
+            <p>Existem dois operadores de incremento , que podem ser utilizados em 4 modalidades diferentes: </p>
+            <ul>
+                <li>Pré-incremento</li>
+                <li>Pós-incremento</li>
+                <li>Pré-decremento</li>
+                <li>Pós-decremento</li>
+            </ul>
+            <p>As formas de representação serão estas...</p>
+
+            <img src="https://drive.google.com/thumbnail?id=1QVTKi8gQRNgPrBT8ZjuCY5xsRJgl99oj&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">IMPORTANTE!!! A forma como utilizamos os operadores de incremento antes ou depois
+                da variável, mudo tudo, e são completamente distintas:</span>
+            <ul>
+                <li><strong>Pré-incremento</strong>: incrementa antes de qualquer coisa;</li>
+                <li><strong>Pós-incremento</strong>: 1º fará o uso da variável e depois vai incrementar.</li>
+            </ul>
+            <hr>
+            <h5>Exercício:</h5>
+            <p>Mostrar qual foi o ano anterior ao ano atual!</p>
+            <p>Vamos passar outro parâmetro e valor na URL.</p>
+            <img src="https://drive.google.com/thumbnail?id=1VvdrqqAv4OdKrUYBt4-pT3Xu-EG9kKLX&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br><img
+                src="https://drive.google.com/thumbnail?id=1hyPfgQfY42dNOHp2SV3u9wp_CvGGHdCm&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+
+            <p>Mostrando o ano atual e o anterior...</p>
+
+            <img src="https://drive.google.com/thumbnail?id=1eK47BPG-9AWPBhT0xFe92_WkjseqAbyb&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1NSoelLBvYSGtlG4myy9p3iR3V0blKAnm&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">Lembre-se: 1º tira-se o valor da variável(pré-decremento), depois mostra-se o
+                valor da variável.</span>
+            <hr>
+            <h4>Comentários em php</h4>
+            <p>Existem três métodos de comentar o código em php:</p>
+            <ul>
+                <li>Comentário inline: <span style="color: grey;">//este é um comentário inline</span>;</li>
+                <li>Outra forma de comentário inline: <span style="color: grey;">#esta é a outra forma de comentar
+                        inline</span>;</li>
+                <li>Comentário multiline: <span style="color: grey;">/*este é um comentário em multilinha*/</span></li>
+            </ul>
+            <hr>
+            <h4>Como referenciar variáveis -> &$a</h4>
+            <p>O php, permite referência entre variáveis, ou seja, uma variável irá se comportar conforme sua referência
+                se comporta.</p>
+            <img src="https://drive.google.com/thumbnail?id=17b_5mzdC_EW9fKYuO4qCqjak3851wEge&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1AVmk3w8z0yStP8XuxsBS4pe92CIMZalp&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>O 'e' comercial <strong><span style="color: pink;">&</span></strong> , indica que a partir daquele ponto,
+                <span style="color: blue;">$a</span> será referência de <span style="color: blue;">$b</span>.
+            </p>
+            <p>A diferença do primeiro código para o segundo é a seguinte:</p>
+            <p>No primeiro, eu estou dizendo que <span style="color: blue;">$b</span> irá receber o valor de <span
+                    style="color: blue;">$a</span>.</p>
+            <p>No segundo código, estou dizendo para que <span style="color: blue;">$b</span> seja uma referência para
+                <span style="color: blue;">$a</span>, isso é, a partir deste ponto estou ligando as variáveis <span
+                    style="color: blue;">$a</span> e <span style="color: blue;">$b</span> por referência.
+            </p>
+            <p>$a = 3;</p>
+            <p>$b = &$a; ...portanto, $a vale 3 e $b vale 3. </p>
+            <p>...agora, se ...</p>
+            <p>$b += 5; ou seja, $b = $b + 5; ou ... $b = 3 + 5;</p>
+            <p>Agora como $b vale 8, e $a é referência de $b, $a passa a valer 8 também.</p>
+            <hr>
+
+            <h4>Variáveis de variáveis</h4>
+            <p>Pouco utilizada mas poderá aparecer em códigos php. Ela consiste em variáveis que recebem como o nome já
+                diz, o nome como valor da variável de referência.</p>
+            <img src="https://drive.google.com/thumbnail?id=1ux_iYoIjjbX9EvXFGch7TH8jdyYSNS5A&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Quando a variável <span style="color: blue;">$site</span>, cujo valor é a string
+                <strong>"cursoEmVideo"</strong>, recebe o segundo cifrão na frente do seu nome <strong>$$site</strong>,
+                cujo valor é a string <strong>"cursoDePhp"</strong>, ela passará a se chamar <span
+                    style="color: blue;">$cursoEmVideo</span> e seu valor permanecerá sendo
+                <strong>"cursoDePhp"</strong>;
+            </p>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="ij0d9e" title="Pag. 199 - caderno Tigre">Aula11 - Constantes</h2>
+
+            <h3>Constantes em PHP</h3>
+            <p>Assim como em javaScript, constantes não podem ter seus valores modificados ao longo do código, por isso
+                são escolhidas para proteger dados que não devem ser alterados.</p>
+            <p>Em php, criamos uma constante por meio da função <strong><em>define()</em></strong>.</p><br><br>
+
+            <h4>Sintaxe</h4>
+            <p><strong><em>define</em></strong>(<strong>nome</strong>, <strong>valor</strong>, <span
+                    style="color: red;">case-insensitive</span>);</p><br>
+            <p>O parâmetro <span style="color: red;">case-insensitive</span> não é mais opcional, mas já foi, e indicava
+                se o nome da constante deveria ser tratado de forma sensível a maiúsculas e minúsculas. Deixou de ser
+                obrigatório a partir da versão 7.3 do php<strong>(não deve ser utilizado)</strong>, porém, pode aparecer
+                em alguns códigos. Veja abaixo, como é hoje a sintaxe correta, e que é case- sensitive:</p><br>
+            <img src="https://drive.google.com/thumbnail?id=14eUbgUgZ7BaT0wkm-pGvj3EyXUs9NEpp&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=10_prtdh_o5bs58mfSmqYhTigmk1DpGC1&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <h4>Escopo das constantes</h4>
+            <p>As constantes em php funcionam de forma global, portanto, podem ser acessadas de qualquer parte do
+                código. Veja o exemplo abaixo:</p>
+            <img src="https://drive.google.com/thumbnail?id=1Pl7Ae7pXMPXU2f6SxuSP_z1xbKikfb7_&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Perceba que mesmo estando fora do escopo da function <em>exibirNome()</em>, seu valor pode ser acessado.
+            </p><br>
+            A saída foi...<span style="color: blue;">O nome da constante é <strong><em>NOME</em></strong> e o seu valor
+                é <strong><em>Daniel</em></strong>.</span>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="zNsfpD" title="Pag. 201 - caderno Tigre">Aula03 - Produtos, Serviços e Experiências</h2>
+
+            <h3>Conceitos</h3>
+            <h4>Produto</h4>
+            <p>Segundo Cootler, <em>"Produto, é qualquer coisa que satisfaça uma necessidade/desejo, e normalmente está
+                    relacionado com a posse física de algo!"</em> Um produto, é algo que se possa comprar!</p>
+            <br><br>
+
+            <h3>Conceito importante</h3>
+            <h4>Miopia de Marketing</h4>
+            <p>É o erro que um vendedor comete ao achar que um produto está sendo comprado ou consumido, só porque é
+                produzido por ele ou pela sua empresa, e não pela experiência que ele proporciona.</p>
+            <h5>Exemplo</h5>
+            <p>A empresa <strong>Kodak</strong>, quando foi abordada na época pelo SEO de uma empresa de tecnologia
+                oferecendo-lhe a tecnologia de Fotografia Digital que recentemente estava ainda engatinhando, decidiu
+                que por eles serem o líder mundial no mercado de fotografia, esta tecnologia não os interessava. Como
+                resultado desta decisão, a empresa acabou perdendo o mercado para a era da fotografia digital e acabou
+                falindo.</p>
+            <hr>
+            <h4>Serviço</h4>
+            <p>Não está relacionado à posse de algo físico. Pode ser por exemplo um pacote de turismo. Você compra e
+                aproveita a experiência.</p>
+            <h5>Exemplo</h5>
+            <p>Quando você necessita fazer um furo em sua casa para colocar uma prateleira na parede, você compra uma
+                furadeira, mas você não está focado na furadeira, você está focado no buraco que ela irá fazer, ou seja
+                , na experiência que a furadeira proporciona. Já se você trabalha fazendo manutenção, irá buscar uma
+                furadeira de boa qualidade, robusta, com a bateria de alta durabilidade e cuja marca lhe transmita esta
+                credibilidade, para ter uma melhor experiência com este equipamento.</p>
+            <hr>
+
+            <h4>Experiência</h4>
+            <p>É algo diretamente relacionado aos sentimentos gerados por produtos e serviços.</p>
+
+
+
+            <p>Com o passar dos anos as empresas podem mudar de foco no que diz respeito ao seu produto. Por exemplo, a
+                <strong>IBM</strong>, grande marca líder em venda de PC's no mundo, mudou seu viéz comercial de
+                <strong>produto</strong>
+                para <strong>serviço</strong> em 2017, pois passou a vender a experiência do Watson, uma IA, voltada
+                para automatizar tarefas pessoais e de empresas.
+            </p>
+            <p>A <strong>Adobe</strong>, passou a vender o serviço de streaming de pacote de softwares, ao invés de
+                continuar vendendo os
+                programas isoladamente e de forma física.</p>
+            <hr>
+            <h4>Valor e satisfação</h4>
+            <p>Clientes satisfeitos com uma boa experiência em ter adquirido um produto ou serviço, comentam com outras
+                pessoas, e assim, se replica a cadeia de consumo. Cumprir oque se promete em relação a produto ou
+                serviço oferecido, garante uma boa experiência ao usuário que poderá se tornar um cliente recorrente e
+                até divulgar bem seu produto ou serviço, sendo esta, uma das melhores publicidades do mercado.</p>
+            <hr>
+            <h4>Cases de sucesso</h4>
+            <p>A <strong>Niantic</strong> , empresa que criou o game Pokémon Go em 2016, faturou em 60 dias
+                US$500,000,000.00 por
+                proporcionar uma experiência extraordinária ao usuário com o game que era totalmente gratuito. Eles
+                vendiam, packs de insumos para o game.</p>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="tw7SmZ" title="Pag. 213 - caderno Tigre">Aula07 - Operadores Relacionais - Curso em vídeo</h2>
+
+            <h3>Como realizar as comparações em php?</h3>
+            <p>Estes são os operadores de comparação compatíveis com o php:</p>
+            <img src="https://drive.google.com/thumbnail?id=1FpoePQT_ZWhjdterzUOHfozZ8TImXGbL&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <h4>Operador Unário</h4>
+            <p>O operador unário no php, serve para realizar comparações simples.</p>
+            <h5>Sintaxe</h5>
+            <p><span style="color: blue;">expresão</span> <mark><span
+                        style="color: red;font-size: 1.8em;">?</span></mark> <span style="color: blue;">valor se
+                    verdadeiro </span><mark><span style="color: red;font-size: 1.8em;">:</span></mark> <span
+                    style="color: blue;">valor se falso</span>;</p>
+            <h5>Exemplo</h5>
+            <p><strong>$a = 5;</strong></p>
+            <p><strong>$b = 7;</strong></p>
+            <p><strong>$maior</strong> = <strong>$a</strong> <span style="color: blue;">> </span><strong>$b
+                </strong><span style="color: red;font-size: 1.4em;">? </span><em>"$a é maior que $b"</em><span
+                    style="color: red;font-size: 1.4em;"> : </span><em>"$b é maior que $a";</em></p>
+            <p><span style="color: blue;">echo</span> "Comparando <strong>$a </strong>e <strong>$b</strong>
+                ,<strong><em>$maior</em></strong>.";</p>
+            <p>A saída deste eco será: <strong>Comparando 5 e 7, 7 é maior que 5;</strong></p>
+            <h5>Exemplo</h5>
+            <img src="https://drive.google.com/thumbnail?id=1B5nyliF3bRX5lMrl4yDl7hkdbjJRCHiG&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será: <strong>O maior valor entre 10 e 20 é 20</strong></p>
+            <hr>
+            <h5>Exercício</h5>
+            <p>O usuário terá de escolher entre somar ou multiplicar!</p>
+            <p>Os valores serão passados via URL.</p>
+            <img src="https://drive.google.com/thumbnail?id=1y2WTnwtLDK4DgkRJnNz2c6JH1KuW4_Dp&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Parâmetros passados na URL:</p>
+            <img src="https://drive.google.com/thumbnail?id=1M1ocX-CvX6jENMN2FNEm6n1MERpluOI1&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1lIwBAsqXvEtsFSb5oizOG1cUljhrgrh6&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Agora, vamos testar a saída da variável resposta $r:</p>
+            <p><strong>$r = ($tipo == "s") ? $n1 + $n2 : $n1 * $n2;</strong></p>
+            <p><span style="color: blue;">Se o valor de tipo for igual a <strong>"s" </strong>então soma n1 com n2,
+                    senão multiplica.</span></p>
+            <p><span style="color: blue;">echo</span> "O tipo de operação escolhida foi: <strong>$tipo</strong>";</p>
+            <p>A saída será : <strong>O tipo de operação escolhido foi <span
+                        style="font-size: 1.3em;"><em>s</em></span></strong></p>
+            <p><span style="color: blue;">echo</span> " O resultado da operação escolhida é <strong>$r</strong>";</p>
+            <p>A saída será: <strong>O resultado da operação escolhida é 8</strong></p>
+            <span style="color: red;">IMPORTANTE: Se colocarmos qualquer letra no valor do parâmetro
+                <strong>op</strong>, diferente de <strong><em>s </em></strong>e <strong><em>m</em></strong>, a operação
+                resultará em multiplicação, pois o operador unário é apenas uma estrutura simples de comparação.</span>
+            <hr>
+            <h5>Exercício1</h5>
+
+            <img src="https://drive.google.com/thumbnail?id=14GmvEoodCgRxYqgcKskggG63LI9pVOLG&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será: <strong>Os valores das variáveis <em>a</em> e <em>b </em>são iguais? São iguais</strong>
+            </p>
+            <p>Isso porque o operador <mark><strong>==</strong></mark>(igual), compara somente em relação ao valor.
+                Portanto, <mark>3 <em>number</em></mark>, possui o mesmo valor que <mark>3 <em>string</em></mark>!</p>
+            <p>Agora , vamos utilizar o operador <strong>idêntico</strong>:</p>
+            <p>$a = 3;</p>
+            <p>$b = "3";</p>
+            <p>$r = $a <strong>===</strong> $b ? "São idênticos" : "São diferentes";</p>
+            <p><span style="color: blue;">echo</span> "Os valores das variáveis <strong>a</strong> e <strong>b</strong>
+                são iguais? $r";</p>
+            <p>A saída será: <strong>Os valores das variáveis a e b são iguais? São diferentes</strong></p>
+            <p>Os resultados dos operadores ==(igual) e ===(idêntico) deram diferente, porque o primeiro, compara quanto
+                ao valor somente, e o segundo quanto ao valor e tipo. Veja este teste abaixo:</p>
+            <img src="https://drive.google.com/thumbnail?id=1yZ0mjUEpMnOt6r_uWWYcJenEycIR_j1G&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será <strong>O valor de a é numérico</strong></p>
+            <hr>
+            <h4>Exercício3</h4>
+            <p>Mostrar a situação do aluno de acordo com a média obtida.</p>
+            <p>As notas serão passadas pela URL.</p>
+            <img src="https://drive.google.com/thumbnail?id=1tXmzdSiRboLSbyMOXYVMIzUetF1CxVnV&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1agwNNlDK1FEcYPN0FlV8qPeU3TNOrnmo&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1bFa8FNJZ940Qa8Fi7Rhh3LMRtEeCN6q6&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Mostrar a situação do aluno de acordo com a média obtida:</p>
+            <img src="https://drive.google.com/thumbnail?id=15YP4X5Y1AiQCb0XnVeBF1T24v0quz7n2&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1a1JCp5jCq9uuRcdsDEE3FaqYp6nafr8x&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1AtW6jN5QCp4BtxSfiv5c6o_B35UJ_1xi&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Outra forma de mostrar o resultado acima é...</p>
+            <p><span style="color: blue;">echo</span> " A situação do aluno é " . <strong>(</strong><span
+                    style="color: red;">(</span>$media >=7<span style="color: red;">) </span>? "Aprovado" :
+                "Reprovado"<strong>)</strong>; </p>
+            <hr>
+            <h4>Operadores Lógicos</h4>
+            <p>Serão semelhantes ao javaScript!</p>
+            <p>Operador <mark>E( && )</mark>: Só será verdadeiro, se todos forem verdadeiros:</p>
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>p</th>
+                    <th>q</th>
+                    <th>p E q</th>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>V</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>F</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>V</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>F</td>
+                </tr>
+            </table>
+            <br><br>
+            <p>Operador <mark>OU( | | )</mark>:Basta que uma premissa seja verdadeira para que seja verdadeiro:</p>
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>p</th>
+                    <th>q</th>
+                    <th>p E q</th>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>V</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>F</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>V</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>F</td>
+                </tr>
+            </table>
+            <br><br>
+
+            <p>Operador <mark>XOU(ou exclusivo )</mark>: Este operador só será verdadeiro se uma ou outra for
+                verdadeiro:</p>
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>p</th>
+                    <th>q</th>
+                    <th>p E q</th>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>V</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>F</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>V</td>
+                    <td>V</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>F</td>
+                    <td>F</td>
+                </tr>
+            </table>
+
+            <br><br>
+            <p>Operador <mark>NÃO( ! )</mark>: Este operador inverte o valor da premissa:</p>
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>p</th>
+                    <th>não p</th>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>V</td>
+                </tr>
+            </table>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="50cgMc" title="Pag. 222 - caderno Tigre">Aula 08 - Integração HTML + PHP - Curso em Vídeo</h2>
+
+            <h3>Como obter dados de formulários html no php?</h3>
+            <p>Nesta aula veremos como interligar formulários html com scripts php.</p><br>
+            <ol>
+                <li>Criar um formulário HTML e abri-lo pelo localhost <span style="color: red;"><strong>Não pelo Go Live
+                            do VSCode;</strong></span></li>
+                <li>Enviar os dados do formulário para um script PHP;</li>
+                <li>Processar os dados no script PHP;</li>
+                <li>Exibir os resultados ou realizar ações com os dados recebidos.</li>
+            </ol>
+
+            <p>Em 1, devemos utilizar um dos métodos para envio dos dados:<span
+                    style="color: blue;font-size: 1.2em;"><em> get</em></span> ou <span
+                    style="color: blue;font-size: 1.2em;"><em>post</em></span>, onde o primeiro envia os dados pela
+                <strong>URL</strong>, <strong>é rápido </strong><strong>mas não é seguro</strong>, enquanto que o
+                segundo, <strong>envia os dados por pacotes</strong>, sendo <strong>um pouco mais seguro</strong> e
+                <strong>bem mais lento</strong>;
+            </p>
+            <span style="color: red;">Para esta aula utilizaremos o método get.</span><br><br>
+
+
+            <p>Em 2, devemos criar um formulário HTML com os campos necessários e definir o atributo
+                <strong>action</strong> no form, direcionando para o <strong>script PHP(nome do arquivo)</strong> que
+                irá processar os dados, e o atributo<strong> method</strong> para o método de envio escolhido;
+            </p><br>
+
+
+            <p>Em 3, no script PHP, podemos acessar os dados enviados pelo formulário usando as <strong>superglobais
+                    $_GET ou $_POST</strong>, dependendo do método escolhido. Podemos então processar esses dados, como
+                armazená-los em um banco de dados, realizar cálculos ou exibir resultados;</p><br>
+
+            <span style="color: red;font-size: 1.3em;">IMPORTANTE!!! Estar sempre atento aos objetos
+                <strong>name</strong>, pois é por eles que passaremos os parâmetros para as <em>superglobais</em> na URL
+                se utilizarmos o method get.</span><br><br>
+            <hr>
+
+            <h4>EXERCÍCIO 1</h4>
+            <h4>Ler um valor e mostrar sua raiz quadrada</h4>
+
+            <img src="https://drive.google.com/thumbnail?id=1c1uiVN36soE7vyRJjKqeVuoCBZSnOx38&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Criaremos 1º o form no html</p>
+            <img src="https://drive.google.com/thumbnail?id=1957G7Alxifl4-KfDqX4XDIOB0gwYQVIE&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Visualizando o html pelo localhost</p>
+            <img src="https://drive.google.com/thumbnail?id=10k-BsKj4P-eqnCM3SckRpllETIDwy-NN&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>No php, criamos o script:</p><br>
+
+
+            <p><strong><em>?php </em></strong></p>
+            <p><strong>$valor = $_GET('valor');</strong></p><br>
+            <p><span style="color: blue;">echo</span><strong> "O valor enviado foi $valor."</strong>;</p>
+            <p><strong><em>?></em></strong></p><br>
+
+            <p>Após dar enter depois de preencher os dados no form, o valor será repassado pelo método
+                <strong>get</strong> ao parâmetro valor na <strong>URL</strong>...
+            </p><br>
+            <img src="https://drive.google.com/thumbnail?id=1UIXxUj4_5pBQj_tA-W0xgweLmiMk_Jn0&sz=w800" alt="Imagem"
+                class="img-fluid">
+            <p>A saída então será...<span style="color: red;">(na verdade foi digitado 18 no form)</span>...</p><br>
+            <p>O cálculo da raiz quadrada é realizado pela function php <strong>sqrt()</strong>...</p>
+            <img src="https://drive.google.com/thumbnail?id=1SK4rhWEtrimy5zMS3kHnnUPEmVKrWYYV&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1UsCHoG0VLUxdGIXXAqVwJE90qjslxyVM&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1WNQcf769ZrAnVOlZgeD_LGupYVfoeCJ9&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1T-nMkGcBceCrOGN85wMmsRc6oQ6vA98S&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p><span style="color: red;">Alguns avisos importantes:</span></p>
+            <span style="color: red;">
+                <ul>
+                    <li>Abrir o HTML pelo localhost, caso contrário , não irá funcionar;</li>
+                    <li>No <strong>action</strong> do form, declarar o caminho absoluto ou relativo do script php;</li>
+                    <li>Para transitar entre o php e o html, utilizar as setas do browser ou criar uma tag<strong>
+                            'a'</strong> com o href apontando para o caminho do arquivo html.</li>
+                </ul>
+            </span>
+            <hr>
+
+            <h4>EXERCÍCIO 2</h4>
+
+            <h4>Ler o nome, ano de nascimento de uma pessoa e sexo, calculando sua idade atual.</h4>
+
+            <img src="https://drive.google.com/thumbnail?id=1LMgG0rkH_8ZZqGfXHdGGEtEDCNiG4g0s&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1uLS52a4KNf5_DwRZTIQ9Inb7raNHdbPd&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1ImOgnlQk1KpJYMNRbRLX2Ietz3A43i4j&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <img src="https://drive.google.com/thumbnail?id=19fGbcuPn3NsO1HaBYZfqceFgqKJV2FR5&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <span style="color: red;">IMPORTANTE: Se abrirmos o arquivo PHP antes de abrir o arquivo HTML, retornará um
+                erro, pois as superglobais no script PHP estão aguardando valores dos objetos provenientes do HTML como
+                nome, ano e sexo. Para resolver isso , podemos utilizar este método paliativo com a funtion php
+                <strong><em>isset()</em></strong> + <strong>operador unário</strong> onde, se nada for carregado
+                proveiniente do html, então carregue um valor alternativo:</span><br>
+            <img src="https://drive.google.com/thumbnail?id=144BY3oyea3WnShmnNf91-hMOTUUnzIHq&sz=w800" alt="Imagem"
+                class="img-fluid">
+            <hr>
+            <h4>EXERCÍCIO 3</h4>
+            <h4>Permitir a personalização de um texto por meio de um form.</h4>
+            <img src="https://drive.google.com/thumbnail?id=16TLNskJ36lZwfowc1cUtZL92RQ99D1MH&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <img src="https://drive.google.com/thumbnail?id=1_b0nWPx7TPwHfARW40xeH133yP_3DJ2i&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <span style="color: red;">OBS: Podemos declarar scripts php em qualquer lugar do código, pois sua variáveis
+                são globais, por exemplo dentro do <strong><em>head</em></strong>. <strong>Mas vale lembrar que o PHP
+                    faz a leitura de seu código de cima para baixo, portanto, se for estilizar com style no próprio
+                    arquivo , colocá-lo após as superglobais.</strong></span><br>
+            <img src="https://drive.google.com/thumbnail?id=1VhxZD5uaBm1vzBJswLmbhvuy46SAn4iV&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1qhaqWPjxXTHzJlpWpdmcHzEWQoVkst6f&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1chyJfIdbjgJHMBRkxYbTCe4retAaqoz6&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="bmifDf" title="Pag. 231 - caderno Tigre">Aula13 - If Else Elseif e Switch</h2>
+
+
+            <h3>Condicionais if else , elseif e switch</h3>
+            <p>Semelhantes ao javaScript.</p>
+            <p>Exemplo criado , alimentado por um form html:</p>
+            <img src="https://drive.google.com/thumbnail?id=14PglSEMfv1eH9EXWOLnPu9SODdJR7Wvr&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>O método <em>get</em>, captura o valor enviado pelo form html para a URL...</p>
+            <img src="https://drive.google.com/thumbnail?id=1m4s5tgK0-FLRZ-0KMvjrC8LdlQM7j6XM&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <p>No arquivo .php, dentro do head, declaramos as superglobais, que irão receber os dados provenientes do
+                form e enviados pela url...</p>
+            <img src="https://drive.google.com/thumbnail?id=13EObO-nKumUbPe4XHcmcK7EJXbtaLTnT&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+            <p>Transcrevendo o bloco if..<strong>."Se $hora for menor que zero ou se $hora for maior que 23, imprima na
+                    tela 'Hora inválida!' e retorne o valor para a variável $hora como zero</strong>. Hora deve ser
+                formatado como inteiro.</p>
+            <p>Dentro do body, no php, passaremos as condicionais para os valores que forem recebidos:</p>
+            <img src="https://drive.google.com/thumbnail?id=12QsJFyckj1DQj2r7dmS0p96yzp63vUI7&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Transcrevendo o bloco de condicionais: <strong>"Se $hora for maior ou igual a 6 e se $hora for menor que
+                    12, imprima...'Agora são xhs e portanto: Bom dia!' "</strong></p>
+            <p><strong>"Mas se $hora for maior ou igual a 13 e se $hora for menor que 18, então imprima...'Agora são xhs
+                    e portanto: Boa tarde!' </strong>"</p>
+            <p><strong>"Se não , imprima...'Agora são xhs e portanto: Boa noite!' ".</strong></p>
+            <p>O valor digitado no input do html foi 13 neste exemplo. </p>
+            <img src="https://drive.google.com/thumbnail?id=1d5_8M0i_pq7S8sWZlT1R8C9nAvsiA7Ji&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=1mrSJlQtxqnYfnw5XLQo-6qrj9N8yuYe7&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Como 13 se encaixa dentro do bloco elseif(){}, a saudação foi de <strong>Boa tarde!</strong></p>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="gLvNrU" title="Pag. 234 - caderno Tigre">Aula09 - If else , elseif - Curso em Vídeo</h2>
+
+            <h3>Estrutura condicional if else e elseif</h3>
+            <p>Como testar condições em php?</p>
+            <p>As estruturas condicionais, permitem testar diferentes situações em que o operador ternário não
+                permitiria, pelo menos, não sem muito código, simplificando assim o trabalho do dev.</p>
+            <p><span style="color: red;">IMPORTANTE!!! No PHP não existe<em><strong> then</strong></em>(então).</span>
+            </p>
+            Um exemplo bem simples seria:
+            <p><mark><span style="color: red;">if</span>($a <span style="font-size: 1.3;">></span> $b)<span
+                        style="color: blue;"> {</span></mark></p>
+            <p><mark>$maior = $a</mark></p>
+            <p><mark><span style="color: blue;">} </span><span style="color: red;">else</span><span
+                        style="color: blue;"> {</span></mark></p>
+            <p><mark>$maior = $b</mark></p>
+            <p><mark><span style="color: blue;">}</span></mark></p>
+            <hr><br>
+            <h4>EXERCÍCIO</h4>
+            <p>Ler o ano de nascimento de uma pessoa, calcular a sua idade, e verificar se ela deve votar ou não e
+                dirigir!</p>
+            <img src="https://drive.google.com/thumbnail?id=1AGNEA25Ch_gv-IpJRDHdT60JEUvZbMe_&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1uRxTctZs0TU43gLFB-BkhJjfHy8Ny8Ya&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1MO5r20EiMHKA0cq8e_Axx-B7hTwPXRqV&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Aqui não está mostrado, mas seria a testagem no recebimento da superglobal: </p><br>
+            <p>$anoNasc =<span style="color: blue;font-size: 1.2rem;"> isset</span>($_GET['ano'] <span
+                    style="color: red;font-size: 1.2rem;">?</span> $_GET['ano'] <span
+                    style="color: red;font-size: 1.2rem;">: </span>1901; <span style="color: green;">#Se receber o valor
+                    do objeto ano, então retorne ano, senão, retorne o ano de 1901.</span></p>
+            <p><span style="color: blue;">echo</span> " Você nasceu no ano de $ano ";</p>
+            <p>A saída será: <strong>Você nasceu do ano de 2007.</strong></p>
+            <p>Agora iremos calcular a idade da criatura:</p>
+            <p>$anoAtual = <span style="color: blue;"><strong>date</strong></span>('Y'); <span
+                    style="color: green;">#onde o ípsilon maiúsculo retorna o ano atual com 4 dígitos.</span></p>
+            <p>$idadeCronologica = $anoAtual - $ano;</p>
+            <p><span style="color: blue;">echo</span> "Portanto, você tem $idadeCronologica anos";</p>
+            <p>A saída será: <strong>Portanto, você tem 18 anos</strong></p>
+            <p>Abaixo, a estrutura que fará a testagem conforme a idade recebida.</p>
+            <img src="https://drive.google.com/thumbnail?id=1WlmB8u1NbaDbvulDxBPxpScTMGHG2g6L&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1rAoDPrQA_9Lql-iGgvr5hm97DgL9VC04&sz=w800" alt="Imagem"
+                class="img-fluid">
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="pXe4aJ" title="Pag. 242 - caderno Tigre">Aula14 - Loops (while. do...while, for e foreach)</h2>
+
+            <h3>Laços de repetição em PHP</h3>
+            <h4><mark>while</mark></h4>
+            <p>Repete o laço, enquanto uma condição for <span style="color: green;">true</span>. Abaixo, veremos o form
+                html que captura o valor de uma variável e o envia pelo método <strong>get</strong> para o script
+                <em>php</em> para ser processado.
+            </p>
+            <img src="https://drive.google.com/thumbnail?id=1nFqG9izOGJn8WLUxy7Zga_klE-a1AIw6&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1B_-VF2xdYbcG8uNuF9uYt2lT3HZBCL-J&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>No script <em>php</em>, vemos o tratamento do objeto <em>number </em>ao ser recebido ou não pelo
+                <em>php</em>. Logo após, vemos a condição dentro do bloco do while: <strong>enquanto $n for menor ou
+                    igual a 10, acrescente ao valor recebido 1 e imprima na tela.</strong>
+            </p>
+            <img src="https://drive.google.com/thumbnail?id=1u1sHJ3E6WvgBCXc8vPZkQvgHP3M_Dz7Q&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>A saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=16II9AjY2UFEZEw_LC5eoQev5x1nsB7MU&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Podemos perceber pela saída, que ao alcançar o valor 10 previsto na condição, o loop encerrou.</p>
+            <p><span style="color: red;">IMPORTANTE!!! Devemos sempre tomar cuidado com loops infinitos, definindo bem a
+                    condição estabelecida para que isso não ocorra, pois poderá ocasionar travamento do sistema! Ex:
+                </span></p>
+            <p>$sentimento = "amor";</p>
+            <p><span style="color: blue;">while</span>(<em>$sentimento == "amor"</em>)<span
+                    style="color: red;font-size: 1.2em;">{</span></p>
+            <p><span style="color: blue;">echo</span> "<strong>O $sentimento é o sentimento mais nobre!</strong>";</p>
+            <p><span style="color: red;font-size: 1.2em;">}</span>;</p>
+            <p>Neste exemplo de loop, como o valor da variável sentimento é amor, e a condição diz que <em>enquanto o
+                    valor de sentimento for semelhante a amor, imprima na tela</em>. Isso causará um loop infinito
+                imprimindo na tela para sempre a frase <strong>"O amor é o sentimento mais nobre!"</strong></p>
+
+            <hr>
+
+            <h4><mark>do...while</mark></h4>
+            <p>Nete tipo de laço, é rodado primeiro o bloco do 'faça'. Se a condição mostrada dentro do bloco for
+                verdadeira, o script submete ao laço, caso contrário, encerra.</p>
+            <h5>Exemplo:</h5>
+            <img src="https://drive.google.com/thumbnail?id=1qpPHqRM0aaRgpk6wxsOQaVe72fyvwoJN&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1wF9FGqaDS7KsdD-rXWagNUYz6Z137zdm&sz=w800" alt="Imagem"
+                class="img-fluid">
+            <p>Perceba que foi impresso o valor 1 mostrando que este valor foi recebido, Feita a análise pela condição,
+                então começou o loop:</p>
+            <p><em>"1 é menor ou igual a 5? Sim é! Então, 1+1 = 2 e é impresso na tela.".</em>..e assim até a condição
+                deixar de ser <span style="color: green;"><em>true</em></span>.</p>
+            <hr>
+
+            <h4><mark>for</mark></h4>
+            <p>Neste tipo de loop, você passa quantas vezes você quer que seja feito o laço.</p>
+
+            <img src="https://drive.google.com/thumbnail?id=1Vt9kvIhk47sJ0DnINQLmJu1ip7GQDl2W&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>No caso acima, a variável i está recebendo o valor de n que é obtido pelo form html.</p>
+            <p>A condição testada diz que...<strong>"enquanto<em> i</em> for menor ou igual a 10, some 1 ao valor de
+                    <em>i</em> " </strong>e imprima na tela...<strong>" O nº recebido é : $i "</strong></p>
+            <hr>
+
+            <h4><mark>foreach</mark></h4>
+            <p>Este tipo de laço, ocorre de acordo com o nº de ítens que temos dentro de um array.</p>
+            <img src="https://drive.google.com/thumbnail?id=1XkshK0WsN21ldjKzNxmADDt_rIbZzMi0&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Temos o array <em>$cores</em>. </p>
+            <p>No bloco do foreach está escrito...<strong>"Cada item do array <em>$cores</em> agora se chamará <span
+                        style="color: blue;">$valor</span>"</strong></p>
+            <p>Exemplo: $cores = [ 0<sup>$valor = 'azul'</sup>, 1<sup>$valor = 'amarelo'</sup>, 2<sup>$valor =
+                    'verde'</sup>, 3<sup>$valor = 'vermelho'</sup> ]</p>
+            <p>O loop irá iterar sobre cada ítem do array que agora recebe o nome da variável $valor e imprimir na
+                tela...<strong>" A cor é : <span style="color: blue;">$valor</span> "</strong></p>
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="QAmTsq" title="Pag. 248 - caderno Tigre">Aula10 - Estrutura condicional switch - Curso em vídeo</h2>
+
+            <h3>Condições de múltiplos casos</h3>
+            <p>Exemplo:</p>
+            <p><span style="color: blue;">switch</span>( $op )<span style="color: red;font-size: 1.3em;">{</span></p>
+            <p>case 1:</p>
+            <p>echo "A";</p>
+            <p><span style="color: red;">break</span></p>
+            <p>case 2:</p>
+            <p>echo "B";</p>
+            <p><span style="color: red;">break</span></p>
+            <p>default:</p>
+            <p>echo "Erro";</p>
+            <p><span style="color: red;font-size: 1.3em;">}</span></p><br><br>
+            <hr>
+            <h5>Exercício</h5>
+            <p>Crie um algoritmo em php para escolher um nº e qual opção de cálculo será feita com ele!</p>
+            <img src="https://drive.google.com/thumbnail?id=1nup5mmBZcoWi2OTKrSSzaxVNhB3xw2NK&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1bSnypN4UV6ek-HLF3ST3GOMdMr9p1_20&sz=w800" alt="Imagem"
+                class="img-fluid">
+            <img src="https://drive.google.com/thumbnail?id=1QTnr0cyUb7uAN_Hsglp5YitrJx2C1uFh&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1d_x6N2dKOtmZavakg9pTvnaX2P4pbHp7&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Temos múltiplos casos com múltiplos valores possíveis. Por exemplo:</p>
+            <p><span style="color: blue;">switch</span>( $op )<span style="color: red;font-size: 1.3em;">{</span></p>
+            <p>case1:</p>
+            <p>case2:</p>
+            <p>case3:</p>
+            <p>echo "Tipo1";</p>
+            <p><span style="color: red;">break</span></p>
+            <p>case4:</p>
+            <p>case5:</p>
+            <p>echo "Tipo2";</p>
+            <p><span style="color: red;">break</span></p>
+            <p>default</p>
+            <p>echo "Tipo3";</p>
+            <p><span style="color: red;font-size: 1.3em;">}</span></p>
+
+            <hr>
+            <h5>Exercício1</h5>
+            <p>Construa um algoritmo em php que seja capaz de dizer a qual região pertence o estado escolhido!</p>
+            <img src="https://drive.google.com/thumbnail?id=1YCqANod_qcKGT85PQWhqjMo2XgHY5ujJ&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1_AVFFmKLHUhjlmzz8EIYpeyy1Pm3-hfz&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1eRrZd2NmY2YbOyC7Kz9iXRuYQds307dh&sz=w800" alt="Imagem"
+                class="img-fluid">
+
+
+
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="Hjjf5K" title="Pag. 258 - caderno Tigre">Aula15 - Functions PHP</h2>
+
+            <h3>Funções Php</h3>
+            <p>O real poder do PHP reside em suas functions, que hoje somam mais de 1000 delas.</p>
+            <p>Clique no botão abaixo e veja algumas:</p>
+            <a class="btn btn-primary" href="./tabelaFunctionsPhp/functionsPhp.html" target="_blank">Tabela de
+                funções</a>
+            <hr>
+            <h4>Como criar funções personalizadas?</h4>
+            <p>Funções, são blocos de códigos pré-programadas e prontas para serem utilizadas em seu código.</p>
+            <p><span style="color: red;">Para funcionarem as funções necessitam ser invocadas!</span></p>
+            <img src="https://drive.google.com/thumbnail?id=1KAZJKnvpibYRCo3pcs_zbXR-VPVtIWuI&sz=w800" alt="Imagem"
+                class="img-fluid">
+            <p>Desta forma, estou invocando a function, logo após seu bloco.</p>
+            <p><span style="color: red;">IMPORTANTE!!! As functions em PHP não são case sencitive!</span></p>
+            <hr>
+            <h4>Funções com parâmetros</h4>
+            <img src="https://drive.google.com/thumbnail?id=11w9v7mkNi4xWLfFXFtUKDFFcWXoEs651&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1uOvkom7ebbARXyQnjXxmieSB2FLztyIj&sz=w800" alt="Imagem"
+                class="img-fluid">
+            <hr>
+            <h4>Funções com mais de um parâmetro</h4>
+            <img src="https://drive.google.com/thumbnail?id=1tpWOjf_IDuxyF1SNhx9gSGJI6lXFfqrC&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=13zcp93PRk17eLCDV53oKH4WMNtgcS9tK&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Podemos ainda invocar a mesma function várias vezes porém com valores diferentes para os parâmetros:</p>
+            <img src="https://drive.google.com/thumbnail?id=1eXL1Itbl0w6R8-n0kjSEJYCUFXBIuhzx&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1v1rzVMW6QJ3QO4z-QN6etQI2zv-Rqm97&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <hr>
+            <h4>Tipagem no PHP</h4>
+            <p><strong>O PHP é uma linguagem fracamente tipada!</strong></p>
+            <p>Isso quer dizer, que a linguagem tenta adivinhar os tipos de dados que você está utilizando, caso você
+                não os especifique.</p>
+            <p>Por exemplo:</p>
+
+            <p><mark><em>? php</em></mark></p>
+            <p><mark><em>function soma($valor1, $valor2) {</em></mark></p>
+            <p><mark><em>return $valor1 + $valor2;</em></mark></p>
+            <p><mark><em>}</em></mark></p>
+            <p><mark><em>echo soma(10, "30 anos");</em></mark></p>
+            <p>'<mark><em>?></em></mark>'</p>
+
+            <p>...a saída será...</p>
+            <p><strong>40</strong>...pois o php deduziu que os dois valores dados aos parâmetros eram inteiros, por isso
+                , somou um inteiro a uma string, ignorando assim "anos", oque não deveria acontecer!</p>
+            <p>Mas, ao definirmos os tipos de dados...</p>
+            <img src="https://drive.google.com/thumbnail?id=1A0jYqmomip6EXwFlSYqmSQcYJpsHm3pe&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1li24m92i7CSW7F7tdLwq1v_jc13k_2nZ&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <hr>
+            <h4>Passando um valor pré-definido</h4>
+            <p>Podemos passar um valor pré-definido para um parâmetro. Caso não receba nenhum valor, irá retornar o
+                valor padrão.</p>
+            <img src="https://drive.google.com/thumbnail?id=18rK1jVBSpEQbKwQWL_X7nmQvF5iSWO-L&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1M4y_2bmH_E6tQxyha1PRjO1dEilA29rY&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Como podemos ver, no caso acima, em uma chamada da <em>function fazendoCafe()</em>, no primeiro caso,
+                recebeu o valor <strong>expresso</strong> para o parâmetro <em>$tipo</em>, e na segunda chamada, nenhum
+                valor foi atribuído, e, portanto, retornou o valor padrão, pré-determinado!</p>
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="3cFUuJ" title="Pag. 264 - caderno Tigre">Aula11 - Estrutura de repetição While - Curso em Vídeo
+            </h2>
+
+            <h3>Estrutura de repetição while</h3>
+            <p>Esta é uma estrutura de repetição com teste lógico no início. Ou seja, se a condição dentro do teste
+                lógico for true, então, entra no escopo do while e inicia no loop.</p>
+            <p>Ex: Dado $c1 = 1;</p>
+            <p>while($c1 <=5){< /p>
+                    <p>echo $c1;</p>
+                    <p>$c++;</p>
+                    <p>}</p>
+                    <br><br>
+                    <p>Tradução da estrutura: <span style="color: blue;">"Enquanto $c1 for menor ou igual a 5,. escreva
+                            o valor de $c1 na tela somando 1 ao valor de $c1 a cada volta."</span></p>
+                    <hr>
+                    <h4>Exercício:</h4>
+                    <p><mark>Crie uma contagem regressiva simples recebendo o valor de um form!</mark></p>
+                    <h5>O form...</h5>
+                    <img src="https://drive.google.com/thumbnail?id=1WHcrsRI4V2jD7ibUMvvvn73JexpQIIYe&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <p>...o form renderizado...</p>
+                    <img src="https://drive.google.com/thumbnail?id=1KeGtfIbrbxpMne41kq-pT39HE_420inh&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <p>...o script php...</p>
+                    <img src="https://drive.google.com/thumbnail?id=1aWAIo4SWIzztDIsfIMOuqY9zTcM99iqX&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <p>Passando o valor para a contagem regressiva no form...</p>
+                    <img src="https://drive.google.com/thumbnail?id=1xigWvEQlPS_j-8k2SXP1YBQh_yBE3x_6&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <p>Renderizando a contagem na tela...</p>
+                    <img src="https://drive.google.com/thumbnail?id=1tzNAsNs-FzXq1Cs9PiQBYVwUsxwfk9RS&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+
+                    <p>Podemos ainda , criar outras formas de contagem...de 2 em 2 por exemplo, bastando para isso,
+                        incrementar ou decrementar no contador. Exemplos:</p>
+                    <ul>
+                        <li>$contador ++ = 2; <span style="color: red;">Pulará de 2 em 2 para a frente!</span></li>
+                        <li>$contador -- = 5; <span style="color: blue;">Pulará de 5 em 5 para traz!</span></li>
+                    </ul>
+                    <br>
+                    <hr><br><br>
+                    <h4>Exercício1</h4>
+                    <p><mark>Criar 5 caixas de texto dinamicamente em um form!</mark></p><br>
+                    <p>1º - Crie um form html normal com apenas um campo com label <u>campo1</u>, para só então
+                        posteriormente, inserir o php no form;</p><br>
+                    <span style="color: red;font-size: 1.2rem;">Detalhe importante: Veja na imagem abaixo nas abas do
+                        VSCode, que agora , tanto o arquivo que envia os dados pelo form, como o arquivo que recebe os
+                        dados no script php são .php.</span><br>
+                    <img src="https://drive.google.com/thumbnail?id=1HDLxjTjGWSJZapql4gx62ye-FeCk_t1d&sz=w800"
+                        alt="Imagem" class="img-fluid"><br>
+                    <p>O form depois de renderizado ficará assim, e ele é totalmente funcional.</p>
+                    <img src="https://drive.google.com/thumbnail?id=1mTKyizfK5gtlu56UhzzXxt9THT-Eoxrv&sz=w800"
+                        alt="Imagem" class="img-fluid"><br>
+                    <p>Agora o script php...</p>
+                    <img src="https://drive.google.com/thumbnail?id=1ZrncqJXgQbxrXg8r-kpb91RjcH5veQl6&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <p>Agora, passando os valores via form gerado...</p>
+                    <img src="https://drive.google.com/thumbnail?id=1L2AExWBsOU1FBVYyZtAE03ngHlDxIAS5&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <p>Renderizando o script php...</p>
+                    <img src="https://drive.google.com/thumbnail?id=14ssF3jMygkj0Kp4kLzXnojXht4bmGQ3V&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <hr><br>
+                    <h4>Operador de coalescência nula (??)</h4>
+                    <p>Ex: utilizando no operador ternário <strong>isset</strong>, o operador de coalescência nula...
+                    </p>
+                    <p><mark>$variavel = $_GET[$c1] <span style="color: red;font-size: 1.2rem;">??</span> 0;</mark></p>
+                    <p>...ou podemos representá-lo assim também...</p>
+                    <p><mark>$variavel = $_GET[<span style="color: blue;font-size: 1.2rem;">'c1'</span>] <span
+                                style="color: red;font-size: 1.2rem;">??</span> 0;</mark></p>
+                    <p>O <strong><em>null coalescencing operator</em></strong> diz o seguinte:</p>
+                    <p><em>Verifica se a expressão à esquerda existe e não é nula!...no caso se foi passado um valor
+                            para $c1 e se ele não é nulo!</em></p>
+                    <p><span style="color: green;">Se for <strong>true</strong> esta afirmação, ou seja, foi passado um
+                            valor para $c1 e ele é válido, então o operador ternário o passará para os cálculos
+                            posteriores serem executados...</span></p>
+                    <p><span style="color: red;">Se for <strong>false</strong> esta afirmação, ou seja, não foi passado
+                            um valor para $c1 ou foi passado um valor <strong>null</strong>, então envia para os
+                            cálculos o valor default zero(0).</span></p>
+
+                    <hr><br>
+
+                    <h4>Exercício2</h4>
+                    <p>Criar um contador personalizável!</p>
+                    <img src="https://drive.google.com/thumbnail?id=1onxNmLsFOx1XrhMkd3d6dv6KLbXyR2PP&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <img src="https://drive.google.com/thumbnail?id=1FfsvvAQPSic8Iqpm5pHPrxsi5GRg6HUq&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <img src="https://drive.google.com/thumbnail?id=1cAHRj7VJ6C9vMlm68Cnz479dhuc6kAiS&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+                    <img src="https://drive.google.com/thumbnail?id=1iYvdq-Lcz4PpBZIB2jf0p1-gvqvC9FPu&sz=w800"
+                        alt="Imagem" class="img-fluid"><br>
+                    <p>Como podemos ver na imagem acima, este contador é personalizável, pois podemos:</p>
+                    <ol>
+                        <li>Passar os valores que quisermos onde inicia a contagem;</li>
+                        <li>Onde encerra a contagem;</li>
+                        <li> ...e de quanto em quanto o contador irá iterar.</li>
+                    </ol>
+                    <br><br>
+                    <img src="https://drive.google.com/thumbnail?id=16UzNvdzs-MS-jYHyvFAiqZC05LYogCgi&sz=w800"
+                        alt="Imagem" class="img-fluid"><br><br>
+
+                    <br>
+                    <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="XTkbFe" title="Pag. 274 - caderno Tigre">Aula16 - Arrays PHP</h2>
+
+            <h3>Arrays(Matrizes)</h3>
+            <p>Podemos declarar um array de duas formas básicas:</p>
+            <img src="https://drive.google.com/thumbnail?id=1XQ3ciyVkE6XZe2O9jMgRIiqW5M-H2Cp4&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <hr>
+            <h4>Mostrando na tela um dos itens do array</h4>
+            <img src="https://drive.google.com/thumbnail?id=1dd7FTFDL6S3N0_d520oozp5-KTxrh25j&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=11hphnneecdZ7DVCH8tW8ArMVigMoZZny&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <hr>
+            <h4>Substituir o ítem de um array</h4>
+            <img src="https://drive.google.com/thumbnail?id=1AE3Bs8m4-Y-9ahz-Rl5jXN0u1GPngI3E&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1oAlHsFl9rA8xgxJD9IbOTbgseZ6eSRS5&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <hr>
+
+            <h4>Determinar o tamanho de array</h4>
+            <img src="https://drive.google.com/thumbnail?id=1vBpX7Jv-S8ErAgrMrWlcrYSXLc-cKS4g&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1eZEbGXrJVQCPj_ytmyhofxI80PXwxMCS&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <hr>
+
+            <h4>Mostrando todos os itens de um array</h4>
+            <p>Podemos fazê-lo de duas formas:</p>
+            <img src="https://drive.google.com/thumbnail?id=1dI3q-bw7wLhGcaEmBUni4HKyg66VBpZG&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1_1i7DDPftMz6VuJlqvL0iqzn-4W0ChA4&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>...ou com <strong>foreach</strong></p>
+            <img src="https://drive.google.com/thumbnail?id=1bHEW4PDe2zIgLtrFX1h8XdI3PzYAYsfT&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1oeF04cm-zyJkHaadnEDFNy8iGcmz04by&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <hr>
+            <h4>Array associativo</h4>
+            <p>Podemos trabalhar no php com array, passando um valor chave para os itens, podendo invocá-los não pelo
+                index, mas pela chave/valor que foi criada.</p>
+            <img src="https://drive.google.com/thumbnail?id=1cEDbXzJrDSJzltF8C6j1y1Q8mSuXVf6Z&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1T-gIC8KZEmrEosnascgP0mQNd2Jby49w&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <hr>
+            <h4>Atribuindo um valor diferente a um destes itens</h4>
+            <img src="https://drive.google.com/thumbnail?id=1VuP02bdmT0SW7cwoK2Yoqc14ukl8DKnk&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1gxWosbFeI0qUdd7UvXaXevGLdKNYNXLE&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <hr>
+
+            <h4>Mostrando todos os itens de um array associativo</h4>
+            <img src="https://drive.google.com/thumbnail?id=1DaQw87qia6Mgwu9vBdP9iQyQprsNf769&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=135m9QcYw-d7C574NLEjSivudPgFEF8_X&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <hr>
+            <h4>Como organizar de forma crescente os itens de um array</h4>
+            <img src="https://drive.google.com/thumbnail?id=1TUUV32d6tTm3h6w4K7qEM1TLP-bHhJyI&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1Q8CH63-GKW_ig52ONutsvo7bYWI9-mB-&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <hr>
+            <h4>Organizando de forma decrescente os itens do array</h4>
+            <img src="https://drive.google.com/thumbnail?id=1EjDmNR4zK1G01GvOIC_jpTuzPg-ZFDw5&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1kjdOxJNmb32YzZOH_XAibHzSaYi6xTCC&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <hr>
+            <h4>Classificando em ordem crescente os dados do array associativo pelo valor</h4>
+            <img src="https://drive.google.com/thumbnail?id=1V7tPQipybTYBgwv_UzvF-o5Rcdqb2YdB&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1Q2ssRTfOWVbHIaTtttbvw0d1h7VZeYzV&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <hr>
+            <h4>Classificando em ordem crescente os dados do array associativo pelo chave</h4>
+            <p>Para tal , utilizaremos a function <strong>ksort()</strong>.</p>
+            <p>$idade = ["Daniel"=>"52", "Raquel=>"47", "Mari"=>"27"];</p>
+            <p>ksort($idade);</p>
+            <p>foreach($idade as $chave=>$valor){</p>
+            <p>echo $chave ;</p>
+            <p>}</p>
+
+            <p>...a saída será...</p>
+            <p><strong>Daniel</strong></p>
+            <p><strong>Mari</strong></p>
+            <p><strong>Raquel</strong></p>
+
+            <hr>
+            <h4>Classificando na ordem decrescente referente ao valor</h4>
+            <img src="https://drive.google.com/thumbnail?id=1EhoaiLdw6YRukFjM5knvB7THEnhe514O&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1fhIxt2TNsXtn-lvCrR4AOVgGQEbBQp76&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <hr>
+
+            <h4>Classificando na ordem decrescente quanto a chave</h4>
+            <img src="https://drive.google.com/thumbnail?id=1vGi1URhrSvX5zcBB5qpnyoCq19nJ3UtU&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1dYr74pQrLPW5Hj3CFsm2N9WJPksQm0yu&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+
+        <div class="aula">
+            <h2 id="yVt4Z9" title="Pag. 280 - caderno Tigre">Estrutura Do While - Curso em Vídeo</h2>
+
+            <h3>Estrutura de repetição Do While</h3>
+            <p>Repetição com teste lógico no final</p>
+            <p><strong><u>Desmembrando a sintaxe</u></strong></p>
+            <p>Ex:</p>
+            <p><mark>$c = 1;</mark></p>
+            <p><mark><span style="color: #FF1493;">do</span> { <span style="color: green;">#faça</span></mark></p>
+            <p><mark>echo $c; <span style="color: green;">#Printa na tela o valor de <strong>c</strong></span></mark>
+            </p>
+            <p><mark>$c++; <span style="color: green;">#Incrementa o contador em 1</span></mark></p>
+            <p><mark>} <span style="color: #FF1493;">while</span>($c <=10); <span style="color: green;">
+                        #enquanto</span></mark></p>
+            <p>...a saída será...</p>
+            <p><strong>1 2 3 4 5 6 7 8 9 10</strong></p>
+            <p><span style="color: #FF1493;"><em><strong>(do)Faça</strong></em></span> algo <span
+                    style="color: #FF1493;"><em><strong>(while)enquanto</strong></em></span> a condição for esta...</p>
+
+            <hr>
+            <h4>Exercício:</h4>
+            <p>Crie um script php para calcular o fatorial de um nº inteiro!</p>
+            <p>Criando o algoritmo:</p>
+            <ol>
+                <li><em>Pesquisar análise combinatória em matemática;</em></li>
+                <p>Fórmula para determinar o fatorial de um número inteiro: <em><strong>n! = n X (n-1) X (n-2) X
+                            ...</strong></em></p>
+                <li>Construa o form para envio do número inteiro;</li>
+                <img src="https://drive.google.com/thumbnail?id=11JZqBD_oNHkOEzFtFzB21qmh4ObpHG5i&sz=w800" alt="Imagem"
+                    class="img-fluid"><br><img
+                    src="https://drive.google.com/thumbnail?id=13q2Z31zDtXULNGiM9pmy24NKufzMqQ-_&sz=w800" alt="Imagem"
+                    class="img-fluid"><br><br>
+
+                <li>Construa o script php.</li>
+                <img src="https://drive.google.com/thumbnail?id=1m4C7OZQcZdmuhEvnplmdeEIBs85wxx_C&sz=w800" alt="Imagem"
+                    class="img-fluid"><br><br>
+                <img src="https://drive.google.com/thumbnail?id=1odk-7I91hN5-njyiMU6yBI2bHTPKPrsl&sz=w800" alt="Imagem"
+                    class="img-fluid"><br><br>
+            </ol>
+            <hr>
+
+            <h4>Exercício1</h4>
+            <p>Construa um algorítmo php para mostrar a tabuada de um nº!</p>
+            <p>Primeiro, vamos criar um form com um select onde os options serão construidos dinamicamente...</p>
+
+            <img src="https://drive.google.com/thumbnail?id=1Ugbjlvcooizo3WFhixHfuRQW3sTL75tS&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1rHM-DgFXozgkMTZnnJzM2NM5fIVWPaM9&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <p>Agora o script php...</p>
+            <img src="https://drive.google.com/thumbnail?id=1qD1tC0fsMYI359R1GU9C83A1vm5IN_g0&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=100wOrP_FX0sjdZZNOlT-SyGH8xtdK9Fz&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="yCTfPi" title="Pag. 286 - caderno Tigre">Aula17 - Superglobais</h2>
+
+            <h3>O que são SUPERGLOBAIS?</h3>
+            <p>São variáveis pré definidas no php, que são sempre acessíveis, independente do escopo onde estiverem.</p>
+            <p>Abaixo veremos uma tabela das superglobais e suas funcionalidades específicas:</p>
+            <table class="table table-bordered shadow">
+                <tr>
+                    <th>Superglobal</th>
+                    <th>Funcionalidade</th>
+                </tr>
+                <tr>
+                    <td><em><strong>$GLOBALS</strong></em></td>
+                    <td>Torna as variáveis acessíveis em qualquer escopo;</td>
+                </tr>
+                <tr>
+                    <td><em><strong>$_SERVER</strong></em></td>
+                    <td>Contêm informações sobre requisições, caminhos etc...</td>
+                </tr>
+                <tr>
+                    <td>$_REQUEST</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>$_POST</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>$_GET</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>$_FILES</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>$_ENV</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>$_COOKIE</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>$_SESSION</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <br>
+            <hr>
+            <h4>$_GLOBALS</h4>
+            <p>Ex:</p>
+            <p>$a = 10;</p>
+            <p>$b = 2;</p>
+            <p>function soma(){</p>
+            <p>$c = $a + $b;</p>
+            <p>}</p>
+            <p>soma()</p>
+            <p>echo $c;</p>
+
+            <p><span style="color: red;">...a saída deste script será um erro no php, pois as variáveis $a e $b , estão
+                    sendo chamadas dentro do escopo da function soma, apesar de estarem fora dele.</span></p>
+            <p>Para resolvermos isso...</p>
+            <p>$a = 10;</p>
+            <p>$b = 2;</p>
+            <p>function soma(){</p>
+            <p><span style="color: blue;">global</span> $a, $b, $c;</p>
+            <p>$c = $a + $b;</p>
+            <p>}</p>
+            <p>soma()</p>
+            <p>echo $c;</p>
+            <p>...a saída será... <strong>12</strong></p>
+            <br>
+
+            <hr>
+
+            <h4>$_SERVER</h4>
+
+            <p>Buscar o caminho completo do arquivo vigente dentre outras informações...</p>
+            <img src="https://drive.google.com/thumbnail?id=19ogETcpdiRZji3jY-8x4-9f8eHcVLGa0&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1JUeRd3e_dxCdXpupM54Gu2ArJ2-rRWsM&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>...ou exibir uma lista completa de informações ...</p>
+            <img src="https://drive.google.com/thumbnail?id=1UzfPNJ9LoJdQr50qI_Gldl8ygLFY2y10&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1gCVbp5ddt69WQxybDoZE_gDlpMmL_3Xz&sz=w800" alt="Imagem"
+                class="img-fluid"><br>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="jc6mMa" title="Pag. 000 - Não está no caderno">Aula1 - Tornando seu site instalável como um app</h2>
+
+            <h3>PWA</h3>
+
+            <p>📌 O que é um PWA?</p>
+            <p>PWA (Progressive Web App) é uma tecnologia que permite que aplicações web funcionem como se fossem
+                aplicativos nativos. Com um PWA, seu site pode:</p>
+            <ul>
+                <li>Ser instalado na tela inicial do celular/PC;</li>
+                <li>Funcionar offline (total ou parcialmente);</li>
+                <li>Usar notificações push e recursos do dispositivo;</li>
+                <li>Ter performance otimizada e carregamento rápido.</li>
+            </ul>
+
+            <br>
+            <p>🧰 Pré-requisitos:</p>
+            <ul>
+                <li>Projeto rodando em HTTPS (mesmo que local com localhost);</li>
+                <li>Estrutura de arquivos da aplicação organizada;</li>
+                <li>Acesso ao HTML principal do app;</li>
+                <li>Permissão para adicionar arquivos no root (/) da aplicação.</li>
+            </ul>
+            <br>
+            <p>📝 Criar o manifest.webmanifest</p>
+            <p>No <strong>diretório raiz</strong> do seu projeto, crie um arquivo:</p>
+            <img src="https://drive.google.com/thumbnail?id=1tVK01fHwA5Eo_JOA5VAvNJ-JKuSPx018&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>📝 Dica: adicione ícones no formato PNG nas dimensões 192x192 e 512x512 na pasta /icons/.</p>
+            <br>
+            <hr>
+
+            <p> 🔗 Vincular o manifest no HTML principal</p>
+            <p>No
+
+                <head> do seu index.html:
+            </p>
+            <img src="https://drive.google.com/thumbnail?id=1ROpcWBg-22MkSBxMfVjfNg5kXs5dfzKa&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <br>
+            <hr>
+            <p>💾 Criar o service-worker.js</p>
+            <p>No root da aplicação, crie:</p>
+            <img src="https://drive.google.com/thumbnail?id=1qnbR2hVU5yhwiZ6Wb9SagOLCUfoxWjyL&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <br>
+            <hr>
+            <p>📥 Registrar o service-worker.js no JS principal</p>
+            <p>No final do seu app.js ou main.js, adicione:</p>
+            <img src="https://drive.google.com/thumbnail?id=1LMs3dduiHMmXzT7pLAuVsIZ-P3LCQotg&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <br>
+            <hr>
+            <p>✅ Testar o PWA</p>
+            <ul>
+                <li>Acesse sua aplicação com o Chrome;</li>
+                <li>Abra o DevTools (F12) > Aba Application;
+                    <ul>
+                        <li>Verifique se o manifest foi carregado;</li>
+                        <li>Se o Service Worker está ativado.</li>
+                    </ul>
+                </li>
+                <li>Vá no menu de três pontos do Chrome > "Instalar sisDiCo".</li>
+            </ul>
+            <br><br>
+            <p>💡 Dica Extra: use Lighthouse</p>
+            <p>No DevTools (F12) > Aba Lighthouse > Gere um relatório e veja sugestões para melhorar a qualidade do seu
+                PWA.</p>
+
+            <br>
+            <p>📌 Resultado Esperado</p>
+            <ul>
+                <li>O sisDiCo poderá ser instalado como app em qualquer dispositivo;</li>
+                <li>Funcionará mesmo offline (as partes que estiverem em cache);</li>
+                <li>Experiência do usuário melhorada com velocidade e confiabilidade.</li>
+            </ul>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="0Ctmql" title="Pag. 290 - caderno Tigre">Aula13 - Estrutura de repetição for</h2>
+
+            <h3>Laço FOR</h3>
+            <p>É a mais fácil de ser utilizada.</p><br>
+
+            <h4><u>Sintaxe</u></h4>
+            <p><span style="color: blue;">for ( $c= 1; $c <= 10; $c ++){</span>
+            </p>
+            <p><span style="color: blue;">echo $c;</span></p>
+            <p><span style="color: blue;">}</span></p>
+            <hr>
+            <h4>Exemplo prático</h4>
+            <p>Uma contagem regressiva que inicia em 8.</p>
+            <img src="https://drive.google.com/thumbnail?id=1Shw7-xkJqAbuiNKstzlMt6bi3_V6gm7F&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=13IOVbvm6U5DqJr9MW2cJ0tVrYq4BAQRL&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=19OgbY-vhtkOV6hLirJL43C5kSHxvPXF-&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=16nP5lVX4GzfMRYsf7nQ4j6DR6k5-SueQ&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <hr>
+            <h4>Contagem crescente de 5 em 5</h4>
+            <p>Agora veremos um exemplo de contagem crescente de 5 em 5 utilizando o laço <strong>FOR</strong></p>
+            <img src="https://drive.google.com/thumbnail?id=16hN2RoeWgBbIkST3To68cPUZbvcvag64&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1Kk8V-Kj_4yY-7FvML9vhoszWlLEeaU_q&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1kxGwa5AO_WlOPYcUfN8bWF09Frj8nQ2y&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <hr>
+
+            <h4>Exercício 1</h4>
+            <p>Crie um script capaz de rodar a tabuada do nº enviado pelo form!</p>
+            <ul>
+                <li>Primeiro vamos criar o form que irá capturar o nº escolhido e que irá enviá-lo ao script para a
+                    análise e lançamento. Criaremos um select dinâmico com laço <strong>for.</strong></li>
+            </ul>
+
+            <br>
+            <img src="https://drive.google.com/thumbnail?id=1r-F_Qql4K488d-Qg4kaXi8G7EqtVtaz8&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1y35UGg0Z8SAhbejpjdwA9nz02w5LvaYF&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <ul>
+                <li>Agora vamos criar o script que irá receber o nº enviado pelo form, analisá-lo se é vállido e não
+                    nulo com o <em>operador ternário</em>;</li>
+            </ul>
+
+
+            <br>
+            <img src="https://drive.google.com/thumbnail?id=1-jOW5XxMvDim-9jQEibji2QlQTY1BqWi&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>...a saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=1gUq0r-fCiwgqJCrbSdswhHCGuTt5PK_c&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <hr>
+
+            <h4>Exercício 2</h4>
+            <p>Dizer se o nº é primo ou não!</p>
+            <p><span style="color: RED;">IMPORTANTE!!!</span></p>
+            <p><span style="color: red;">Nº primo é aquele que é divisível apenas por 1 e por ele mesmo!</span></p>
+
+            <h5><u>Contruindo o form</u></h5>
+            <img src="https://drive.google.com/thumbnail?id=1EdeBZuRCmBlDnX5phthUXtYpoW0lcigm&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1L24YgeHhvEjNy01SCmQZZKKJxpLSL23A&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <h5><u>Construindo o script php</u></h5>
+            <img src="https://drive.google.com/thumbnail?id=1ojmrRcacDwzxC9FjSPEg1i1MUmPtowKe&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1RQJ0YatBHDuTwkEeZ0hG3wJgUnn7izI1&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="17OABM" title="Pag. 297 - caderno Tigre">Aula18 - Método $_GET</h2>
+
+            <h3>method = "get"</h3>
+            <p>É uma importante superglobal dentro do php.</p>
+            <p>Get do inglês, significa "pegar". Serve para pegar as informações passadas pela URL nos objetos
+                provenientes de um form, para ser utilizadas em variáveis dentro do script php.</p>
+            <br><br>
+            <p><span style="color: red;">IMPORTANTE!!!</span></p>
+            <p>Devemos sempre fazermos a verificação dos dados provenientes da URL via método get, para evitar assim,
+                erro na página, por meio de um operador ternário como <strong><em>isset</em></strong>, ou operador de
+                coalescência nula(<strong><em>??</em></strong>), ou um <strong><em>if</em></strong>, estabelecendo
+                valores <em>default</em> para o caso de os valores recebidos forem <strong><em> null</em></strong>.
+                Veja os exemplos abaixo:</p>
+            <p>O primeiro exemplo de verificação é com um <strong><em>if(){}</em></strong>...</p>
+            <img src="https://drive.google.com/thumbnail?id=1siF99QFa5qIqOwkhJyrSI90MBjvkc4S4&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1nKWVKq5ymZtap47JsAybBs3Nlvu2IN8v&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>Agora com o <strong><em>isset</em></strong></p>
+            <img src="https://drive.google.com/thumbnail?id=188ibC9c1xxIOc6kt7LvQWWDuZbjkDXjG&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>Com o operador de coalescência nula <strong><em>??</em></strong>...</p>
+            <img src="https://drive.google.com/thumbnail?id=10qShe1mPWcsG5Sr99-2h7VU9PBYTvZoo&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>E finalmente se a condição true não for atingida, é repassado o valor <em>default</em>
+                <strong>"Mundo!"</strong> como valor da variável...
+            </p>
+            <img src="https://drive.google.com/thumbnail?id=1bBwoV6xswgP875-iu1zgiMLceFbmgKfh&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <hr>
+            <br><br>
+            <h4>Mais de um parâmetro na URL</h4>
+            <p>Podemos atribuir mais de um parâmetro pela URL, utilizando o separador <strong><em>&</em></strong>(e
+                comercial) entre eles.</p>
+            <p>Exemplo: Vamos criar tres links, com parâmetros de cor de background e cor de fonte, que, ao serem
+                clicados, manipulam o css por meio destes parâmetros php, modificando a viewport.</p>
+            <p>Devemos seguir esta ordem, uma vez que o php lê o código de cima para baixo...</p>
+            <ul>
+                <li>1 - Declaramos os testes de validação das variáveis no início do código...</li>
+            </ul>
+            <img src="https://drive.google.com/thumbnail?id=1Oenzp1c-u7wlitKDvuOoVfDZlFOymAxC&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <ul>
+                <li>2 - declaramos o CSS incorporado à página...</li>
+            </ul>
+            <img src="https://drive.google.com/thumbnail?id=1OtmdJS7iC6ODjmVNM_VN9Zo5XF7ru6Ir&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p><span style="color: red;font-size: 1.2rem;">ADENDO!!!</span></p>
+            <h5><span style="color: blue;"><em>Sanitização</em></span> <span style="color: red;">da página como medida
+                    de segurança contra injeção de códigos maliciosos pela URL.</span></h5>
+            <p>Ainda que injeção de códigos seja menos comum em estilos que em html, é uma boa prática usar <span
+                    style="color: blue;">htmlspecialchars</span> para garantir que nenhum código malicioso seja
+                injetado, especialmente se estiver lidando com entradas de usuário.</p>
+            <p>Como você poderá observar na imagem acima...</p>
+            <ul>
+                <li><span style="color: blue;">htmlspecialchars</span>: <span style="color: deeppink;">converte
+                        caracteres especiais em entidades html.</span></li>
+                <li><span style="color: purple;">ENT_QUOTES</span>: <span style="color: deeppink;">Converte aspas duplas
+                        e aspas simples...</span></li>
+                <li><span style="color: gold;">'UTF-8'</span>: <span style="color: deeppink;">Especifica o conjunto de
+                        caracteres a ser utilizado</span>.</li>
+            </ul>
+            <p>...continuando no exemplo de manipulação do DOM pelo php...</p>
+            <ul>
+                <li>3 - Criamos os links e passamos os parâmetros em cada um deles...</li>
+            </ul>
+            <img src="https://drive.google.com/thumbnail?id=1bUrQ1W2lgRKaG9Z9kgejI7usDPwiz3zk&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1VSv9VUGqUDfY02o2ZAH5ljhfntZvv3j3&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1OsKwZSu9Dp9hCISIHgrHsgqUY5WfL8MU&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=104tNnp3qqIRGchkP7-dKrwU98MgzBhXR&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <br><br>
+            <hr>
+            <h4>Método get com form na mesma página</h4>
+            <p>Podemos passar dados por um form dentro da mesma página na qual enviaremos estes dados.</p>
+            <img src="https://drive.google.com/thumbnail?id=1B4E761zxp-lesl4dgVpEcAgxN265DJg2&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Podemos ainda, caso os campos input não sejam configurados com <span
+                    style="color: green;">required</span>, utilizar o método <span
+                    style="color: red;font-size: 1.2rem;">!</span><span style="color: blue;">empty </span>para realizar
+                a verificação de campos vazios e assim , passarmos um valor para default como "Nome ignorado...!!!" e
+                "Idade não informada...!!!":</p>
+            <p><mark><em>$nome = !empty($_GET['nome']) ? $_GET['nome'] : "Nome ignorado...!!!";</em></mark></p>
+            <p><mark><em>$idade = !empty($_GET['idade']) ? $_GET['idade'] : "Idade não informada...!!!";</em></mark></p>
+            <img src="https://drive.google.com/thumbnail?id=15EfXPx5sZRkjmHiMatDqBKQjPBB9VKNF&sz=w800" alt="Imagem"
+                class="img-fluid">
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="DxZXuZ" title="Pag.  - caderno CAT">Aula01 - Testagem da aplicação correta de um estilo css a um
+                arquivo</h2>
+
+            <h3>Testagem da aplicação de um estilo CSS à um arquivo</h3>
+            <p>Caso você se depare com a situação de estilos css não estarem sendo aplicados à um arquivo html, podemos
+                realizar a seguinte testagem:</p>
+            <ul>
+                <li>Abra a página html em questão;</li>
+                <li>Clique com botão direito do mouse sobre os elementos na página html e selecione
+                    <strong>inspecionar</strong>;
+                </li>
+                <img src="https://drive.google.com/thumbnail?id=1zgWH16ED6eTbCo-N8ejtJtudnY-EBVHO&sz=w800" alt="Imagem"
+                    class="img-fluid"><br><br>
+                <li>No <strong>inspect</strong>, vá até a aba <strong>network</strong>;</li>
+                <img src="https://drive.google.com/thumbnail?id=1uy47ZKDFhkR4-86aEJ80Wg2vTPkNSC1s&sz=w800" alt="Imagem"
+                    class="img-fluid"><br><br>
+                <li>Dê o comando <strong><em>ctrl+shift+r </em></strong>para zerar o cache e recarregar a página.</li>
+                <li>Verá várias abas contendo diversas opções de carregamento de arquivos vinculados à página html em
+                    questão...</li>
+                <li>Se tudo estiver correto, deverá mostrar todos os arquivos linkados à página, inclusive o CSS(você
+                    poderá ser específico clicando na aba CSS para exibir somente o arquivo css linkado à página) </li>
+                <li>Referindo-se especificamente a CSS, se aparecer o nome do arquivo em vermelho precedido de um x,
+                    significa que ou o arquivo não está vinculado corretamente, ou está corrompido; </li>
+                <li>No caso de estar corrompido,<span style="color: red;"> <strong>não o copie e cole</strong></span>.
+                    Delete-o e recrie-o do zero, como um arquivo novo, para evitar erros.</li>
+            </ul>
+
+            <p>Seguindo estes passos você obterá um indicativo de solução para o problema de estilo.</p>
+
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+        <div class="aula">
+            <h2 id="ePABxS" title="Pag. 27 - caderno CAT">Aula01 - PRD - Product Requirements Document</h2>
+
+            <h3>PRD</h3>
+            <p>O Documento de Requisitos de Produto ou <strong><em>Product Requirements Document</em></strong>, é um
+                documento estratégico que serve como <em>"bíblia"</em> do projeto, alinhando toda a equipe sobre os
+                <u>objetivos</u>, <u>funcionalidades</u> e <u>expectativas</u>.
+            </p>
+
+            <p><span style="color: blue;">O PRD é concebido antes do desenvolvimento começar, e serve como norte para
+                    todas as decisões do projeto!</span></p>
+
+            <ol>
+                <li><strong>Estrutura típica de um PRD</strong></li>
+                <ul>
+                    <li>Objetivo do produto</li>
+                    <li>Problema que resolve</li>
+                    <li>Público alvo</li>
+                </ul>
+
+                <li><strong>Funcionalidades</strong></li>
+                <ul>
+                    <li><em>Features principais</em></li>
+                    <p><span style="color: grey;">No PRD, features principais são as funcionalidades mais importantes e
+                            de maior valor para o usuário — aquelas que representam o núcleo do produto e sem as quais
+                            ele não cumpriria o objetivo proposto.
+
+                            Elas não são todas as funcionalidades, mas sim as que diferenciam o produto e precisam estar
+                            prontas na primeira versão viável (MVP — Minimum Viable Product).
+
+                            Em outras palavras:
+
+                            “Features principais = as funções essenciais que fazem o produto ser o que ele é.”</span>
+                    </p>
+
+                    <li><em>User stories</em></li>
+                    <span style="color: grey;">No contexto de um PRD (e metodologias ágeis como Scrum), User Stories são
+                        descrições curtas e objetivas do que o usuário quer fazer no sistema, escritas do ponto de vista
+                        dele.
+
+                        Elas ajudam o time de desenvolvimento a entender:
+
+                        Quem vai usar
+
+                        O que quer fazer
+
+                        Por que isso é importante
+
+                        📝 Estrutura clássica de uma User Story
+                        Como [tipo de usuário], quero [objetivo/desejo] para [benefício/motivo].
+
+                        Essa fórmula força a equipe a pensar no valor para o usuário e não só na funcionalidade técnica.
+
+                        🔍 Exemplo prático 1 — Loja virtual
+                        Feature principal: “Finalizar compra”
+
+                        User Story:
+
+                        Como comprador, quero poder inserir meu endereço e forma de pagamento para receber meus produtos
+                        em casa.
+                    </span>
+                    <li>Casos de uso</li>
+                </ul>
+
+                <li><strong>Requisitos técnicos</strong></li>
+                <ul>
+                    <li>Performance esperada</li>
+                    <li>Compatibilidade</li>
+                    <li>Integrações necessárias</li>
+                </ul>
+
+                <li><strong>UI/UX</strong></li>
+                <ul>
+                    <li>Fluxos de usuário</li>
+                    <li><em>wireframes básicos</em></li>
+                    <p><span style="color: grey;">Wireframes são representações visuais simples (tipo rascunho) da
+                            interface do produto.
+                            Eles mostram o que vai existir na tela e onde cada elemento vai ficar, mas sem se preocupar
+                            com cores, imagens bonitas ou detalhes de design.
+
+                            No PRD, wireframes básicos têm a função de:
+
+                            Ajudar a equipe a visualizar o fluxo e a estrutura das telas
+
+                            Facilitar o alinhamento antes de gastar tempo em design detalhado
+
+                            Reduzir mal-entendidos entre dev, designer e stakeholders
+
+                            🎯 Características de um wireframe básico
+                            Baixa fidelidade (low-fidelity): feito no papel, quadro branco ou ferramentas simples
+                            (Balsamiq, Figma em modo esboço).
+
+                            Foco em layout e hierarquia, não em estilo visual.
+
+                            Usa formas simples (caixas, linhas, texto) para representar botões, menus, campos, imagens
+                            etc.
+
+                            Pode incluir anotações para explicar comportamento (ex: “botão envia formulário”).</span>
+                    </p>
+                    <li>Critérios de usabilidade</li>
+                </ul>
+
+                <li><strong>Critérios de sucesso</strong></li>
+                <ul>
+                    <li>Métricas de performance</li>
+                    <li><em>KPI's</em></li>
+                    <p><span style="color: grey;">KPI significa Key Performance Indicator (Indicador-Chave de
+                            Desempenho).
+                            São métricas quantificáveis usadas para medir se o produto está atingindo os objetivos
+                            definidos no PRD.
+
+                            Enquanto métricas podem ser qualquer número que você coleta, os KPIs são as métricas mais
+                            importantes para avaliar o sucesso do projeto.</span></p>
+                    <li>Definição de "pronto"</li>
+                </ul>
+
+            </ol>
+            <br><br>
+            <h4>Benefícios</h4>
+            <ul>
+                <li>Alinhamento entre stakeholders</li>
+                <p><span style="color:grey;">Os stakeholders são as pessoas com quem você precisa se comunicar e alinhar
+                        expectativas durante o desenvolvimento do produto.<br>
+                        Stakeholders (ou partes interessadas) são todas as pessoas, grupos ou organizações que têm
+                        interesse direto ou indireto no produto ou projeto.
+                        Eles podem influenciar ou ser impactados pelo resultado do projeto.
+                        <ol>
+                            <li>Internos — dentro da empresa:</li>
+                            <ul>
+                                <li>Gestores de produto</li>
+                                <li>Desenvolvedores</li>
+                                <li>Designers</li>
+                                <li>Marketing</li>
+                                <li>Suporte</li>
+                            </ul>
+                            <li>Externos — fora da empresa:</li>
+                            <ul>
+                                <li>Clientes finais</li>
+                                <li>Fornecedores</li>
+                                <li>Investidores</li>
+                                <li>Parceiros de negócio</li>
+                            </ul>
+                        </ol>
+                    </span></p>
+                <li>Reduz trabalho e mudanças de escopo</li>
+                <li>Facilita estimativas de tempo/custo</li>
+                <li>serve como referencia durante o desenvolvimento</li>
+            </ul>
+
+            <hr>
+            <h4>Exemplo de um PRD</h4>
+            <img src="https://drive.google.com/thumbnail?id=1BHjcNb91LhyfugkEZSBqu5VXox8Z4b3d&sz=w800" alt="Imagem"
+                class="img-fluid shadow"><br><br>
+            <hr>
+
+            <span style="color: red;">
+                <h4>Diferença Importante</h4>
+                <ul>
+                    <li><strong>PRD</strong>: <em>O que fazer</em>.</li>
+                    <li><strong>Documentação Técnica</strong>: <em>Como fazer</em>.</li>
+                </ul>
+            </span>
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="UW1egZ" title="Pag. 18 - caderno CAT">Aula14 - Rotinas em PHP - Parte1</h2>
+
+            <h3>Rotinas em PHP - parte1</h3>
+            <p>São os procedimentos e as funções.</p>
+            <p>No PHP, as rotinas são tratadas sempre como funções. Neste ambiente, algumas funções retornam valores e
+                outras não.</p>
+            <p>Ex:</p>
+            <p><mark>funtion soma($a, $b)<strong>{</strong></mark></p>
+            <p><mark>$s = $a + $b;</mark></p>
+            <p><mark>echo $s;</mark></p>
+            <p><mark><strong>}</strong></mark></p>
+            <p><mark>soma(2+5);</mark></p>
+            <p><mark>echo "A soma de $a e $b é $s";</mark></p>
+
+            <hr>
+
+            <h4>Exercício 1</h4>
+            <p>Crie um procedimento que some dois números inteiros!</p>
+            <p>Podemos criar dentro da mesma página...</p>
+            <img src="https://drive.google.com/thumbnail?id=1WD2SODEKDh0LipEfINMsD4KYihGgdth0&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1zu5vDARsGzz44R4KqWjBsMsl2xcBZNEo&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>Podemos também, receber os valores de um form em uma página externa...aqui por exemplo, o form está em
+            </p>
+            <img src="https://drive.google.com/thumbnail?id=1wkEbqSZm8f-r0_FkHdJjW1_VoNfZkBbh&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1bb7YIZDfGGvZRoR60LkU3C7IM5vhHaYr&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Abaixo, estamos na construção do algoritmo solicitado, mais especificamente no script PHP...</p>
+            <img src="https://drive.google.com/thumbnail?id=1MWMyPadCuijx4xfFup3Vp8fXhkhzhEpP&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            ..então...
+            <p><mark>function soma($a, $b)<strong>{</strong></mark></p>
+            <p><mark>$a = $num1;</mark></p>
+            <p><mark>$b = $num2;</mark></p>
+            <p><mark>$s = $a + $b;</mark></p>
+            <p><mark><strong>}</strong></mark></p>
+            <p><mark>echo "A soma entre $a e $b é $s.";</mark></p><br><br>
+
+            <h5>Podemos ainda invocar a função soma por meio de um <em>return</em></h5>
+            <img src="https://drive.google.com/thumbnail?id=1Bk_c9tEjFOPSUXG-Xy8wmgOKfA4lcWca&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>...onde a saída será...</p>
+            <img src="https://drive.google.com/thumbnail?id=1YNfUmgnvuisYxwJ3Qm9CjkoK8OoS0je-&sz=w800" alt="Imagem"
+                class="img-fluid">
+            <hr>
+
+            <h4>Rotinas com múltiplos parâmetros</h4>
+            <p>Podemos ter múltiplos parâmetros dentro de uma function principal, utilizando duas outras funções PHP
+                dentro desta...</p>
+            <p>Como podemos observar, a função inicia neste modo, sem parâmetro algum...</p>
+            <p>Neste exemplo, estamos passando os valores dos parâmetros dentro da mesma página...</p>
+            <img src="https://drive.google.com/thumbnail?id=1VjNThMlkYhVD3_vSuhNI-MF_f3zG5SaT&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1SKRhCPtPuL2se9tZWZ9SqhiPzgjXtQqO&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Podemos ainda , receber os valores dos parâmetros por meio de um form em outra página. Poderia ser um
+                exemplo de um controle de notas das médias de um aluno...</p>
+            <img src="https://drive.google.com/thumbnail?id=10HUaIqTRgE8WhQaF7CSWoBk_zCSYzEjQ&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1Lt5e5Myhg8E9YNzKoMrZQZex9i1m1efG&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1pwDHIDZ-gaOQ4L4wxh-zhFBDi1H1Qc7b&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1j25E5nCNNP1b9hH0AS2i43mZUPI3uSvA&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p><span style="color: red;">OBS Importante!!!
+                    A diferença entre obtermos os valores provenientes de um form externo e de obtermos estes por meio
+                    de lançamento manual dentro da mesma página do script PHP, é que no segundo caso, podemos lançar
+                    quantos parâmetros quisermos, tendo em vista que a contabilização será dinâmica.</span></p>
+
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
 
 
 
         <!--Gabarito-->
         <div class="aula">
-            <h2 id="" title="Pag. 000 - caderno Tigre">Aula00 - materia/aula</h2>
+            <h2 id="" title="Pag. 000 - caderno CAT">Aula00 - materia/aula</h2>
 
             <br>
             <a href="#topo" title="Ir ao tôpo...">☝️</a>
@@ -5952,11 +9083,12 @@
         </button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
         defer></script>
     <script src="./js/jquery-3.7.1.js"></script>
-    <script src="./js/index4Victor.js"></script>
+    <script src="./js/search2.js"></script>
+    <script src="./js/index8.js"></script>
     <script src="./js/validateForm.js" defer></script>
     <script src="./js/aula30.js" defer></script>
 

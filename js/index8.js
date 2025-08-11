@@ -1,4 +1,3 @@
-
 // Configuração do IndexedDB
 const DB_NAME = 'sisDiCoDb';
 const DB_VERSION = 1;
@@ -39,6 +38,14 @@ class DatabaseService {
     }
 
     async salvarMateria(materia) {
+        if (materia.aulas) {
+            materia.aulas.sort((a, b) => {
+                const numA = this.extrairNumeroAula(a.titulo);
+                const numB = this.extrairNumeroAula(b.titulo);
+                return numA - numB;
+            });
+        }
+
         const db = await this.getDb();
         return new Promise((resolve, reject) => {
             const transaction = db.transaction([STORE_NAME], 'readwrite');
@@ -50,6 +57,11 @@ class DatabaseService {
         });
     }
 
+    extrairNumeroAula(titulo) {
+        const match = titulo.match(/Aula\s*(\d+)/i);
+        return match ? parseInt(match[1], 10) : 0;
+    }
+
     async getAllMaterias() {
         const db = await this.getDb();
         return new Promise((resolve, reject) => {
@@ -57,7 +69,23 @@ class DatabaseService {
             const store = transaction.objectStore(STORE_NAME);
             const request = store.getAll();
 
-            request.onsuccess = () => resolve(request.result);
+            request.onsuccess = () => {
+                const materiasOrdenadas = request.result.sort((a, b) =>
+                    a.titulo.localeCompare(b.titulo)
+                );
+
+                materiasOrdenadas.forEach(materia => {
+                    if (materia.aulas) {
+                        materia.aulas.sort((a, b) => {
+                            const numA = this.extrairNumeroAula(a.titulo);
+                            const numB = this.extrairNumeroAula(b.titulo);
+                            return numA - numB;
+                        });
+                    }
+                });
+
+                resolve(materiasOrdenadas);
+            };
             request.onerror = () => reject(request.error);
         });
     }
@@ -75,6 +103,12 @@ class DatabaseService {
         });
     }
 
+    async getMateriaByTituloCaseInsensitive(titulo) {
+        const materias = await this.getAllMaterias();
+        const tituloLower = titulo.toLowerCase();
+        return materias.find(m => m.titulo.toLowerCase() === tituloLower);
+    }
+
     async deleteMateria(id) {
         const db = await this.getDb();
         return new Promise((resolve, reject) => {
@@ -90,12 +124,44 @@ class DatabaseService {
     async updateMateria(materia) {
         return this.salvarMateria(materia);
     }
+
+    async mergeMaterias(tituloAntigo, tituloNovo) {
+        const materiaAntiga = await this.getMateriaByTitulo(tituloAntigo);
+        const materiaNova = await this.getMateriaByTitulo(tituloNovo);
+
+        if (!materiaAntiga) {
+            throw new Error('Matéria antiga não encontrada.');
+        }
+
+        if (materiaNova) {
+            // Mesclar aulas, evitando duplicatas
+            const aulasAntigas = materiaAntiga.aulas || [];
+            const aulasNovas = materiaNova.aulas || [];
+            const titulosExistentes = new Set(aulasNovas.map(a => a.titulo.toLowerCase()));
+
+            for (const aula of aulasAntigas) {
+                if (!titulosExistentes.has(aula.titulo.toLowerCase())) {
+                    aulasNovas.push(aula);
+                }
+            }
+
+            materiaNova.aulas = aulasNovas;
+            await this.updateMateria(materiaNova);
+            await this.deleteMateria(materiaAntiga.id);
+            return materiaNova;
+        } else {
+            // Apenas renomear a matéria
+            materiaAntiga.titulo = tituloNovo;
+            await this.updateMateria(materiaAntiga);
+            return materiaAntiga;
+        }
+    }
 }
 
-// Inicialização das variáveis globais
 const dbService = new DatabaseService();
 const materiaInput = document.getElementById('materia-input');
 const aulaInput = document.getElementById('aula-input');
+const conteudoInput = document.getElementById('conteudo-aula');
 const lancarBtn = document.getElementById('lancar-btn');
 const contentList = document.getElementById('content-list');
 const searchInput = document.getElementById('search-input');
@@ -106,11 +172,7 @@ const importarBtn = document.getElementById('importar-btn');
 const importFile = document.getElementById('import-file');
 const alertElement = document.getElementById('alert');
 const loadingElement = document.getElementById('loading');
-//const iconAjuda = document.getElementById('helpMe');
-//const cardAjuda = document.getElementById('cardDeAjuda');
-//const btnFechar = cardAjuda.querySelector('.btn-close');
 
-// Funções auxiliares
 function showAlert(message, type = 'success', duration = 10000) {
     alertElement.textContent = message;
     alertElement.className = `alert alert-${type} alert-dismissible fade show`;
@@ -133,7 +195,11 @@ function gerarIdAleatorio() {
     return id;
 }
 
-// Modifica a função criarElementoMateria para manter a funcionalidade de expandir/recolher
+function extrairNumeroDaAula(titulo) {
+    const numeros = titulo.match(/\d+/g);
+    return numeros ? parseInt(numeros.join(''), 10) : 0;
+}
+
 function criarElementoMateria(materia) {
     const materiaElement = document.createElement('li');
     materiaElement.className = 'materia-item';
@@ -149,13 +215,19 @@ function criarElementoMateria(materia) {
     const aulasList = document.createElement('ul');
     aulasList.className = 'aula-list';
 
+    if (materia.aulas && materia.aulas.length > 0) {
+        materia.aulas.sort((a, b) => extrairNumeroDaAula(a.titulo) - extrairNumeroDaAula(b.titulo));
+        aulasList.innerHTML = "";
+        materia.aulas.forEach(aula => {
+            aulasList.appendChild(criarElementoAula(aula, materia));
+        });
+    }
+
     materiaElement.appendChild(materiaHeader);
     materiaElement.appendChild(aulasList);
 
-    // Eventos da matéria
     materiaHeader.addEventListener('click', (e) => {
         if (!e.target.classList.contains('edit-btn')) {
-            // Só permite toggle se não estiver filtrando
             if (searchInput.value.trim() === '') {
                 aulasList.classList.toggle('show');
                 if (aulasList.classList.contains('show')) {
@@ -165,16 +237,14 @@ function criarElementoMateria(materia) {
         }
     });
 
-    // Botão editar
     const editBtn = materiaHeader.querySelector('.btn-outline-primary');
     editBtn.addEventListener('click', async (e) => {
         e.stopPropagation();
         const novoTitulo = prompt('Digite o novo título da matéria:', materia.titulo);
         if (novoTitulo && novoTitulo !== materia.titulo) {
             try {
-                materia.titulo = novoTitulo;
-                await dbService.updateMateria(materia);
-                materiaHeader.querySelector('.materia-titulo').textContent = novoTitulo;
+                await dbService.mergeMaterias(materia.titulo, novoTitulo);
+                await atualizarListaConteudo();
                 showAlert('Matéria atualizada com sucesso!');
             } catch (error) {
                 showAlert('Erro ao atualizar matéria: ' + error, 'danger');
@@ -182,7 +252,6 @@ function criarElementoMateria(materia) {
         }
     });
 
-    // Botão excluir
     const deleteBtn = materiaHeader.querySelector('.btn-outline-danger');
     deleteBtn.addEventListener('click', async (e) => {
         e.stopPropagation();
@@ -200,70 +269,60 @@ function criarElementoMateria(materia) {
     return materiaElement;
 }
 
+async function salvarMateriaOrdenada(materia) {
+    if (materia.aulas) {
+        materia.aulas.sort((a, b) => extrairNumeroDaAula(a.titulo) - extrairNumeroDaAula(b.titulo));
+    }
+    await dbService.salvarMateria(materia);
+}
 
-
-
-
-//----------------------------------------------------------------
 function criarElementoAula(aulaObj, materia) {
     const aulaItem = document.createElement('li');
     aulaItem.className = 'aula-item';
+    aulaItem.dataset.id = aulaObj.id;
+
     aulaItem.innerHTML = `
-        <a href="#${aulaObj.id}" class="aula-link">🔗 ${aulaObj.id}</a>
+        <a href="#${aulaObj.id}" class="aula-link" data-expressao="">🔗 ${aulaObj.id}</a>
         <span class="aula-titulo">${aulaObj.titulo}</span>
         <button class="btn btn-sm btn-outline-danger edit-btn">Excluir</button>
         <button class="btn btn-sm btn-outline-primary edit-btn">Editar</button>
     `;
 
-    // Mostrar toast apenas para aulas recém-criadas
-    if (aulaObj.novaAula) {
-        const alertBootstrap = `
-            <div class="toast-container position-fixed bottom-0 end-0 p-3">
-                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
-                        <strong class="me-auto">ID da Aula Gerado</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
-                        ID gerado: <strong>${aulaObj.id}</strong>
-                        <br>Anote este ID para referência futura!
-                    </div>
-                </div>
-            </div>
-        `;
+    const aulaLink = aulaItem.querySelector('.aula-link');
+    aulaLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const expressao = aulaLink.dataset.expressao || '';
+        destacarExpressaoNaAula(aulaObj.id, expressao, showAlert);
+    });
 
-        document.body.insertAdjacentHTML('beforeend', alertBootstrap);
-
-        setTimeout(() => {
-            const toastElement = document.querySelector('.toast-container .toast');
-            if (toastElement) {
-                toastElement.remove();
-            }
-        }, 20000);
-
-        // Remover a flag de nova aula após mostrar o toast
-        delete aulaObj.novaAula;
-    }
-
-    // Botão editar aula
     const editBtn = aulaItem.querySelector('.btn-outline-primary');
     editBtn.addEventListener('click', async (e) => {
         e.stopPropagation();
         const novoTitulo = prompt('Digite o novo título da aula:', aulaObj.titulo);
-        if (novoTitulo && novoTitulo !== aulaObj.titulo) {
-            try {
-                const index = materia.aulas.findIndex(a => a.id === aulaObj.id);
+        const novoConteudo = prompt('Digite o resumo da aula:', aulaObj.conteudo || '');
+        try {
+            const index = materia.aulas.findIndex(a => a.id === aulaObj.id);
+            let atualizado = false;
+
+            if (novoTitulo && novoTitulo !== aulaObj.titulo) {
                 materia.aulas[index].titulo = novoTitulo;
-                await dbService.updateMateria(materia);
-                aulaItem.querySelector('.aula-titulo').textContent = novoTitulo;
-                showAlert('Aula atualizada com sucesso!');
-            } catch (error) {
-                showAlert('Erro ao atualizar aula: ' + error, 'danger');
+                atualizado = true;
             }
+            if (novoConteudo !== null && novoConteudo !== (aulaObj.conteudo || '')) {
+                materia.aulas[index].conteudo = novoConteudo;
+                atualizado = true;
+            }
+
+            if (atualizado) {
+                await dbService.updateMateria(materia);
+                aulaItem.querySelector('.aula-titulo').textContent = novoTitulo || aulaObj.titulo;
+                showAlert('Aula atualizada com sucesso!');
+            }
+        } catch (error) {
+            showAlert('Erro ao atualizar aula: ' + error, 'danger');
         }
     });
 
-    // Botão excluir aula
     const deleteBtn = aulaItem.querySelector('.btn-outline-danger');
     deleteBtn.addEventListener('click', async (e) => {
         e.stopPropagation();
@@ -282,11 +341,8 @@ function criarElementoAula(aulaObj, materia) {
 
     return aulaItem;
 }
-//----------------------------------------------------------------
 
 $(document).ready(function () {
-
-    // Chamando o vídeo de ajuda
     $('#helpMe').click(function () {
         const $divAjuda = $('.iframe');
         const $video = $('#video')[0];
@@ -302,40 +358,40 @@ $(document).ready(function () {
         }
     });
 
-
-    //Configurando um botão de fechar o vídeo
     $('#btnCloseVideo').click(function () {
         const $divAjuda = $('.iframe');
         const $video = $('#video')[0];
         $divAjuda.hide();
-        $video.pause();  // Pausa o vídeo
+        $video.pause();
         $video.currentTime = 0;
-        //$('.contentVideo').hide();
     });
 });
 
-
-
-//-----------------------------------------------------------------
-// Função para atualizar a lista de matérias
 async function atualizarListaConteudo() {
     try {
+        toggleLoading(true);
         const materias = await dbService.getAllMaterias();
         contentList.innerHTML = '';
+
+        if (materias.length === 0) {
+            showAlert('Nenhuma matéria encontrada. Adicione uma nova matéria!', 'info');
+        }
 
         materias.forEach(materia => {
             const materiaElement = criarElementoMateria(materia);
             const aulasList = materiaElement.querySelector('.aula-list');
+            aulasList.innerHTML = '';
 
-            materia.aulas.forEach(aulaObj => {
-                const aulaElement = criarElementoAula(aulaObj, materia);
-                aulasList.appendChild(aulaElement);
-            });
+            if (materia.aulas) {
+                materia.aulas.forEach(aulaObj => {
+                    const aulaElement = criarElementoAula(aulaObj, materia);
+                    aulasList.appendChild(aulaElement);
+                });
+            }
 
             contentList.appendChild(materiaElement);
         });
 
-        // Atualizar datalists
         materiasDatalist.innerHTML = '';
         materias.forEach(materia => {
             const option = document.createElement('option');
@@ -344,86 +400,31 @@ async function atualizarListaConteudo() {
         });
     } catch (error) {
         showAlert('Erro ao carregar conteúdo: ' + error, 'danger');
+    } finally {
+        toggleLoading(false);
     }
 }
 
-//---------------------------------------------------------------------------
-// Função auxiliar para normalizar texto (remover acentos e converter para minúsculas)
-function normalizarTexto(texto) {
-    return texto.toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '');
-}
-
-
-// Função para buscar conteúdo
-// Função modificada para filtrar conteúdo
-function filtrarConteudo(termo) {
-    const termoNormalizado = normalizarTexto(termo);
-    const materias = document.querySelectorAll('.materia-item');
-
-    materias.forEach(materia => {
-        const tituloMateria = materia.querySelector('.materia-titulo').textContent;
-        const tituloMateriaNormalizado = normalizarTexto(tituloMateria);
-        const aulas = materia.querySelectorAll('.aula-item');
-        const aulasList = materia.querySelector('.aula-list');
-        let materiaVisivel = false;
-
-        // Verifica se o termo corresponde ao título da matéria
-        if (tituloMateriaNormalizado.includes(termoNormalizado)) {
-            materiaVisivel = true;
-            // Mostra todas as aulas quando a matéria corresponde
-            aulas.forEach(aula => {
-                aula.style.display = 'block';
-            });
-        } else {
-            // Verifica cada aula
-            aulas.forEach(aula => {
-                const tituloAula = aula.querySelector('.aula-titulo').textContent;
-                const tituloAulaNormalizado = normalizarTexto(tituloAula);
-
-                if (tituloAulaNormalizado.includes(termoNormalizado)) {
-                    materiaVisivel = true;
-                    aula.style.display = 'block';
-                } else {
-                    aula.style.display = 'none';
-                }
-            });
-        }
-
-        // Atualiza a visibilidade da matéria
-        materia.style.display = materiaVisivel ? 'block' : 'none';
-
-        // Mantém a lista de aulas expandida durante a pesquisa se houver resultados
-        if (materiaVisivel && termo !== '') {
-            aulasList.classList.add('show', 'slide-down');
-        } else if (termo === '') {
-            // Volta ao estado normal quando não há termo de busca
-            aulasList.classList.remove('show', 'slide-down');
-        }
-    });
-}
-
-// Event Listeners
 lancarBtn.addEventListener('click', async () => {
     const tituloMateria = materiaInput.value.trim();
     const tituloAula = aulaInput.value.trim();
+    const conteudoAula = conteudoInput.value.trim();
 
     if (!tituloMateria || !tituloAula) {
-        showAlert('Por favor, preencha todos os campos!', 'warning');
+        showAlert('Por favor, preencha a matéria e o título da aula!', 'warning');
         return;
     }
 
     try {
         toggleLoading(true);
-        let materia = await dbService.getMateriaByTitulo(tituloMateria);
+        let materia = await dbService.getMateriaByTituloCaseInsensitive(tituloMateria);
 
         if (materia) {
             if (!materia.aulas.some(aula => aula.titulo === tituloAula)) {
-                // Agora salvamos um objeto com título e ID para cada aula
                 materia.aulas.push({
                     titulo: tituloAula,
-                    id: gerarIdAleatorio()
+                    id: gerarIdAleatorio(),
+                    conteudo: conteudoAula || ''
                 });
                 await dbService.updateMateria(materia);
             }
@@ -432,7 +433,8 @@ lancarBtn.addEventListener('click', async () => {
                 titulo: tituloMateria,
                 aulas: [{
                     titulo: tituloAula,
-                    id: gerarIdAleatorio()
+                    id: gerarIdAleatorio(),
+                    conteudo: conteudoAula || ''
                 }]
             };
             await dbService.salvarMateria(materia);
@@ -440,6 +442,7 @@ lancarBtn.addEventListener('click', async () => {
 
         materiaInput.value = '';
         aulaInput.value = '';
+        conteudoInput.value = '';
         await atualizarListaConteudo();
         showAlert('Conteúdo salvo com sucesso!');
     } catch (error) {
@@ -449,12 +452,10 @@ lancarBtn.addEventListener('click', async () => {
     }
 });
 
-// Event Listener modificado para o campo de busca
 searchInput.addEventListener('input', (e) => {
-    filtrarConteudo(e.target.value.trim());
+    filtrarConteudo(e.target.value.trim(), dbService, contentList, criarElementoMateria, criarElementoAula);
 });
 
-// Exportar dados
 exportarBtn.addEventListener('click', async () => {
     try {
         const materias = await dbService.getAllMaterias();
@@ -474,7 +475,6 @@ exportarBtn.addEventListener('click', async () => {
     }
 });
 
-// Importar dados
 importarBtn.addEventListener('click', () => {
     importFile.click();
 });
@@ -488,7 +488,18 @@ importFile.addEventListener('change', async (e) => {
             const materias = JSON.parse(text);
 
             for (const materia of materias) {
-                await dbService.salvarMateria(materia);
+                const existente = await dbService.getMateriaByTituloCaseInsensitive(materia.titulo);
+                if (existente) {
+                    const titulosExistentes = new Set(existente.aulas.map(a => a.titulo.toLowerCase()));
+                    for (const aula of materia.aulas) {
+                        if (!titulosExistentes.has(aula.titulo.toLowerCase())) {
+                            existente.aulas.push(aula);
+                        }
+                    }
+                    await dbService.updateMateria(existente);
+                } else {
+                    await dbService.salvarMateria(materia);
+                }
             }
 
             await atualizarListaConteudo();
@@ -502,12 +513,32 @@ importFile.addEventListener('change', async (e) => {
     }
 });
 
-// Inicialização
+window.onload = function () {
+    window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 100) {
+            document.querySelector('.back-to-top').style.display = 'block';
+        } else {
+            document.querySelector('.back-to-top').style.display = 'none';
+        }
+    });
+};
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     atualizarListaConteudo();
 });
 
-
-
-
-
+const style = document.createElement('style');
+style.innerHTML = `
+    mark {
+        background-color: yellow;
+        font-weight: bold;
+    }
+`;
+document.head.appendChild(style);

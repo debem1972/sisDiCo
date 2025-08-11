@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 720px;
+}
+
+.titulo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-table {
+    width: 80px;
+}
+
+.logoImages {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    right: 20px;
+    /*border: 2px solid black;*/
+}
+
+.table-responsive {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.function-link {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.function-link:hover {
+    text-decoration: underline;
+}
+
+.modal-content {
+    border-radius: 10px;
+}
+
+#searchInput {
+    max-width: 500px;
+}
+
+/* ===== Efeito de cabeçalho fixo na tabela ===== */
+.table-container {
+    position: relative;
+    height: 420px;
+    /* Ajuste conforme necessário */
+    overflow: hidden;
+}
+
+.table-scroll {
+    height: 100%;
+    overflow-y: auto;
+    margin-top: 41px;
+    /* Compensa a altura do thead */
+}
+
+.table-fixed thead {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.table-fixed tbody {
+    margin-top: 41px;
+    /* Mesma altura do cabeçalho */
+}
+
+/*tentativa de ajuste das colunas do thead com as colunas do tbody*/
+.table-container,
+.table-scroll,
+.table-fixed {
+    width: 100%;
+}
+
+.table-fixed th,
+.table-fixed td {
+    white-space: nowrap;
+}
+
+/*Breakpoints*/
+@media (max-width: 1001px) {
+    .logoImages {
+        display: none !important;
+    }
+}

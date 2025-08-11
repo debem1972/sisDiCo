@@ -414,7 +414,7 @@ a {
     cursor: pointer;
 }
 
-.testeLimite{
+.testeLimite {
     height: 150px;
 }
 
@@ -426,4 +426,103 @@ a {
         align-items: flex-start;
     }
 
+}
+
+/*--------------------------------------------------------------*/
+/*Estilo para o controle de busca*/
+/* Estilos para o controle de busca */
+.controle-busca {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.controle-busca-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.controle-busca button {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.controle-busca button:hover {
+    background: #f0f0f0;
+}
+
+.controle-busca button:active {
+    background: #e0e0e0;
+}
+
+#contador-ocorrencias {
+    margin: 0 8px;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Estilos para as marcações */
+mark.marca-atual {
+    background-color: #ffff00;
+    padding: 2px 0;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+
+mark.marca-alternativa {
+    background-color: #ffa500;
+    padding: 2px 0;
+    border-radius: 2px;
+}
+
+/* Animação para destacar a ocorrência atual */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 5px rgba(255, 255, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 0, 0);
+    }
+}
+
+mark.marca-atual {
+    animation: pulse 1.5s ease-in-out;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    .controle-busca {
+        top: auto;
+        bottom: 20px;
+        right: 10px;
+        padding: 6px;
+    }
+
+    .controle-busca button {
+        padding: 3px 6px;
+    }
+
+    #contador-ocorrencias {
+        font-size: 12px;
+    }
 }
