@@ -376,6 +376,11 @@
         "titulo": "Aula18 - Método $_GET",
         "id": "17OABM",
         "conteudo": "htmlspecialchars"
+      },
+      {
+        "titulo": "Aula19 - Method $_POST",
+        "id": "Ney8OO",
+        "conteudo": "POST, stripslashes."
       }
     ],
     "id": 12
