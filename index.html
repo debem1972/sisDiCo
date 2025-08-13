@@ -9065,6 +9065,97 @@
         </div>
 
 
+        <div class="aula">
+            <h2 id="Ney8OO" title="Pag. 028 - caderno CAT">Aula19 - Method $_POST</h2>
+
+            <h3>Método POST</h3>
+            <p>A superglobal POST, serve para "pegar" as informações enviadas por um formulário.</p>
+            <p>Quando enviamos dados por este método, nada fica visível ao usuário comum. Tudo fica salvo na superglobal
+                POST.</p>
+            <p>Abaixo, veja um exemplo de um form na mesma página do script do método POST. Ou seja, estamos enviando
+                dados para dentro da mesma página onde o form está.</p>
+            <img src="https://drive.google.com/thumbnail?id=1LiBa_-Y6GwmlahzS_NTa_WAWJa_Ysp9T&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Como podemos ver, o atributo <strong><em>action</em></strong> está vazio, pois não estamos enviando dados
+                para fora desta página.</p>
+            <p>Abaixo, podemos ver a verificação se dados estão sendo de fato enviados por um form, utilizando um
+                <strong>if</strong>.
+            </p>
+            <img src="https://drive.google.com/thumbnail?id=1PmF2oo47NGaNQx14Vh4UV23dcK5ENuIj&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1t_oExwkTBsBkecs-yXpddXxlAYnXG5IB&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1LATjrUQmau8IfO9cCdsG8xEAgudToIVT&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Como podemos observar os dados foram digitados dentro dos input e ao clicar em enviar ou dar enter, as
+                informações foram enviadas para dentro da mesma página e como já havia sido comentado, nada foi mostrado
+                na URL. Isso, porque os dados ficaram salvos na superglobal <strong>POST</strong>.</p>
+            <p><span style="color: red;">Ignore o link no rodapé da imagem "Voltar ao form"</span></p>
+
+            <p>Abaixo podemos observar outra maneira de gerenciarmos oque acontecerá se o form tentar enviar dados com
+                os inputs vazios ou inválidos. </p>
+            <p>A tradução desta testagem seria...<em>"Se o método de requisição for POST, então se a variável $nome
+                    conter um valor válido e não null, utilizar o valor válido, caso contrário, utilizar o valor
+                    default, 'Zé'. Se a variável $idade conter um valor válido e não null, utilizar o valor válido, caso
+                    contrário, utilizar o valor default, '18' . Então imprima na tela '<strong>Olá, eu sou</strong>
+                    concatenado com (o valor de $nome sanitizado pela funtion htmlspecialchars que verifica se há
+                    caractéres html diferentes dos valores esperados, que seria apenas uma string, impedindo assim
+                    ataques e <span style="color: red;">injeção de <abbr
+                            title="XSS (Cross-Site Scripting) é uma vulnerabilidade de segurança que acontece quando um site permite que código JavaScript malicioso seja injetado e executado no navegador de outros usuários.">XSS</abbr></span>),
+                    <strong>e tenho</strong>, concatenado com (valor da variável $idade igualmente sanitizado)
+                    concatenado com <strong>anos</strong>.' "</em></p>
+            <img src="https://drive.google.com/thumbnail?id=1W3wT3w1SR2qlDkqGJ1loilWYfEAUhZDR&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+
+            <hr>
+
+            <h4>Enviando dados a partir de um form em outra página</h4>
+            <p>Abaixo, o código na página enviaForm.html, é o form que enviará os dados para a página aula19.php.</p>
+            <img src="https://drive.google.com/thumbnail?id=1OUF6z9H30nIoFwcK-n2czxWZsd6X5nNb&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Como podemos ver, o atributo <strong>action</strong>, agora aponta para o caminho relativo da página
+                aula19.php.</p>
+
+            <hr>
+            <h4><span style="color: red;">Segurança</span></h4>
+            <p><span style="color: red;">Evitar SQL injection e XSS</span></p>
+            <p><span style="color: red;">Os campos de input aceitam qualquer dado, inclusive trechos de scripts, que
+                    podem ser em muitos casos para copiar seus dados, danificar bancos de dados ou redirecionar o
+                    usuário para outra página falsa, método utilizados por <em>cyber criminosos</em>. Por isso a
+                    importância de validação e sanitização dos campos de dados.</span></p>
+            <p><span style="color: red;">Abaixo temos um exemplo de script que pode ser injetado em um input. Quando o
+                    user der <strong><em>enter</em></strong> para enviar os dados do form, na verdade, está executando o
+                    script, que neste exemplo, somente encaminha o usuário a uma página do Google.</span></p>
+
+            <img src="https://drive.google.com/thumbnail?id=1NNF75JsorRpzxqzDcL-hVVsle4pRT1BS&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>Por isso podemos implementar medidas de segurança para impedir que isso ocorra. Vemos abaixo a function
+                <strong><em>sanitizaPost( ){ }</em></strong>, que utiliza 3 funções dentro dela como:
+            <ul>
+                <li><span style="color: rgb(9, 175, 187);"><strong><em>trim( )</em></strong></span> - Remove espaços em
+                    branco no
+                    início e no final;</li>
+                <li><span style="color: rgb(9, 175, 187);"><strong><em>stripslashes</em></strong></span> - Remove barras
+                    invertidas;
+                </li>
+                <li><span style="color: rgb(9, 175, 187);"><strong><em>htmlspecialchars </em></strong></span>- Converte
+                    caracteres
+                    especiais em entidades html.</li>
+            </ul>
+
+            </p>
+
+            <img src="https://drive.google.com/thumbnail?id=1RMoKWSALfWNPyebWKyu9Gg3DEIKooqBI&sz=w800" alt="Imagem"
+                class="img-fluid">
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
 
         <!--Gabarito-->
         <div class="aula">
