@@ -9156,6 +9156,108 @@
         </div>
 
 
+        <div class="aula">
+            <h2 id="qKP52q" title="Pag. 038 - caderno CAT">Aula15 - Rotinas em PHP - Parte2</h2>
+
+            <h3>Rotinas em PHP - Parte2</h3>
+            <p>Veremos como retornar um valor de duas formas: </p>
+            <ul>
+                <li>Por valor</li>
+                <li>Por referência</li>
+            </ul>
+
+            <p><strong><em>Recordando...</em></strong></p>
+            <ol>
+                <li>Procedimento é uma function que não retorna valor. Irá mostrar o valor de uma soma por exemplo,
+                    dentro do corpo da função.</li>
+                <p><mark>function soma($a, $b)<strong>{</strong></mark></p>
+                <p><mark>$s = $a + $b;</mark></p>
+                <p><mark>echo $s;</mark></p>
+                <p><mark><strong>}</strong></mark></p>
+                <p><mark>soma(3,4)</mark></p>
+
+                <li>Função, retorna o valor de uma soma por exemplo dentro de uma variável.</li>
+                <p><mark>function soma($a, $b)<strong>{</strong></mark></p>
+                <p><mark>$s = $a + $b;</mark></p>
+                <p><mark>return $s;</mark></p>
+                <p><mark><strong>}</strong></mark></p>
+                <p><mark>$s = soma(3,4);</mark></p>
+            </ol>
+            <hr>
+            <h4>Formas de envio de parâmetros para a função</h4>
+            <h5><em>Passagem por valor</em></h5>
+            <img src="https://drive.google.com/thumbnail?id=1vhbKMRqmtyJGBbnTFSMUw_Lwh5UpZvQR&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1Dl6THUKm3NHSUmZ2EL9tHXTvDluuiH_9&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <h5><em>Passagem por referência</em></h5>
+            <img src="https://drive.google.com/thumbnail?id=1fY-keG6cl0FIVU73Ucbtpedwo3yHvx37&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1iKy2-d7nUvueVa1lXK3G3RhvFaoZKOWY&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <hr>
+            <h5>Exercício:</h5>
+            <p>Crie um procedimento que use a passagem de parâmetro por referência!</p>
+            <img src="https://drive.google.com/thumbnail?id=14zab7GR82FMr3qG0gVOV9iORxv3Jtr1W&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1GnaFRR5Ieoofv7sK4BrHj-nyXhLU0NGx&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <hr>
+
+            <h4>Como utilizar rotinas externas?</h4>
+            <p>São pacotes de rotinas criadas por você, e que não fazem parte do escopo do código em um determinado
+                arquivo.</p>
+            <p>O mais comum para os iniciantes, é criar uma function dentro de um script, copiá-la e colá-la em outro
+                script. O problema é que se alterarmos de alguma forma algum aspecto funcional da function no script 1,
+                nada acontecerá referente a estas modificações no script2, pois são independentes. </p>
+
+            <p>O correto é :</p>
+            <ul>
+                <li>Crie um arquivo funçoes.php;</li>
+                <li>Crie as funções que irá utilizar nos outros scripts;</li>
+                <li>No script1 que quer que as funções estejam presentes insira no início do código: <span
+                        style="color: blue;"><strong><em>include "funçoes.php";</em></strong></span></li>
+                <li>No script2 faça a mesma coisa.</li>
+            </ul>
+            <p>Pronto, desta forma, se hover qualquer alteração nas funções dentro do arquivo funçoes.php, refletirá nos
+                demais scripts.</p>
+
+            <h5>Exemplo prático: </h5>
+            <p>Criamos um arquivo funcoes.php, script01.php e script02.php.</p>
+            <img src="https://drive.google.com/thumbnail?id=1E7-_r6i1ueE3oMOjuZXllBAVgp0faMFA&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1xPzS7sDuzpficLG8LhhB5E1KZaS-x9RJ&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1akGCqB_5EHrvSc6eJYOCvBhqy-8v7dmw&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1RFtn8Ed0Snl6wOVTaDqx53khLuohTLF3&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1LjVrJp62s_oh-mVkdbhw4_o0KppUkWvM&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            Além do comando include, temos também o comando <strong><em>required</em></strong>. A diferença entre eles é
+            a seguinte:
+            <ul>
+                <li><em>INCLUDE</em>: Se você fizer a conexão de funções com seu arquivo que esteja corrompido, ou com
+                    funções que não existam, o código continuará rodando, tentando realizar a conexão.</li>
+                <li><em>REQUIRED</em>: Neste caso de conexão, ela para ali mesmo, interrompendo o código!</li>
+            </ul>
+
+            <p>Existem ainda mais duas funções para finalidades específicas neste caso:</p>
+            <p>INCLUDE_ONCE - > serve para testar se a função invocada já foi carregada uma vez dentro do código. Se
+                sim, não é necessário repeti-la.</p>
+            <p>Tanto o <strong><em>include_once</em></strong> quanto o <strong><em>required_once</em></strong>, carregam
+                somente uma vez.</p>
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
 
         <!--Gabarito-->
         <div class="aula">
