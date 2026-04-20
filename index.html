@@ -9300,6 +9300,143 @@
         </div>
 
 
+        <div class="aula">
+            <h2 id="PAdD3U" title="Pag. 053 - caderno SPEED c/ moto na capa">Aula04 - Como publicar o site(método
+                profissional) - método profissional</h2>
+
+            <h3>Colocando em produção - método profissional</h3>
+            <p><span style="color: red;">MUITO IMPORTANTE<br>
+                    Para evitar dores de cabeça posteriores e problemas que garanto, você não esquecerá tão cedo, não
+                    esqueça destas informações:<br>
+                    <ul>
+                        <li>Pesquise pelos melhores servidores de hospedagem: HOSTGATOR, HOSTNET, HOSTINGER etc...</li>
+                        <li>Verifique os planos de hospedagem(o que oferecem, preço, tempo do contrato, renovação da
+                            hospedagem, se disponibilizam o dominio gratuíto no primeiro ano, se disponibilizam
+                            certificado de segurança - https - e qual o prazo de renovação) Ex:
+                            <ol>
+                                <li>Plano P: hospedagem compartilhada;</li>
+                                <li>Armazenamento: 100GB NVME;</li>
+                                <li>Email profissional gratuíto;</li>
+                                <li>SSL gratuíto;</li>
+                                <li>CDN grátis;</li>
+                                <li>outras vantagens...</li>
+                            </ol>
+
+                        </li>
+                        <li>Passe para o cliente todas estas informações para cliente para a aprovação;</li>
+                        <li>De preferência, dê suporte para o cliente no processo de criação da conta no servidor de
+                            hospedagem escolhido criando um email especial para este fim, escolha do plano, prazo do
+                            contrato(no mínimo um ano), e forma de pagamento.<span style="color: blue;"><strong><em>Não
+                                        esqueça, esta etapa deve ser feita pela cliente, responsabilidade do
+                                        mesmo!</em></strong></span>.</li>
+                        <li>Peça o acesso à conta do servidor de hospedagem feita pelo cliente e acesso ao email criado
+                            para este fim(será útil para receber etapas posteriores de configuração da hospedagem e
+                            deploy);</li>
+                    </ul>
+                </span></p><br>
+            <h3>Escolher o domínio</h3>
+            <p>Preste a atenção nesta etapa, pois as vezes prometem o domínio free na contratação do plano e não é
+                possivel cadastrar o mesmo de forma alguma, tendo que partir para a contratação do domínio no site <span
+                    style="color: blue;"><em>https://registro.br</em></span><br>
+                Pesquise pelo domínio escolhido para ver a disponibilidade. <span
+                    style="color: blue;"><strong>Novamente, caso seja necessário adquirir o domínio pelo site oficial,
+                        não esqueça, a criação da conta, e o pagamento devem ser feitos pelo cliente, que deverá passar
+                        o acesso para o dev posteriormente para coleta de dados necessários a configuração do site, data
+                        da renovação do domínio etc....</strong></span></p>
+            <p>Após a propagação do domínio(oque deverá ser rápido), deverá fazer ajustes nos arquivos do site ao que se
+                refere ao domínio como sitemap.xml, robots.txt, trocar urls do localhost pelo dominio oficial do
+                servidor e se o domínio utilizará http ou https canônico;</p>
+            <br><br>
+            <h3>Próximos passos no servidor</h3>
+            <h4>Vincular o domínio final à hospedagem</h4>
+            <p>Neste caso, que o servidor escolhido foi a HostGator:<br>
+            <ul>
+                <li>Ir na aba <strong>Hospedagem e Servidores</strong>;</li>
+                <li>Clicar em <strong>CPanel</strong>;</li>
+                <li>No CPanel, procurar por <strong>Domínios</strong>;</li>
+                <li>Verificar qual domínio está vinculado à hospedagem, oque deve ser constatado como o domínio
+                    provisório(Será necessário vincular o domínio oficial);</li>
+                <li>Conforme suporte, procurar no menu por <strong>Sites</strong>;</li>
+                <li>Encontre o domínio provisório atual e clique no botão <strong>Alterar Domínio</strong>;</li>
+                <li>Inserir o novo domínio em <strong>Qual é o endereço do seu site?</strong>;</li>
+                <li>Clicar em <strong>Continuar</strong>;</li>
+            </ul><br>
+            <span style="color: green;">Se tudo ok, o sistema exibirá uma menssagem de sucesso: Pronto! Seu domínio está
+                sendo configurado com sucesso!</span><br>
+            Estará configurando o <strong>DNS</strong> e o <strong>SSL</strong> automaticamente(neste servidor);<br>
+            Prazo de até 2 hs à 24hs para propagar o domínio.
+            </p>
+            <br><br>
+            <h4>Outras verificações</h4>
+            <p>No caso do site que construí, a stack é com html, css, bootstrap, php, MySQL e javaScript, é importante
+                verificar a versão do php no servidor:<br>
+            <ul>
+                <li>Abrir o <strong>CPanel</strong>;</li>
+                <li>Digitar no campo de busca: <em>Gerenciador Multiphp</em>;</li>
+                <li>Abrirá o Gerenciador de MultiPHP, e é aqui que você irá constatar qual a versão do PHP no servidor;
+                </li>
+            </ul><br>
+            Outras verificações importantes são:<br>
+            <ul>
+                <li>Configurar o email profissional oferecido pelo servidor(escolher o nome que vai a frente do
+                    subdomínio com o cliente);</li>
+                <li>Criar o Banco de Dados no servidor, caso seja necessário ao seu projeto(ver a partir da página 43 do
+                    caderno SPEED com a moto esportiva na capa) todo o passo-a-passo;</li>
+                <li>Confirmar que o gitignore foi bem configurado para não deixar subir arquivos sensíveis como hash de
+                    senhas e outros;</li>
+                <li>Publicação dos arquivos: Subir os arquivos neste caso de servidor, para a pasta
+                    <em>public_html</em>;
+                </li>
+            </ul>
+            </p>
+            <br><br>
+            <h4>Configurar o email profissional e acessá-lo no servidor</h4>
+            <p>Esta etapa é muito importante pois será o email profissional utilizado pelo cliente, que leverá o nome de
+                seu site/empresa.<br>
+                Nesta etapa, deverá ser passado um passo-a-passo de como o cliente poderá acessar seus emailnesta nova
+                conta de email. <br>
+                Aqui será necessário definir qual a plataforma a ser utilizada pelo novo email, se
+                <strong>Titan</strong> ou <strong>CPanel</strong><br>
+                Nesta caso foi optado pelo <strong>CPanel</strong>, pois oferece uma integração simples e os emails
+                serão armazenados no próprio espaço da hospedagem.<br>
+                Será necessário definir uma senha que devrá ser passada para o cliente que depois poderá alterá-la para
+                segurança das informações dos emails.
+            </p>
+            <br><br>
+            <h4>Acessar os emails pelo portal do cliente</h4>
+            <p>
+            <ul>
+                <li>No painel lateral(no caso da HostGator) clicar em <strong>E-mails</strong>;</li>
+                <li>Clicar em <strong>Ver Emails</strong>;</li>
+                <li>Na página webmail que abrir, clicar em <strong>open</strong>.</li>
+            </ul>
+            Está feito!</p><br>
+            <span style="color: blue;">Não esqueça de substituir no site, os campos onde o email oficial será
+                necessário, como links de contato por exemplo!</span>
+            <br><br>
+            <h4>Criação da propriedade no Google Search Console</h4>
+            <span style="color: blue;">Nunca esqueça: a propriedade deve ser do cliente!</span><br>
+            <p>Você deverá solicitar ao cliente caso não já tenha um email gmail, criar um para este fim. Ele deverá
+                fornecer para o dev a senha para que logue em sua máquina este email, pois é a ele que será vinculada a
+                propriedade , caso queira que o dev faça este procedimento por ele;<br>
+                O cliente então , adiciona a propriedade no Google Search Console(você poderá fornecer suporte para este
+                caso).<br>
+                O cliente, adiciona o dev como <strong>Usuário com Permissão Total.</strong>.<br>
+                Resultado: O cliente é o dono;<br>
+                O Dev é o administrador técnico.<br>
+                <span style="color: blue;">Veja o checklist completo para a criação da propriedade na página 47 do
+                    caderno SPEED com a moto esportiva na capa</span>.<br>
+                <span style="color: red;">IMPORTANTE: O envio do sitemap.xml só funcionará após o deploy completo do
+                    projeto em produção.
+            </p>
+
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
 
 
 
