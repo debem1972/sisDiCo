@@ -9065,6 +9065,383 @@
         </div>
 
 
+        <div class="aula">
+            <h2 id="Ney8OO" title="Pag. 028 - caderno CAT">Aula19 - Method $_POST</h2>
+
+            <h3>Método POST</h3>
+            <p>A superglobal POST, serve para "pegar" as informações enviadas por um formulário.</p>
+            <p>Quando enviamos dados por este método, nada fica visível ao usuário comum. Tudo fica salvo na superglobal
+                POST.</p>
+            <p>Abaixo, veja um exemplo de um form na mesma página do script do método POST. Ou seja, estamos enviando
+                dados para dentro da mesma página onde o form está.</p>
+            <img src="https://drive.google.com/thumbnail?id=1LiBa_-Y6GwmlahzS_NTa_WAWJa_Ysp9T&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Como podemos ver, o atributo <strong><em>action</em></strong> está vazio, pois não estamos enviando dados
+                para fora desta página.</p>
+            <p>Abaixo, podemos ver a verificação se dados estão sendo de fato enviados por um form, utilizando um
+                <strong>if</strong>.
+            </p>
+            <img src="https://drive.google.com/thumbnail?id=1PmF2oo47NGaNQx14Vh4UV23dcK5ENuIj&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1t_oExwkTBsBkecs-yXpddXxlAYnXG5IB&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1LATjrUQmau8IfO9cCdsG8xEAgudToIVT&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Como podemos observar os dados foram digitados dentro dos input e ao clicar em enviar ou dar enter, as
+                informações foram enviadas para dentro da mesma página e como já havia sido comentado, nada foi mostrado
+                na URL. Isso, porque os dados ficaram salvos na superglobal <strong>POST</strong>.</p>
+            <p><span style="color: red;">Ignore o link no rodapé da imagem "Voltar ao form"</span></p>
+
+            <p>Abaixo podemos observar outra maneira de gerenciarmos oque acontecerá se o form tentar enviar dados com
+                os inputs vazios ou inválidos. </p>
+            <p>A tradução desta testagem seria...<em>"Se o método de requisição for POST, então se a variável $nome
+                    conter um valor válido e não null, utilizar o valor válido, caso contrário, utilizar o valor
+                    default, 'Zé'. Se a variável $idade conter um valor válido e não null, utilizar o valor válido, caso
+                    contrário, utilizar o valor default, '18' . Então imprima na tela '<strong>Olá, eu sou</strong>
+                    concatenado com (o valor de $nome sanitizado pela funtion htmlspecialchars que verifica se há
+                    caractéres html diferentes dos valores esperados, que seria apenas uma string, impedindo assim
+                    ataques e <span style="color: red;">injeção de <abbr
+                            title="XSS (Cross-Site Scripting) é uma vulnerabilidade de segurança que acontece quando um site permite que código JavaScript malicioso seja injetado e executado no navegador de outros usuários.">XSS</abbr></span>),
+                    <strong>e tenho</strong>, concatenado com (valor da variável $idade igualmente sanitizado)
+                    concatenado com <strong>anos</strong>.' "</em></p>
+            <img src="https://drive.google.com/thumbnail?id=1W3wT3w1SR2qlDkqGJ1loilWYfEAUhZDR&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+
+            <hr>
+
+            <h4>Enviando dados a partir de um form em outra página</h4>
+            <p>Abaixo, o código na página enviaForm.html, é o form que enviará os dados para a página aula19.php.</p>
+            <img src="https://drive.google.com/thumbnail?id=1OUF6z9H30nIoFwcK-n2czxWZsd6X5nNb&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <p>Como podemos ver, o atributo <strong>action</strong>, agora aponta para o caminho relativo da página
+                aula19.php.</p>
+
+            <hr>
+            <h4><span style="color: red;">Segurança</span></h4>
+            <p><span style="color: red;">Evitar SQL injection e XSS</span></p>
+            <p><span style="color: red;">Os campos de input aceitam qualquer dado, inclusive trechos de scripts, que
+                    podem ser em muitos casos para copiar seus dados, danificar bancos de dados ou redirecionar o
+                    usuário para outra página falsa, método utilizados por <em>cyber criminosos</em>. Por isso a
+                    importância de validação e sanitização dos campos de dados.</span></p>
+            <p><span style="color: red;">Abaixo temos um exemplo de script que pode ser injetado em um input. Quando o
+                    user der <strong><em>enter</em></strong> para enviar os dados do form, na verdade, está executando o
+                    script, que neste exemplo, somente encaminha o usuário a uma página do Google.</span></p>
+
+            <img src="https://drive.google.com/thumbnail?id=1NNF75JsorRpzxqzDcL-hVVsle4pRT1BS&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <p>Por isso podemos implementar medidas de segurança para impedir que isso ocorra. Vemos abaixo a function
+                <strong><em>sanitizaPost( ){ }</em></strong>, que utiliza 3 funções dentro dela como:
+            <ul>
+                <li><span style="color: rgb(9, 175, 187);"><strong><em>trim( )</em></strong></span> - Remove espaços em
+                    branco no
+                    início e no final;</li>
+                <li><span style="color: rgb(9, 175, 187);"><strong><em>stripslashes</em></strong></span> - Remove barras
+                    invertidas;
+                </li>
+                <li><span style="color: rgb(9, 175, 187);"><strong><em>htmlspecialchars </em></strong></span>- Converte
+                    caracteres
+                    especiais em entidades html.</li>
+            </ul>
+
+            </p>
+
+            <img src="https://drive.google.com/thumbnail?id=1RMoKWSALfWNPyebWKyu9Gg3DEIKooqBI&sz=w800" alt="Imagem"
+                class="img-fluid">
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="qKP52q" title="Pag. 038 - caderno CAT">Aula15 - Rotinas em PHP - Parte2</h2>
+
+            <h3>Rotinas em PHP - Parte2</h3>
+            <p>Veremos como retornar um valor de duas formas: </p>
+            <ul>
+                <li>Por valor</li>
+                <li>Por referência</li>
+            </ul>
+
+            <p><strong><em>Recordando...</em></strong></p>
+            <ol>
+                <li>Procedimento é uma function que não retorna valor. Irá mostrar o valor de uma soma por exemplo,
+                    dentro do corpo da função.</li>
+                <p><mark>function soma($a, $b)<strong>{</strong></mark></p>
+                <p><mark>$s = $a + $b;</mark></p>
+                <p><mark>echo $s;</mark></p>
+                <p><mark><strong>}</strong></mark></p>
+                <p><mark>soma(3,4)</mark></p>
+
+                <li>Função, retorna o valor de uma soma por exemplo dentro de uma variável.</li>
+                <p><mark>function soma($a, $b)<strong>{</strong></mark></p>
+                <p><mark>$s = $a + $b;</mark></p>
+                <p><mark>return $s;</mark></p>
+                <p><mark><strong>}</strong></mark></p>
+                <p><mark>$s = soma(3,4);</mark></p>
+            </ol>
+            <hr>
+            <h4>Formas de envio de parâmetros para a função</h4>
+            <h5><em>Passagem por valor</em></h5>
+            <img src="https://drive.google.com/thumbnail?id=1vhbKMRqmtyJGBbnTFSMUw_Lwh5UpZvQR&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1Dl6THUKm3NHSUmZ2EL9tHXTvDluuiH_9&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <h5><em>Passagem por referência</em></h5>
+            <img src="https://drive.google.com/thumbnail?id=1fY-keG6cl0FIVU73Ucbtpedwo3yHvx37&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1iKy2-d7nUvueVa1lXK3G3RhvFaoZKOWY&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <hr>
+            <h5>Exercício:</h5>
+            <p>Crie um procedimento que use a passagem de parâmetro por referência!</p>
+            <img src="https://drive.google.com/thumbnail?id=14zab7GR82FMr3qG0gVOV9iORxv3Jtr1W&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1GnaFRR5Ieoofv7sK4BrHj-nyXhLU0NGx&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            <hr>
+
+            <h4>Como utilizar rotinas externas?</h4>
+            <p>São pacotes de rotinas criadas por você, e que não fazem parte do escopo do código em um determinado
+                arquivo.</p>
+            <p>O mais comum para os iniciantes, é criar uma function dentro de um script, copiá-la e colá-la em outro
+                script. O problema é que se alterarmos de alguma forma algum aspecto funcional da function no script 1,
+                nada acontecerá referente a estas modificações no script2, pois são independentes. </p>
+
+            <p>O correto é :</p>
+            <ul>
+                <li>Crie um arquivo funçoes.php;</li>
+                <li>Crie as funções que irá utilizar nos outros scripts;</li>
+                <li>No script1 que quer que as funções estejam presentes insira no início do código: <span
+                        style="color: blue;"><strong><em>include "funçoes.php";</em></strong></span></li>
+                <li>No script2 faça a mesma coisa.</li>
+            </ul>
+            <p>Pronto, desta forma, se hover qualquer alteração nas funções dentro do arquivo funçoes.php, refletirá nos
+                demais scripts.</p>
+
+            <h5>Exemplo prático: </h5>
+            <p>Criamos um arquivo funcoes.php, script01.php e script02.php.</p>
+            <img src="https://drive.google.com/thumbnail?id=1E7-_r6i1ueE3oMOjuZXllBAVgp0faMFA&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1xPzS7sDuzpficLG8LhhB5E1KZaS-x9RJ&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1akGCqB_5EHrvSc6eJYOCvBhqy-8v7dmw&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1RFtn8Ed0Snl6wOVTaDqx53khLuohTLF3&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+            <img src="https://drive.google.com/thumbnail?id=1LjVrJp62s_oh-mVkdbhw4_o0KppUkWvM&sz=w800" alt="Imagem"
+                class="img-fluid"><br><br>
+
+            Além do comando include, temos também o comando <strong><em>required</em></strong>. A diferença entre eles é
+            a seguinte:
+            <ul>
+                <li><em>INCLUDE</em>: Se você fizer a conexão de funções com seu arquivo que esteja corrompido, ou com
+                    funções que não existam, o código continuará rodando, tentando realizar a conexão.</li>
+                <li><em>REQUIRED</em>: Neste caso de conexão, ela para ali mesmo, interrompendo o código!</li>
+            </ul>
+
+            <p>Existem ainda mais duas funções para finalidades específicas neste caso:</p>
+            <p>INCLUDE_ONCE - > serve para testar se a função invocada já foi carregada uma vez dentro do código. Se
+                sim, não é necessário repeti-la.</p>
+            <p>Tanto o <strong><em>include_once</em></strong> quanto o <strong><em>required_once</em></strong>, carregam
+                somente uma vez.</p>
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+        <div class="aula">
+            <h2 id="ASnvin" title="Pag. 093 - caderno Um Lugar...">Aula03 - Construindo o sitemap</h2>
+
+            <h3>Sitemap</h3>
+            <p>Aprenderemos nesta aula como construir o site map para integrá-lo ao Google Search Console.</p>
+            <h4>O que é sitemap?</h4>
+            <p>São arquivos que informam ao Google e a outros buscadores(mecanosmos de busca), sobre a estrutura do
+                site, como uma espécie de mapa, para poder indexar a este , todas as URL's que deseja.</p>
+            <p>São fundamentais para o SEO, pois ajudam os rastreadores dos mecanismos de busca a encontrar e
+                indexar sua páginas rapidamente.</p>
+            <h4>Vantagens</h4>
+            <ul>
+                <li>Melhora o SEO: ajuda a rastrear conteúdos importantes dentro do seu site;</li>
+                <li>Acelera a indexação;</li>
+                <li>Garante uma cobertura completa do site, principalmente em sites com várias páginas.</li>
+            </ul>
+            <h4>Criando o sitemap</h4>
+            <ol>
+                <li>Abra um editor de texto(VSCode)</li>
+                <li>Crie o arquivo <strong><em>sitemap.xml</em></strong>;</li>
+                <img src="https://drive.google.com/thumbnail?id=1hvf-9TSb1doCcY8edO4jJbi4YQc5rP6p&sz=w800" alt="Imagem"
+                    class="img-fluid">
+                <li>...salve e faça o upload na raiz do seu projeto;</li>
+            </ol>
+
+            <h4>Enviando o sitemap para o Google Search Console</h4>
+            <ul>
+                <li>No painel do console vá em <strong><em>#sitemaps</em></strong>...vá em <strong><em>Adicionar um
+                            novo sitemap</em></strong>...no campo onde aparece o domínio...(neste
+                    exemplo)...<em>https://mactec.infinityfreeapp.com/<span style="color: red;">sitemap.xml</span></em>;
+                </li>
+                <li>...clicar em <strong>ENVIAR</strong>.</li>
+            </ul>
+
+            <p>Agora aparece na seção <strong>Sitemaps enviados</strong>, informações sobre o arquivo do sitemap.
+            </p>
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+        <div class="aula">
+            <h2 id="PAdD3U" title="Pag. 053 - caderno SPEED c/ moto na capa">Aula04 - Como publicar o site(método
+                profissional) - método profissional</h2>
+
+            <h3>Colocando em produção - método profissional</h3>
+            <p><span style="color: red;">MUITO IMPORTANTE<br>
+                    Para evitar dores de cabeça posteriores e problemas que garanto, você não esquecerá tão cedo, não
+                    esqueça destas informações:<br>
+                    <ul>
+                        <li>Pesquise pelos melhores servidores de hospedagem: HOSTGATOR, HOSTNET, HOSTINGER etc...</li>
+                        <li>Verifique os planos de hospedagem(o que oferecem, preço, tempo do contrato, renovação da
+                            hospedagem, se disponibilizam o dominio gratuíto no primeiro ano, se disponibilizam
+                            certificado de segurança - https - e qual o prazo de renovação) Ex:
+                            <ol>
+                                <li>Plano P: hospedagem compartilhada;</li>
+                                <li>Armazenamento: 100GB NVME;</li>
+                                <li>Email profissional gratuíto;</li>
+                                <li>SSL gratuíto;</li>
+                                <li>CDN grátis;</li>
+                                <li>outras vantagens...</li>
+                            </ol>
+
+                        </li>
+                        <li>Passe para o cliente todas estas informações para cliente para a aprovação;</li>
+                        <li>De preferência, dê suporte para o cliente no processo de criação da conta no servidor de
+                            hospedagem escolhido criando um email especial para este fim, escolha do plano, prazo do
+                            contrato(no mínimo um ano), e forma de pagamento.<span style="color: blue;"><strong><em>Não
+                                        esqueça, esta etapa deve ser feita pela cliente, responsabilidade do
+                                        mesmo!</em></strong></span>.</li>
+                        <li>Peça o acesso à conta do servidor de hospedagem feita pelo cliente e acesso ao email criado
+                            para este fim(será útil para receber etapas posteriores de configuração da hospedagem e
+                            deploy);</li>
+                    </ul>
+                </span></p><br>
+            <h3>Escolher o domínio</h3>
+            <p>Preste a atenção nesta etapa, pois as vezes prometem o domínio free na contratação do plano e não é
+                possivel cadastrar o mesmo de forma alguma, tendo que partir para a contratação do domínio no site <span
+                    style="color: blue;"><em>https://registro.br</em></span><br>
+                Pesquise pelo domínio escolhido para ver a disponibilidade. <span
+                    style="color: blue;"><strong>Novamente, caso seja necessário adquirir o domínio pelo site oficial,
+                        não esqueça, a criação da conta, e o pagamento devem ser feitos pelo cliente, que deverá passar
+                        o acesso para o dev posteriormente para coleta de dados necessários a configuração do site, data
+                        da renovação do domínio etc....</strong></span></p>
+            <p>Após a propagação do domínio(oque deverá ser rápido), deverá fazer ajustes nos arquivos do site ao que se
+                refere ao domínio como sitemap.xml, robots.txt, trocar urls do localhost pelo dominio oficial do
+                servidor e se o domínio utilizará http ou https canônico;</p>
+            <br><br>
+            <h3>Próximos passos no servidor</h3>
+            <h4>Vincular o domínio final à hospedagem</h4>
+            <p>Neste caso, que o servidor escolhido foi a HostGator:<br>
+            <ul>
+                <li>Ir na aba <strong>Hospedagem e Servidores</strong>;</li>
+                <li>Clicar em <strong>CPanel</strong>;</li>
+                <li>No CPanel, procurar por <strong>Domínios</strong>;</li>
+                <li>Verificar qual domínio está vinculado à hospedagem, oque deve ser constatado como o domínio
+                    provisório(Será necessário vincular o domínio oficial);</li>
+                <li>Conforme suporte, procurar no menu por <strong>Sites</strong>;</li>
+                <li>Encontre o domínio provisório atual e clique no botão <strong>Alterar Domínio</strong>;</li>
+                <li>Inserir o novo domínio em <strong>Qual é o endereço do seu site?</strong>;</li>
+                <li>Clicar em <strong>Continuar</strong>;</li>
+            </ul><br>
+            <span style="color: green;">Se tudo ok, o sistema exibirá uma menssagem de sucesso: Pronto! Seu domínio está
+                sendo configurado com sucesso!</span><br>
+            Estará configurando o <strong>DNS</strong> e o <strong>SSL</strong> automaticamente(neste servidor);<br>
+            Prazo de até 2 hs à 24hs para propagar o domínio.
+            </p>
+            <br><br>
+            <h4>Outras verificações</h4>
+            <p>No caso do site que construí, a stack é com html, css, bootstrap, php, MySQL e javaScript, é importante
+                verificar a versão do php no servidor:<br>
+            <ul>
+                <li>Abrir o <strong>CPanel</strong>;</li>
+                <li>Digitar no campo de busca: <em>Gerenciador Multiphp</em>;</li>
+                <li>Abrirá o Gerenciador de MultiPHP, e é aqui que você irá constatar qual a versão do PHP no servidor;
+                </li>
+            </ul><br>
+            Outras verificações importantes são:<br>
+            <ul>
+                <li>Configurar o email profissional oferecido pelo servidor(escolher o nome que vai a frente do
+                    subdomínio com o cliente);</li>
+                <li>Criar o Banco de Dados no servidor, caso seja necessário ao seu projeto(ver a partir da página 43 do
+                    caderno SPEED com a moto esportiva na capa) todo o passo-a-passo;</li>
+                <li>Confirmar que o gitignore foi bem configurado para não deixar subir arquivos sensíveis como hash de
+                    senhas e outros;</li>
+                <li>Publicação dos arquivos: Subir os arquivos neste caso de servidor, para a pasta
+                    <em>public_html</em>;
+                </li>
+            </ul>
+            </p>
+            <br><br>
+            <h4>Configurar o email profissional e acessá-lo no servidor</h4>
+            <p>Esta etapa é muito importante pois será o email profissional utilizado pelo cliente, que leverá o nome de
+                seu site/empresa.<br>
+                Nesta etapa, deverá ser passado um passo-a-passo de como o cliente poderá acessar seus emailnesta nova
+                conta de email. <br>
+                Aqui será necessário definir qual a plataforma a ser utilizada pelo novo email, se
+                <strong>Titan</strong> ou <strong>CPanel</strong><br>
+                Nesta caso foi optado pelo <strong>CPanel</strong>, pois oferece uma integração simples e os emails
+                serão armazenados no próprio espaço da hospedagem.<br>
+                Será necessário definir uma senha que devrá ser passada para o cliente que depois poderá alterá-la para
+                segurança das informações dos emails.
+            </p>
+            <br><br>
+            <h4>Acessar os emails pelo portal do cliente</h4>
+            <p>
+            <ul>
+                <li>No painel lateral(no caso da HostGator) clicar em <strong>E-mails</strong>;</li>
+                <li>Clicar em <strong>Ver Emails</strong>;</li>
+                <li>Na página webmail que abrir, clicar em <strong>open</strong>.</li>
+            </ul>
+            Está feito!</p><br>
+            <span style="color: blue;">Não esqueça de substituir no site, os campos onde o email oficial será
+                necessário, como links de contato por exemplo!</span>
+            <br><br>
+            <h4>Criação da propriedade no Google Search Console</h4>
+            <span style="color: blue;">Nunca esqueça: a propriedade deve ser do cliente!</span><br>
+            <p>Você deverá solicitar ao cliente caso não já tenha um email gmail, criar um para este fim. Ele deverá
+                fornecer para o dev a senha para que logue em sua máquina este email, pois é a ele que será vinculada a
+                propriedade , caso queira que o dev faça este procedimento por ele;<br>
+                O cliente então , adiciona a propriedade no Google Search Console(você poderá fornecer suporte para este
+                caso).<br>
+                O cliente, adiciona o dev como <strong>Usuário com Permissão Total.</strong>.<br>
+                Resultado: O cliente é o dono;<br>
+                O Dev é o administrador técnico.<br>
+                <span style="color: blue;">Veja o checklist completo para a criação da propriedade na página 47 do
+                    caderno SPEED com a moto esportiva na capa</span>.<br>
+                <span style="color: red;">IMPORTANTE: O envio do sitemap.xml só funcionará após o deploy completo do
+                    projeto em produção.
+            </p>
+
+
+
+            <br>
+            <a href="#topo" title="Ir ao topo..." class="text-decoration-none">☝️</a>
+        </div>
+
+
+
+
+
+
+
 
         <!--Gabarito-->
         <div class="aula">

@@ -162,6 +162,16 @@
       {
         "titulo": "Aula02 - Como publicar o site(método gratuíto)",
         "id": "wOIHEs"
+      },
+      {
+        "titulo": "Aula03 - Construindo o sitemap",
+        "id": "ASnvin",
+        "conteudo": ""
+      },
+      {
+        "titulo": "Aula04 - Como publicar o site(método profissional)",
+        "id": "PAdD3U",
+        "conteudo": "Escolha do servidor, Escolha do plano, Escolha do tempo do contrato do plano, Criação da conta no servidor, Criação do email de contato e configuração da hospedagem com o cliente."
       }
     ],
     "id": 13
@@ -376,6 +386,11 @@
         "titulo": "Aula18 - Método $_GET",
         "id": "17OABM",
         "conteudo": "htmlspecialchars"
+      },
+      {
+        "titulo": "Aula19 - Method $_POST",
+        "id": "Ney8OO",
+        "conteudo": "POST, stripslashes."
       }
     ],
     "id": 12
